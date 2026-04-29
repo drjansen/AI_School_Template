@@ -32,7 +32,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2.5 group" aria-label={`${brand.name} home`}>
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm select-none">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm select-none">
             E
           </div>
           <span className="font-bold text-lg tracking-tight text-white group-hover:text-gradient transition-colors">
@@ -58,7 +58,7 @@ export default function Navbar() {
         {/* CTA */}
         <a
           href="#cta"
-          className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold transition-colors"
+          className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white text-sm font-semibold transition-all"
           aria-label="Request prospectus"
         >
           Request Prospectus
@@ -99,7 +99,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#cta"
-                className="block mt-2 py-2.5 px-3 text-sm text-center font-semibold text-white bg-violet-600 hover:bg-violet-500 rounded-lg transition-colors"
+                className="block mt-2 py-2.5 px-3 text-sm text-center font-semibold text-white bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 rounded-lg transition-all"
                 onClick={() => setMenuOpen(false)}
               >
                 Request Prospectus

@@ -1,27 +1,57 @@
+/* Space Grotesk — modern geometric sans-serif for the star-born tech aesthetic.
+   Loaded at runtime via Google Fonts (CDN). Falls back to system-ui when
+   the CDN is unavailable (e.g., CI build environments). */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
 @import "tailwindcss";
+
+/* ─── Star-Born Theme — Eldarin School ────────────────────────────────────── *
+ * Palette: deep-space navy · starlight sky-blue · aurora indigo/teal
+ * Font: Space Grotesk (via Google Fonts) — modern, geometric, tech-forward
+ * ─────────────────────────────────────────────────────────────────────────── */
 
 @layer base {
   :root {
-    --font-inter: 'Inter', system-ui, sans-serif;
+    /* Accent colours (use as Tailwind CSS variables where needed) */
+    --color-star: 224 242 254;        /* sky-100 – star particle colour     */
+    --color-accent: 56 189 248;       /* sky-400 – primary starlight accent  */
+    --color-accent-bright: 125 211 252; /* sky-300 – hover / highlight        */
+    --color-nebula: 129 140 248;      /* indigo-400 – aurora nebula          */
+    --color-aurora: 45 212 191;       /* teal-400 – aurora green             */
+  }
+
+  body {
+    font-family: "Space Grotesk", ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   }
 }
 
 @layer utilities {
+  /* Primary gradient text: sky → indigo → teal  */
   .text-gradient {
-    @apply bg-gradient-to-r from-violet-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-sky-300 via-indigo-300 to-teal-400 bg-clip-text text-transparent;
   }
+  /* Gold / warm accent gradient (kept for minor use) */
   .text-gradient-gold {
     @apply bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent;
   }
+  /* Hero aurora background — subtle nebula glow pockets */
   .bg-hero-pattern {
-    background-image: radial-gradient(ellipse at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 20%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 80%, rgba(20, 184, 166, 0.08) 0%, transparent 50%);
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(14, 165, 233, 0.13) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(99, 102, 241, 0.10) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 85%, rgba(45, 212, 191, 0.07) 0%, transparent 50%);
   }
+  /* Card glow — sky-blue tinted border highlight */
   .card-glow {
-    box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.15), 0 4px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.12), 0 4px 24px rgba(0, 0, 0, 0.45);
   }
   .card-glow:hover {
-    box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.35), 0 8px 40px rgba(139, 92, 246, 0.15);
+    box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.30), 0 8px 40px rgba(14, 165, 233, 0.10);
+  }
+  /* Starfield section divider — subtle horizontal aurora line */
+  .aurora-divider {
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.3), rgba(129, 140, 248, 0.3), transparent);
+    height: 1px;
   }
 }

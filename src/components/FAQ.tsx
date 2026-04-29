@@ -44,7 +44,7 @@ export default function FAQ() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-violet-400 text-sm font-semibold uppercase tracking-widest mb-4">
+          <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
             Frequently Asked Questions
           </p>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">

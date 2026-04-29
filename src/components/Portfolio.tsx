@@ -26,8 +26,8 @@ const stages = [
   {
     grade: "Grades 7–9",
     title: "Builder Portfolio",
-    color: "border-violet-500/40 bg-violet-500/5",
-    accent: "text-violet-400",
+    color: "border-sky-500/40 bg-sky-500/5",
+    accent: "text-sky-400",
     items: [
       "Research essays with citations",
       "AI-assisted project logs with integrity reflections",
@@ -68,7 +68,7 @@ export default function Portfolio() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <p className="text-violet-400 text-sm font-semibold uppercase tracking-widest mb-4">
+          <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
             Student Portfolio & Capstone
           </p>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
@@ -85,7 +85,7 @@ export default function Portfolio() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-teal-500/50 via-violet-500/50 to-rose-500/50 hidden lg:block" aria-hidden="true" />
+          <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-teal-500/50 via-sky-500/50 to-rose-500/50 hidden lg:block" aria-hidden="true" />
 
           <div className="space-y-6 lg:pl-12">
             {stages.map((stage) => (

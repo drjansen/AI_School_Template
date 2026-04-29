@@ -89,7 +89,7 @@ export default function CTASection() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left: copy */}
           <div>
-            <p className="text-violet-400 text-sm font-semibold uppercase tracking-widest mb-4">
+            <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
               Begin the Journey
             </p>
             <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">
@@ -122,7 +122,7 @@ export default function CTASection() {
               Prefer email?{" "}
               <a
                 href={`mailto:${brand.contact.email}`}
-                className="text-violet-400 hover:text-violet-300 transition-colors"
+                className="text-sky-400 hover:text-sky-300 transition-colors"
               >
                 {brand.contact.email}
               </a>
@@ -142,7 +142,7 @@ export default function CTASection() {
                 <p className="text-slate-400 leading-relaxed">
                   Thank you, <strong className="text-white">{formData.name}</strong>.
                   Our admissions team will be in touch at{" "}
-                  <strong className="text-violet-400">{formData.email}</strong>{" "}
+                  <strong className="text-sky-400">{formData.email}</strong>{" "}
                   within two business days.
                 </p>
                 <button
@@ -178,7 +178,7 @@ export default function CTASection() {
                       placeholder="Your full name"
                       className={`w-full rounded-xl bg-slate-800/60 border ${
                         errors.name ? "border-rose-500" : "border-slate-700"
-                      } text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500 transition-colors`}
+                      } text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500 transition-colors`}
                       aria-describedby={errors.name ? "name-error" : undefined}
                       aria-invalid={!!errors.name}
                       aria-required="true"
@@ -203,7 +203,7 @@ export default function CTASection() {
                       placeholder="you@example.com"
                       className={`w-full rounded-xl bg-slate-800/60 border ${
                         errors.email ? "border-rose-500" : "border-slate-700"
-                      } text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500 transition-colors`}
+                      } text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500 transition-colors`}
                       aria-describedby={errors.email ? "email-error" : undefined}
                       aria-invalid={!!errors.email}
                       aria-required="true"
@@ -226,7 +226,7 @@ export default function CTASection() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+82 10 0000 0000"
-                      className="w-full rounded-xl bg-slate-800/60 border border-slate-700 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500 transition-colors"
+                      className="w-full rounded-xl bg-slate-800/60 border border-slate-700 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500 transition-colors"
                     />
                   </div>
 
@@ -240,7 +240,7 @@ export default function CTASection() {
                       name="childGrade"
                       value={formData.childGrade}
                       onChange={handleChange}
-                      className="w-full rounded-xl bg-slate-800/60 border border-slate-700 text-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500 transition-colors appearance-none"
+                      className="w-full rounded-xl bg-slate-800/60 border border-slate-700 text-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500 transition-colors appearance-none"
                     >
                       <option value="" className="bg-slate-800">Select grade level…</option>
                       {gradeOptions.map((opt) => (
@@ -261,7 +261,7 @@ export default function CTASection() {
                       onChange={handleChange}
                       rows={3}
                       placeholder="Any questions or context you'd like to share…"
-                      className="w-full rounded-xl bg-slate-800/60 border border-slate-700 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500 transition-colors resize-none"
+                      className="w-full rounded-xl bg-slate-800/60 border border-slate-700 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500 transition-colors resize-none"
                     />
                   </div>
 
@@ -276,7 +276,7 @@ export default function CTASection() {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="w-full py-3.5 rounded-xl bg-violet-600 hover:bg-violet-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold text-base transition-all hover:scale-[1.01] hover:shadow-lg hover:shadow-violet-500/20"
+                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold text-base transition-all hover:scale-[1.01] hover:shadow-lg hover:shadow-sky-500/20"
                     aria-label="Submit prospectus request"
                   >
                     {status === "loading" ? (
