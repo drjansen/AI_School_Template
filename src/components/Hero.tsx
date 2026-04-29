@@ -1,4 +1,5 @@
 import { brand } from "@/config/brand";
+import StarfieldCanvas from "@/components/StarfieldCanvas";
 
 const stats = [
   { value: "K–12", label: "Full Pathway" },
@@ -14,31 +15,28 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-pattern"
       aria-label="Hero"
     >
-      {/* Decorative grid */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(139,92,246,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.8) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-        aria-hidden="true"
-      />
+      {/* Animated star field — degrades to static when prefers-reduced-motion */}
+      <StarfieldCanvas starCount={220} speed={0.8} />
 
-      {/* Glowing orbs */}
+      {/* Subtle radial aurora glows */}
       <div
-        className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-10 blur-3xl bg-violet-600 pointer-events-none"
+        className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-10 blur-3xl bg-sky-500 pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-8 blur-3xl bg-cyan-500 pointer-events-none"
+        className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-8 blur-3xl bg-indigo-500 pointer-events-none"
+        aria-hidden="true"
+      />
+      {/* Deep aurora pulse — lower-right */}
+      <div
+        className="absolute bottom-0 right-0 w-[500px] h-[300px] rounded-full opacity-5 blur-3xl bg-teal-500 pointer-events-none"
         aria-hidden="true"
       />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-32 pt-40">
         {/* Label */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold tracking-widest uppercase mb-8">
-          <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" aria-hidden="true" />
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/25 text-sky-300 text-xs font-semibold tracking-widest uppercase mb-8">
+          <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" aria-hidden="true" />
           Now Enrolling — Seoul, South Korea
         </div>
 
@@ -52,7 +50,7 @@ export default function Hero() {
         {/* Sub-headline */}
         <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
           A K–12 academy that merges world-class academic rigour with{" "}
-          <span className="text-violet-300 font-medium">AI-integrated curriculum</span>{" "}
+          <span className="text-sky-300 font-medium">AI-integrated curriculum</span>{" "}
           — equipping students with the knowledge, skills, and character to lead in any university,
           any industry, and any future.
         </p>
@@ -61,13 +59,13 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
           <a
             href="#cta"
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-base transition-all hover:scale-105 hover:shadow-lg hover:shadow-violet-500/25"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-bold text-base transition-all hover:scale-105 hover:shadow-lg hover:shadow-sky-500/25"
           >
             Request a Prospectus
           </a>
           <a
             href="#pathway"
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-white font-bold text-base transition-all"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 hover:border-sky-500/30 text-white font-bold text-base transition-all"
           >
             Explore the K–12 Pathway
           </a>

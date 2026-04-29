@@ -21,10 +21,10 @@ const levels = [
   {
     badge: "Middle School",
     grades: "Grades 7–9",
-    color: "from-violet-500 to-purple-600",
-    borderColor: "border-violet-500/30",
-    bgColor: "bg-violet-500/10",
-    accentColor: "text-violet-400",
+    color: "from-sky-500 to-indigo-600",
+    borderColor: "border-sky-500/30",
+    bgColor: "bg-sky-500/10",
+    accentColor: "text-sky-400",
     description:
       "Deepening subject mastery while introducing applied AI across disciplines. Students begin research methodology, academic writing, and use AI tools with guided ethical oversight.",
     features: [
@@ -65,7 +65,7 @@ export default function Pathway() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <p className="text-violet-400 text-sm font-semibold uppercase tracking-widest mb-4">
+          <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
             The Complete K–12 Pathway
           </p>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">

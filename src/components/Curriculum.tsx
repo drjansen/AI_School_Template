@@ -4,12 +4,12 @@ const courses = [
     course: "Applied Calculus AB/BC + AI Modeling Lab",
     level: "Grades 11–12",
     tag: "STEM",
-    tagColor: "bg-violet-500/20 text-violet-300 border-violet-500/30",
+    tagColor: "bg-sky-500/20 text-sky-300 border-sky-500/30",
     description:
       "Students master calculus fundamentals and simultaneously build small predictive models, simulate physical and economic optimization, and use interpretability tools to explain their AI outputs.",
     skills: ["Limits & derivatives", "Integration applications", "Differential equations", "Neural net intuition", "Model evaluation"],
     icon: "∫",
-    iconBg: "from-violet-600 to-purple-700",
+    iconBg: "from-sky-600 to-indigo-700",
   },
   {
     subject: "English",
@@ -79,7 +79,7 @@ export default function Curriculum() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <p className="text-violet-400 text-sm font-semibold uppercase tracking-widest mb-4">
+          <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
             AI-Integrated Curriculum
           </p>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">

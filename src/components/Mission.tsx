@@ -8,7 +8,7 @@ const pillars = [
     title: "AI as First-Class Literacy",
     description:
       "We treat AI fluency the same way we treat reading and mathematics — a foundational skill every student must master, not an elective. Every grade level integrates responsible AI use.",
-    color: "from-violet-500 to-purple-600",
+    color: "from-sky-500 to-indigo-600",
   },
   {
     icon: (
@@ -19,7 +19,7 @@ const pillars = [
     title: "Global University Outcomes",
     description:
       "From the first day of elementary school, every lesson, project, and portfolio entry is deliberately designed to open doors at top universities across the US, UK, Canada, and beyond.",
-    color: "from-cyan-500 to-teal-600",
+    color: "from-teal-500 to-cyan-600",
   },
   {
     icon: (
@@ -51,7 +51,7 @@ export default function Mission() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <p className="text-violet-400 text-sm font-semibold uppercase tracking-widest mb-4">
+          <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
             Why Eldarin School
           </p>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">
@@ -84,18 +84,18 @@ export default function Mission() {
         </div>
 
         {/* Portrait of a Graduate */}
-        <div className="mt-20 relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-900/40 via-slate-800/60 to-cyan-900/30 border border-violet-500/20 p-10 lg:p-14">
+        <div className="mt-20 relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-900/40 via-slate-800/60 to-indigo-900/30 border border-sky-500/20 p-10 lg:p-14">
           <div
             className="absolute inset-0 opacity-5"
             style={{
               backgroundImage:
-                "radial-gradient(circle at 1px 1px, rgba(139,92,246,1) 1px, transparent 0)",
+                "radial-gradient(circle at 1px 1px, rgba(56,189,248,1) 1px, transparent 0)",
               backgroundSize: "32px 32px",
             }}
             aria-hidden="true"
           />
           <div className="relative z-10 max-w-4xl">
-            <p className="text-violet-400 text-sm font-semibold uppercase tracking-widest mb-4">
+            <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
               Portrait of an Eldarin Graduate
             </p>
             <h3 className="text-3xl sm:text-4xl font-extrabold text-white mb-8">
@@ -112,7 +112,7 @@ export default function Mission() {
                 "Globally university-prepared",
               ].map((trait) => (
                 <div key={trait} className="flex items-center gap-3">
-                  <svg className="w-5 h-5 text-violet-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <svg className="w-5 h-5 text-sky-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-slate-200 text-sm font-medium">{trait}</span>

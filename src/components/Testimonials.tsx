@@ -6,7 +6,7 @@ const testimonials = [
     role: "Grade 12 Graduate",
     destination: "Enrolled: University of Edinburgh",
     initials: "JP",
-    color: "from-violet-500 to-purple-600",
+    color: "from-sky-500 to-indigo-600",
   },
   {
     quote:
@@ -61,7 +61,7 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-violet-400 text-sm font-semibold uppercase tracking-widest mb-4">
+          <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
             Families & Students
           </p>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
