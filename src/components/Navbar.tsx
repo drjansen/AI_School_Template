@@ -15,7 +15,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => setScrolled(window.scrollY > 48);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -23,31 +23,54 @@ export default function Navbar() {
   return (
     <nav
       aria-label="Main navigation"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-slate-950/90 backdrop-blur-md border-b border-slate-800/60 py-3"
-          : "bg-transparent py-5"
+          ? "py-3 border-b"
+          : "py-5 border-b border-transparent"
       }`}
+      style={
+        scrolled
+          ? {
+              background: "rgba(5, 8, 15, 0.82)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              borderBottomColor: "rgba(255,255,255,0.06)",
+            }
+          : undefined
+      }
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="flex items-center gap-2.5 group" aria-label={`${brand.name} home`}>
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm select-none">
+        <a
+          href="#hero"
+          className="flex items-center gap-3 group"
+          aria-label={`${brand.name} home`}
+        >
+          {/* Logotype mark */}
+          <div
+            className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm select-none"
+            style={{
+              background: "linear-gradient(135deg, #3b6bff 0%, #8b5cf6 100%)",
+              boxShadow: "0 2px 12px rgba(99,120,255,0.35)",
+            }}
+          >
             E
           </div>
-          <span className="font-bold text-lg tracking-tight text-white group-hover:text-gradient transition-colors">
+          <span className="font-semibold text-base tracking-tight text-white/90 group-hover:text-white transition-colors">
             {brand.shortName}
           </span>
-          <span className="hidden sm:inline text-slate-400 text-sm font-medium">School</span>
+          <span className="hidden sm:inline text-white/30 text-sm font-light tracking-wide">
+            School
+          </span>
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-6" role="list">
+        <ul className="hidden md:flex items-center gap-1" role="list">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm text-slate-400 hover:text-white transition-colors font-medium"
+                className="px-3.5 py-2 rounded-lg text-sm text-white/50 hover:text-white/90 hover:bg-white/[0.04] transition-all font-medium"
               >
                 {link.label}
               </a>
@@ -58,7 +81,11 @@ export default function Navbar() {
         {/* CTA */}
         <a
           href="#cta"
-          className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white text-sm font-semibold transition-all"
+          className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-white transition-all"
+          style={{
+            background: "linear-gradient(135deg, #3b6bff 0%, #6d4aff 100%)",
+            boxShadow: "0 2px 12px rgba(99,120,255,0.30)",
+          }}
           aria-label="Request prospectus"
         >
           Request Prospectus
@@ -66,16 +93,32 @@ export default function Navbar() {
 
         {/* Hamburger */}
         <button
-          className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+          className="md:hidden p-2 rounded-lg text-white/50 hover:text-white/90 hover:bg-white/[0.05] transition-colors"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((v) => !v)}
         >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
             {menuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.8}
+                d="M6 18L18 6M6 6l12 12"
+              />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.8}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             )}
           </svg>
         </button>
@@ -83,23 +126,34 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur-md">
-          <ul className="flex flex-col px-4 py-3 gap-1" role="list">
+        <div
+          className="md:hidden border-t"
+          style={{
+            background: "rgba(5, 8, 15, 0.96)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            borderTopColor: "rgba(255,255,255,0.06)",
+          }}
+        >
+          <ul className="flex flex-col px-5 py-4 gap-0.5" role="list">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="block py-2.5 px-3 text-sm text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
+                  className="block py-2.5 px-3 text-sm text-white/60 hover:text-white hover:bg-white/[0.05] rounded-lg transition-colors"
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
                 </a>
               </li>
             ))}
-            <li>
+            <li className="mt-3">
               <a
                 href="#cta"
-                className="block mt-2 py-2.5 px-3 text-sm text-center font-semibold text-white bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 rounded-lg transition-all"
+                className="block py-3 px-3 text-sm text-center font-semibold text-white rounded-lg transition-all"
+                style={{
+                  background: "linear-gradient(135deg, #3b6bff 0%, #6d4aff 100%)",
+                }}
                 onClick={() => setMenuOpen(false)}
               >
                 Request Prospectus

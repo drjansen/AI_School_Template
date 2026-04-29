@@ -83,46 +83,68 @@ export default function CTASection() {
     }
   };
 
+  const inputClass = (hasError?: boolean) =>
+    `w-full rounded-xl text-white placeholder-white/20 px-4 py-3 text-sm focus:outline-none transition-colors` +
+    ` border ${hasError ? "border-rose-500/60" : "border-white/[0.07]"}` +
+    ` bg-white/[0.04] focus:border-blue-500/40 focus:bg-white/[0.06]`;
+
   return (
-    <section id="cta" className="py-24 lg:py-32 bg-slate-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="cta"
+      className="py-28 lg:py-36 section-dark"
+    >
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left: copy */}
           <div>
-            <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
-              Begin the Journey
-            </p>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">
+            <p className="eyebrow mb-5">Begin the Journey</p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
               Ready to give your child the{" "}
               <span className="text-gradient">Eldarin advantage?</span>
             </h2>
-            <p className="text-slate-400 text-lg mb-8 leading-relaxed">
+            <p className="text-white/45 text-lg mb-10 leading-relaxed font-light">
               Request our full prospectus to receive detailed information on curriculum,
               admission requirements, tuition, and enrollment timelines. A member of our
               admissions team will be in touch within two business days.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-5">
               {[
-                { icon: "📄", title: "Detailed Curriculum Overview", desc: "Full subject listings, AI integration details, and grade-by-grade expectations." },
-                { icon: "🎓", title: "Admissions Requirements", desc: "What we look for at each entry grade, assessment processes, and enrollment dates." },
-                { icon: "📅", title: "Family Consultation", desc: "We will follow up to schedule a one-on-one call with our admissions director." },
+                {
+                  icon: "📄",
+                  title: "Detailed Curriculum Overview",
+                  desc: "Full subject listings, AI integration details, and grade-by-grade expectations.",
+                },
+                {
+                  icon: "🎓",
+                  title: "Admissions Requirements",
+                  desc: "What we look for at each entry grade, assessment processes, and enrollment dates.",
+                },
+                {
+                  icon: "📅",
+                  title: "Family Consultation",
+                  desc: "We will follow up to schedule a one-on-one call with our admissions director.",
+                },
               ].map((item) => (
                 <div key={item.title} className="flex items-start gap-4">
-                  <span className="text-2xl flex-shrink-0 mt-0.5" aria-hidden="true">{item.icon}</span>
+                  <span className="text-xl flex-shrink-0 mt-0.5" aria-hidden="true">
+                    {item.icon}
+                  </span>
                   <div>
-                    <div className="text-white font-semibold text-sm">{item.title}</div>
-                    <div className="text-slate-500 text-sm">{item.desc}</div>
+                    <div className="text-white/80 font-semibold text-sm mb-0.5">
+                      {item.title}
+                    </div>
+                    <div className="text-white/35 text-sm font-light">{item.desc}</div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <p className="mt-8 text-slate-500 text-sm">
+            <p className="mt-10 text-white/30 text-sm">
               Prefer email?{" "}
               <a
                 href={`mailto:${brand.contact.email}`}
-                className="text-sky-400 hover:text-sky-300 transition-colors"
+                className="text-blue-400/70 hover:text-blue-400 transition-colors"
               >
                 {brand.contact.email}
               </a>
@@ -130,23 +152,38 @@ export default function CTASection() {
           </div>
 
           {/* Right: form */}
-          <div className="relative overflow-hidden rounded-3xl bg-slate-900/80 border border-slate-700/60 p-8">
+          <div
+            className="relative overflow-hidden rounded-2xl p-8"
+            style={{
+              background: "rgba(13,18,33,0.80)",
+              border: "1px solid rgba(255,255,255,0.07)",
+            }}
+          >
             {status === "success" ? (
-              <div className="text-center py-8">
-                <div className="w-16 h-16 rounded-full bg-teal-500/20 border border-teal-500/40 flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              <div className="text-center py-10">
+                <div
+                  className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5"
+                  style={{
+                    background: "rgba(52,211,153,0.10)",
+                    border: "1px solid rgba(52,211,153,0.30)",
+                  }}
+                >
+                  <svg className="w-7 h-7" style={{ color: "#34d399" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-3">Request Received</h3>
-                <p className="text-slate-400 leading-relaxed">
-                  Thank you, <strong className="text-white">{formData.name}</strong>.
+                <p className="text-white/45 leading-relaxed text-sm font-light">
+                  Thank you,{" "}
+                  <strong className="text-white/80 font-semibold">{formData.name}</strong>.
                   Our admissions team will be in touch at{" "}
-                  <strong className="text-sky-400">{formData.email}</strong>{" "}
+                  <strong className="font-semibold" style={{ color: "#7b9eff" }}>
+                    {formData.email}
+                  </strong>{" "}
                   within two business days.
                 </p>
                 <button
-                  className="mt-6 text-sm text-slate-500 hover:text-slate-300 transition-colors underline"
+                  className="mt-6 text-sm text-white/25 hover:text-white/50 transition-colors underline"
                   onClick={() => {
                     setStatus("idle");
                     setFormData({ name: "", email: "", phone: "", childGrade: "", message: "" });
@@ -157,16 +194,16 @@ export default function CTASection() {
               </div>
             ) : (
               <>
-                <h3 className="text-xl font-bold text-white mb-1">Request a Prospectus</h3>
-                <p className="text-slate-400 text-sm mb-6">
+                <h3 className="text-lg font-bold text-white mb-1">Request a Prospectus</h3>
+                <p className="text-white/35 text-sm mb-6 font-light">
                   Fill in your details below and we will send you our full information pack.
                 </p>
 
-                <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                <form onSubmit={handleSubmit} noValidate className="space-y-4">
                   {/* Name */}
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-1.5">
-                      Full Name <span className="text-rose-400" aria-hidden="true">*</span>
+                    <label htmlFor="name" className="block text-xs font-medium text-white/50 mb-1.5 tracking-wide">
+                      Full Name <span className="text-rose-400/70" aria-hidden="true">*</span>
                     </label>
                     <input
                       id="name"
@@ -176,22 +213,22 @@ export default function CTASection() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Your full name"
-                      className={`w-full rounded-xl bg-slate-800/60 border ${
-                        errors.name ? "border-rose-500" : "border-slate-700"
-                      } text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500 transition-colors`}
+                      className={inputClass(!!errors.name)}
                       aria-describedby={errors.name ? "name-error" : undefined}
                       aria-invalid={!!errors.name}
                       aria-required="true"
                     />
                     {errors.name && (
-                      <p id="name-error" className="text-rose-400 text-xs mt-1" role="alert">{errors.name}</p>
+                      <p id="name-error" className="text-rose-400/80 text-xs mt-1" role="alert">
+                        {errors.name}
+                      </p>
                     )}
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1.5">
-                      Email Address <span className="text-rose-400" aria-hidden="true">*</span>
+                    <label htmlFor="email" className="block text-xs font-medium text-white/50 mb-1.5 tracking-wide">
+                      Email Address <span className="text-rose-400/70" aria-hidden="true">*</span>
                     </label>
                     <input
                       id="email"
@@ -201,22 +238,23 @@ export default function CTASection() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="you@example.com"
-                      className={`w-full rounded-xl bg-slate-800/60 border ${
-                        errors.email ? "border-rose-500" : "border-slate-700"
-                      } text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500 transition-colors`}
+                      className={inputClass(!!errors.email)}
                       aria-describedby={errors.email ? "email-error" : undefined}
                       aria-invalid={!!errors.email}
                       aria-required="true"
                     />
                     {errors.email && (
-                      <p id="email-error" className="text-rose-400 text-xs mt-1" role="alert">{errors.email}</p>
+                      <p id="email-error" className="text-rose-400/80 text-xs mt-1" role="alert">
+                        {errors.email}
+                      </p>
                     )}
                   </div>
 
-                  {/* Phone (optional) */}
+                  {/* Phone */}
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-1.5">
-                      Phone Number <span className="text-slate-500 text-xs">(optional)</span>
+                    <label htmlFor="phone" className="block text-xs font-medium text-white/50 mb-1.5 tracking-wide">
+                      Phone Number{" "}
+                      <span className="text-white/25 text-xs font-light">(optional)</span>
                     </label>
                     <input
                       id="phone"
@@ -226,33 +264,36 @@ export default function CTASection() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+82 10 0000 0000"
-                      className="w-full rounded-xl bg-slate-800/60 border border-slate-700 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500 transition-colors"
+                      className={inputClass()}
                     />
                   </div>
 
                   {/* Grade */}
                   <div>
-                    <label htmlFor="childGrade" className="block text-sm font-medium text-slate-300 mb-1.5">
-                      Child&apos;s Current Grade Level <span className="text-slate-500 text-xs">(optional)</span>
+                    <label htmlFor="childGrade" className="block text-xs font-medium text-white/50 mb-1.5 tracking-wide">
+                      Child&apos;s Current Grade Level{" "}
+                      <span className="text-white/25 text-xs font-light">(optional)</span>
                     </label>
                     <select
                       id="childGrade"
                       name="childGrade"
                       value={formData.childGrade}
                       onChange={handleChange}
-                      className="w-full rounded-xl bg-slate-800/60 border border-slate-700 text-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500 transition-colors appearance-none"
+                      className={inputClass() + " appearance-none"}
+                      style={{ colorScheme: "dark" }}
                     >
-                      <option value="" className="bg-slate-800">Select grade level…</option>
+                      <option value="">Select grade level…</option>
                       {gradeOptions.map((opt) => (
-                        <option key={opt} value={opt} className="bg-slate-800">{opt}</option>
+                        <option key={opt} value={opt}>{opt}</option>
                       ))}
                     </select>
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-1.5">
-                      Message or Questions <span className="text-slate-500 text-xs">(optional)</span>
+                    <label htmlFor="message" className="block text-xs font-medium text-white/50 mb-1.5 tracking-wide">
+                      Message or Questions{" "}
+                      <span className="text-white/25 text-xs font-light">(optional)</span>
                     </label>
                     <textarea
                       id="message"
@@ -261,14 +302,21 @@ export default function CTASection() {
                       onChange={handleChange}
                       rows={3}
                       placeholder="Any questions or context you'd like to share…"
-                      className="w-full rounded-xl bg-slate-800/60 border border-slate-700 text-white placeholder-slate-500 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500 transition-colors resize-none"
+                      className={inputClass() + " resize-none"}
                     />
                   </div>
 
                   {/* Error state */}
                   {status === "error" && (
-                    <div className="rounded-xl bg-rose-500/10 border border-rose-500/30 px-4 py-3" role="alert">
-                      <p className="text-rose-400 text-sm">{errorMessage}</p>
+                    <div
+                      className="rounded-xl px-4 py-3"
+                      style={{
+                        background: "rgba(239,68,68,0.06)",
+                        border: "1px solid rgba(239,68,68,0.20)",
+                      }}
+                      role="alert"
+                    >
+                      <p className="text-rose-400/80 text-sm">{errorMessage}</p>
                     </div>
                   )}
 
@@ -276,7 +324,11 @@ export default function CTASection() {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold text-base transition-all hover:scale-[1.01] hover:shadow-lg hover:shadow-sky-500/20"
+                    className="w-full py-3.5 rounded-xl font-bold text-sm text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    style={{
+                      background: "linear-gradient(135deg, #3b6bff 0%, #6d4aff 100%)",
+                      boxShadow: "0 4px 20px rgba(99,120,255,0.20)",
+                    }}
                     aria-label="Submit prospectus request"
                   >
                     {status === "loading" ? (
@@ -292,7 +344,7 @@ export default function CTASection() {
                     )}
                   </button>
 
-                  <p className="text-slate-600 text-xs text-center">
+                  <p className="text-white/20 text-xs text-center">
                     We respect your privacy. No spam, ever.
                   </p>
                 </form>
