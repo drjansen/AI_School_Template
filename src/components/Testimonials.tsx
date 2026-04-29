@@ -73,6 +73,16 @@ export default function Testimonials() {
           </p>
         </div>
 
+        {/* Disclaimer banner */}
+        <div className="mb-8 rounded-xl bg-amber-500/10 border border-amber-500/30 px-5 py-3 flex items-start gap-3" role="note" aria-label="Disclaimer">
+          <svg className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20A10 10 0 0012 2z" />
+          </svg>
+          <p className="text-amber-300 text-sm">
+            <strong>Note:</strong> All names, quotes, and enrollment outcomes below are fictional placeholders created for illustrative purposes only. They do not represent real students or families.
+          </p>
+        </div>
+
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t) => (

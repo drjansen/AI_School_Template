@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { brand } from "@/config/brand";
+import { isValidName, isValidEmail } from "@/lib/validation";
 
 interface FormData {
   name: string;
@@ -38,11 +39,10 @@ export default function CTASection() {
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
-    if (!formData.name.trim() || formData.name.trim().length < 2) {
+    if (!isValidName(formData.name)) {
       newErrors.name = "Please enter your full name.";
     }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim() || !emailRegex.test(formData.email)) {
+    if (!isValidEmail(formData.email)) {
       newErrors.email = "Please enter a valid email address.";
     }
     setErrors(newErrors);

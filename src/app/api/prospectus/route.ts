@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isValidName, isValidEmail } from "@/lib/validation";
 
 interface ProspectusRequest {
   name: string;
@@ -14,15 +15,14 @@ export async function POST(request: NextRequest) {
 
     const { name, email } = body;
 
-    if (!name || typeof name !== "string" || name.trim().length < 2) {
+    if (!isValidName(name)) {
       return NextResponse.json(
         { error: "A valid name is required." },
         { status: 400 }
       );
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email || !emailRegex.test(email)) {
+    if (!isValidEmail(email)) {
       return NextResponse.json(
         { error: "A valid email address is required." },
         { status: 400 }
