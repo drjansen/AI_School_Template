@@ -48,6 +48,7 @@ export default function NebulaBackground() {
     const ROTATION_SPEED = 0.022; // radians per second
     const TWINKLE_SPEED = 0.6;
     const MAX_PIXEL_RATIO = 1.5;
+    const MAX_FRAME_TIME = 0.05; // seconds — caps delta-time to prevent jumps after hidden tab
 
     let cleanup: (() => void) | null = null;
 
@@ -260,7 +261,7 @@ export default function NebulaBackground() {
         if (!isAnimating) return;
         rafId = requestAnimationFrame(tick);
 
-        const dt = Math.min((timestamp - lastTimestamp) / 1000, 0.05); // cap at 50ms
+        const dt = Math.min((timestamp - lastTimestamp) / 1000, MAX_FRAME_TIME);
         lastTimestamp = timestamp;
         t += dt;
 
