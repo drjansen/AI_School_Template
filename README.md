@@ -169,6 +169,8 @@ sudo systemctl reload nginx
 
 ### 6. HTTPS with Certbot
 
+> **Note:** Replace `eldarinschool.ai` below with your actual registered domain before running.
+
 ```bash
 sudo apt install certbot python3-certbot-nginx -y
 sudo certbot --nginx -d eldarinschool.ai -d www.eldarinschool.ai

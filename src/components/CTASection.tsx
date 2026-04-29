@@ -66,7 +66,8 @@ export default function CTASection() {
         setErrorMessage(data.error ?? "Something went wrong. Please try again.");
         setStatus("error");
       }
-    } catch {
+    } catch (error) {
+      console.error("[CTASection] Form submission failed:", error);
       setErrorMessage("Unable to submit. Please check your connection and try again.");
       setStatus("error");
     }

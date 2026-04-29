@@ -44,7 +44,8 @@ export async function POST(request: NextRequest) {
       { success: true, message: "Thank you! We will be in touch shortly." },
       { status: 200 }
     );
-  } catch {
+  } catch (error) {
+    console.error("[Prospectus API] Unexpected error:", error);
     return NextResponse.json(
       { error: "Invalid request. Please try again." },
       { status: 400 }
