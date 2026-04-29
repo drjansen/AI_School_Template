@@ -1,57 +1,167 @@
 /* Space Grotesk — modern geometric sans-serif for the star-born tech aesthetic.
    Loaded at runtime via Google Fonts (CDN). Falls back to system-ui when
    the CDN is unavailable (e.g., CI build environments). */
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 @import "tailwindcss";
 
-/* ─── Star-Born Theme — Eldarin School ────────────────────────────────────── *
- * Palette: deep-space navy · starlight sky-blue · aurora indigo/teal
- * Font: Space Grotesk (via Google Fonts) — modern, geometric, tech-forward
+/* ─── Spacecraft UI Theme — Eldarin School ────────────────────────────────── *
+ * Palette: deep-space black · aurora indigo/cyan/violet accents
+ * Style:   clean spacecraft / Apple-minimal — futuristic, premium, high clarity
+ * Font:    Space Grotesk (via Google Fonts) — modern, geometric, tech-forward
  * ─────────────────────────────────────────────────────────────────────────── */
 
 @layer base {
   :root {
-    /* Accent colours (use as Tailwind CSS variables where needed) */
-    --color-star: 224 242 254;        /* sky-100 – star particle colour     */
-    --color-accent: 56 189 248;       /* sky-400 – primary starlight accent  */
-    --color-accent-bright: 125 211 252; /* sky-300 – hover / highlight        */
-    --color-nebula: 129 140 248;      /* indigo-400 – aurora nebula          */
-    --color-aurora: 45 212 191;       /* teal-400 – aurora green             */
+    /* ── Aurora accent palette ─────────────────────────────────────────── */
+    --aurora-blue:   99  153 255;   /* soft iridescent blue   */
+    --aurora-violet: 167 139 250;   /* restrained violet      */
+    --aurora-cyan:   103 232 249;   /* crisp cyan             */
+    --aurora-teal:   45  212 191;   /* teal accent            */
+
+    /* ── Surface colours ───────────────────────────────────────────────── */
+    --surface-0:  5   8  15;        /* deepest background     */
+    --surface-1:  9  13  24;        /* section base           */
+    --surface-2: 13  18  33;        /* elevated card base     */
+    --surface-3: 18  25  44;        /* higher card / input    */
+
+    /* ── Border / divider ──────────────────────────────────────────────── */
+    --border-subtle: rgba(255,255,255,0.06);
+    --border-glow:   rgba(99,153,255,0.25);
   }
 
   body {
     font-family: "Space Grotesk", ui-sans-serif, system-ui, -apple-system,
       BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    /* Ultra-dark base — Three.js background shows through transparent sections */
+    background-color: #05080f;
+    color: #e8eaf2;
+    font-feature-settings: "kern" 1, "liga" 1;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
 @layer utilities {
-  /* Primary gradient text: sky → indigo → teal  */
+  /* ── Gradient text (primary: blue → violet) ──────────────────────────── */
   .text-gradient {
-    @apply bg-gradient-to-r from-sky-300 via-indigo-300 to-teal-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent;
   }
-  /* Gold / warm accent gradient (kept for minor use) */
+  /* Warm gold accent (minor use) */
   .text-gradient-gold {
     @apply bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent;
   }
-  /* Hero aurora background — subtle nebula glow pockets */
-  .bg-hero-pattern {
-    background-image:
-      radial-gradient(ellipse at 20% 50%, rgba(14, 165, 233, 0.13) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 20%, rgba(99, 102, 241, 0.10) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 85%, rgba(45, 212, 191, 0.07) 0%, transparent 50%);
+
+  /* ── Section backgrounds (semi-transparent so nebula breathes through) ── */
+  /* Dark sections — slight blue tint */
+  .section-dark {
+    background: rgba(9, 13, 24, 0.88);
+    backdrop-filter: blur(0px);
   }
-  /* Card glow — sky-blue tinted border highlight */
+  /* Mid sections — slightly lighter */
+  .section-mid {
+    background: rgba(13, 18, 33, 0.90);
+  }
+
+  /* ── Card styles ─────────────────────────────────────────────────────── */
+  .card-glass {
+    background: rgba(13, 18, 33, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .card-glass:hover {
+    border-color: rgba(99, 153, 255, 0.22);
+    box-shadow: 0 0 0 1px rgba(99,153,255,0.12), 0 8px 40px rgba(0,0,0,0.5);
+  }
+
+  /* Legacy alias kept for backward compatibility */
   .card-glow {
-    box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.12), 0 4px 24px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 0 0 1px rgba(99, 153, 255, 0.10), 0 4px 24px rgba(0, 0, 0, 0.5);
   }
   .card-glow:hover {
-    box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.30), 0 8px 40px rgba(14, 165, 233, 0.10);
+    box-shadow: 0 0 0 1px rgba(99, 153, 255, 0.25), 0 8px 40px rgba(99, 153, 255, 0.08);
   }
-  /* Starfield section divider — subtle horizontal aurora line */
+
+  /* ── Aurora divider line ─────────────────────────────────────────────── */
   .aurora-divider {
-    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.3), rgba(129, 140, 248, 0.3), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(99, 153, 255, 0.25),
+      rgba(167, 139, 250, 0.25),
+      transparent
+    );
     height: 1px;
+  }
+
+  /* ── Pill / badge ────────────────────────────────────────────────────── */
+  .badge-aurora {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background: rgba(99, 153, 255, 0.08);
+    border: 1px solid rgba(99, 153, 255, 0.22);
+    color: #a5b4ff;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── Section eyebrow label ───────────────────────────────────────────── */
+  .eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7b9eff;
+  }
+
+  /* ── Primary button ──────────────────────────────────────────────────── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, #3b6bff 0%, #6d4aff 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(99, 120, 255, 0.25);
+  }
+  .btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 30px rgba(99, 120, 255, 0.35);
+  }
+
+  /* ── Ghost button ────────────────────────────────────────────────────── */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    color: #d0d4e8;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(99, 153, 255, 0.30);
+  }
+
+  /* ── Hero background (used as CSS fallback only when WebGL is active) ── */
+  .bg-hero-pattern {
+    background: transparent;
   }
 }

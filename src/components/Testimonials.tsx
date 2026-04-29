@@ -6,7 +6,7 @@ const testimonials = [
     role: "Grade 12 Graduate",
     destination: "Enrolled: University of Edinburgh",
     initials: "JP",
-    color: "from-sky-500 to-indigo-600",
+    accentColor: "#7b9eff",
   },
   {
     quote:
@@ -15,7 +15,7 @@ const testimonials = [
     role: "Parent of Grade 11 Student",
     destination: "",
     initials: "HL",
-    color: "from-teal-500 to-cyan-600",
+    accentColor: "#67e8f9",
   },
   {
     quote:
@@ -24,7 +24,7 @@ const testimonials = [
     role: "Grade 12 Graduate",
     destination: "Enrolled: University of Toronto",
     initials: "MC",
-    color: "from-amber-500 to-orange-600",
+    accentColor: "#a78bfa",
   },
   {
     quote:
@@ -33,7 +33,7 @@ const testimonials = [
     role: "Parent of Grade 9 Student",
     destination: "",
     initials: "SK",
-    color: "from-rose-500 to-pink-600",
+    accentColor: "#34d399",
   },
   {
     quote:
@@ -42,7 +42,7 @@ const testimonials = [
     role: "Grade 11 Student",
     destination: "",
     initials: "DY",
-    color: "from-green-500 to-emerald-600",
+    accentColor: "#67e8f9",
   },
   {
     quote:
@@ -51,70 +51,84 @@ const testimonials = [
     role: "Parent of Grade 6 Student",
     destination: "",
     initials: "JO",
-    color: "from-cyan-500 to-blue-600",
+    accentColor: "#fbbf24",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 lg:py-32 bg-slate-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="py-28 lg:py-36 section-mid">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
-            Families & Students
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+        <div className="text-center mb-12">
+          <p className="eyebrow mb-5">Families & Students</p>
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 tracking-tight">
             Voices from the{" "}
             <span className="text-gradient">Eldarin community</span>
           </h2>
-          <p className="text-slate-500 text-sm italic">
+          <p className="text-white/25 text-sm italic">
             * All testimonials are fictional placeholders for illustrative purposes.
           </p>
         </div>
 
         {/* Disclaimer banner */}
-        <div className="mb-8 rounded-xl bg-amber-500/10 border border-amber-500/30 px-5 py-3 flex items-start gap-3" role="note" aria-label="Disclaimer">
-          <svg className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <div
+          className="mb-10 rounded-xl px-5 py-3.5 flex items-start gap-3"
+          style={{
+            background: "rgba(251,191,36,0.05)",
+            border: "1px solid rgba(251,191,36,0.18)",
+          }}
+          role="note"
+          aria-label="Disclaimer"
+        >
+          <svg className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "#fbbf24" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20A10 10 0 0012 2z" />
           </svg>
-          <p className="text-amber-300 text-sm">
-            <strong>Note:</strong> All names, quotes, and enrollment outcomes below are fictional placeholders created for illustrative purposes only. They do not represent real students or families.
+          <p className="text-amber-200/60 text-sm font-light">
+            <strong className="font-semibold text-amber-200/80">Note:</strong>{" "}
+            All names, quotes, and enrollment outcomes below are fictional placeholders created for illustrative purposes only. They do not represent real students or families.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {testimonials.map((t) => (
             <figure
               key={t.name}
-              className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-colors flex flex-col"
+              className="card-glass rounded-2xl p-6 flex flex-col transition-all duration-300 hover:-translate-y-0.5"
             >
               {/* Stars */}
               <div className="flex gap-1 mb-4" aria-label="5 stars" role="img">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <svg key={i} className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <svg key={i} className="w-3.5 h-3.5" style={{ color: "#fbbf24" }} fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
               </div>
 
-              <blockquote className="text-slate-300 text-sm leading-relaxed italic flex-1 mb-6">
+              <blockquote className="text-white/50 text-sm leading-relaxed italic flex-1 mb-5 font-light">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
 
               <figcaption className="flex items-center gap-3">
                 <div
-                  className={`w-10 h-10 rounded-full bg-gradient-to-br ${t.color} flex items-center justify-center text-white text-sm font-bold flex-shrink-0`}
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
+                  style={{
+                    background: `${t.accentColor}20`,
+                    border: `1px solid ${t.accentColor}40`,
+                    color: t.accentColor,
+                  }}
                   aria-hidden="true"
                 >
                   {t.initials}
                 </div>
                 <div>
-                  <div className="text-white text-sm font-semibold">{t.name}</div>
-                  <div className="text-slate-500 text-xs">{t.role}</div>
+                  <div className="text-white/80 text-sm font-semibold">{t.name}</div>
+                  <div className="text-white/30 text-xs">{t.role}</div>
                   {t.destination && (
-                    <div className="text-teal-400 text-xs font-medium mt-0.5">{t.destination}</div>
+                    <div className="text-xs font-medium mt-0.5" style={{ color: "#67e8f9" }}>
+                      {t.destination}
+                    </div>
                   )}
                 </div>
               </figcaption>

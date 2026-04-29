@@ -2,10 +2,9 @@ const levels = [
   {
     badge: "Elementary",
     grades: "Grades 1–6",
-    color: "from-teal-500 to-cyan-500",
-    borderColor: "border-teal-500/30",
-    bgColor: "bg-teal-500/10",
-    accentColor: "text-teal-400",
+    accentColor: "#67e8f9",
+    borderColor: "rgba(103,232,249,0.18)",
+    bgAccent: "rgba(103,232,249,0.05)",
     description:
       "Building curiosity, language foundations, and a first introduction to computational thinking. Children develop bilingual literacy, mathematical intuition, and a wonder-first approach to learning.",
     features: [
@@ -21,10 +20,9 @@ const levels = [
   {
     badge: "Middle School",
     grades: "Grades 7–9",
-    color: "from-sky-500 to-indigo-600",
-    borderColor: "border-sky-500/30",
-    bgColor: "bg-sky-500/10",
-    accentColor: "text-sky-400",
+    accentColor: "#7b9eff",
+    borderColor: "rgba(123,158,255,0.18)",
+    bgAccent: "rgba(123,158,255,0.05)",
     description:
       "Deepening subject mastery while introducing applied AI across disciplines. Students begin research methodology, academic writing, and use AI tools with guided ethical oversight.",
     features: [
@@ -40,10 +38,9 @@ const levels = [
   {
     badge: "High School",
     grades: "Grades 10–12",
-    color: "from-amber-500 to-orange-500",
-    borderColor: "border-amber-500/30",
-    bgColor: "bg-amber-500/10",
-    accentColor: "text-amber-400",
+    accentColor: "#a78bfa",
+    borderColor: "rgba(167,139,250,0.18)",
+    bgAccent: "rgba(167,139,250,0.05)",
     description:
       "Intensive university-preparation with AP-equivalent courses, AI-integrated capstone research, university counseling, and a senior thesis project that sets graduates apart from every other applicant.",
     features: [
@@ -61,18 +58,16 @@ const levels = [
 
 export default function Pathway() {
   return (
-    <section id="pathway" className="py-24 lg:py-32 bg-slate-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="pathway" className="py-28 lg:py-36 section-mid">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         {/* Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
-            The Complete K–12 Pathway
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
+          <p className="eyebrow mb-5">The Complete K–12 Pathway</p>
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 tracking-tight">
             Thirteen years.{" "}
             <span className="text-gradient">One unified mission.</span>
           </h2>
-          <p className="text-slate-400 text-lg">
+          <p className="text-white/45 text-lg font-light leading-relaxed">
             Every stage of learning at Eldarin School is intentionally connected — what a
             Grade 3 student learns about data and patterns directly supports what a Grade 11
             student does in their AI Modeling Lab.
@@ -80,46 +75,65 @@ export default function Pathway() {
         </div>
 
         {/* Levels */}
-        <div className="space-y-8">
+        <div className="space-y-5">
           {levels.map((level, index) => (
             <div
               key={level.badge}
-              className={`relative overflow-hidden rounded-3xl border ${level.borderColor} bg-slate-900/60 p-8 lg:p-10`}
+              className="relative overflow-hidden rounded-2xl p-8 lg:p-10"
+              style={{
+                background: `linear-gradient(135deg, ${level.bgAccent} 0%, rgba(9,13,24,0.92) 100%)`,
+                border: `1px solid ${level.borderColor}`,
+              }}
             >
               <div className="lg:flex gap-10">
                 {/* Left */}
                 <div className="lg:w-72 flex-shrink-0 mb-6 lg:mb-0">
-                  <div className="flex items-center gap-3 mb-2">
+                  <div className="flex items-center gap-3 mb-3">
                     <span
-                      className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r ${level.color}`}
+                      className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold text-white"
+                      style={{ background: `${level.accentColor}25`, color: level.accentColor, border: `1px solid ${level.accentColor}40` }}
                     >
                       {level.badge}
                     </span>
-                    <span className={`text-sm font-medium ${level.accentColor}`}>{level.grades}</span>
+                    <span
+                      className="text-sm font-medium"
+                      style={{ color: level.accentColor }}
+                    >
+                      {level.grades}
+                    </span>
                   </div>
-                  <p className="text-slate-400 text-sm leading-relaxed">{level.description}</p>
-                  <div className={`mt-4 p-3 rounded-xl ${level.bgColor} border ${level.borderColor}`}>
-                    <p className="text-xs text-slate-300 font-medium leading-relaxed">
-                      <span className={`font-semibold ${level.accentColor}`}>Outcome: </span>
+                  <p className="text-white/45 text-sm leading-relaxed font-light">
+                    {level.description}
+                  </p>
+                  <div
+                    className="mt-4 p-3.5 rounded-xl"
+                    style={{
+                      background: `${level.accentColor}0c`,
+                      border: `1px solid ${level.accentColor}28`,
+                    }}
+                  >
+                    <p className="text-xs text-white/60 leading-relaxed">
+                      <span
+                        className="font-semibold"
+                        style={{ color: level.accentColor }}
+                      >
+                        Outcome:{" "}
+                      </span>
                       {level.outcome}
                     </p>
                   </div>
                 </div>
 
                 {/* Right: features */}
-                <div className="flex-1 grid sm:grid-cols-2 gap-3">
+                <div className="flex-1 grid sm:grid-cols-2 gap-2.5">
                   {level.features.map((feature) => (
                     <div key={feature} className="flex items-start gap-2.5">
-                      <svg
-                        className={`w-4 h-4 mt-0.5 flex-shrink-0 ${level.accentColor}`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+                      <div
+                        className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
+                        style={{ background: level.accentColor }}
                         aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-slate-300 text-sm">{feature}</span>
+                      />
+                      <span className="text-white/60 text-sm font-light">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -127,7 +141,12 @@ export default function Pathway() {
 
               {/* Step number */}
               <div
-                className="absolute top-6 right-6 lg:top-8 lg:right-8 w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-500 font-bold text-sm"
+                className="absolute top-6 right-6 lg:top-8 lg:right-8 w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold"
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  color: "rgba(255,255,255,0.25)",
+                }}
                 aria-hidden="true"
               >
                 0{index + 1}

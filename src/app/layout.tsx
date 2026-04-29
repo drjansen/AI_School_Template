@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { brand } from "@/config/brand";
+import GlobalBackground from "@/components/GlobalBackground";
 
 export const metadata: Metadata = {
   title: `${brand.name} — ${brand.tagline}`,
@@ -21,7 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="font-sans antialiased bg-slate-950 text-slate-100">
+      <body className="font-sans antialiased text-slate-100" style={{ backgroundColor: "#05080f" }}>
+        {/* Site-wide animated WebGL background — fixed behind all content */}
+        <GlobalBackground />
         {children}
       </body>
     </html>

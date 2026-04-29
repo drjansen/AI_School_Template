@@ -2,8 +2,9 @@ const stages = [
   {
     grade: "Grades 1–3",
     title: "Wonder Portfolio",
-    color: "border-teal-500/40 bg-teal-500/5",
-    accent: "text-teal-400",
+    accentColor: "#67e8f9",
+    borderColor: "rgba(103,232,249,0.18)",
+    bgColor: "rgba(103,232,249,0.04)",
     items: [
       "Personal reading logs and reflections",
       "Math investigation journals",
@@ -14,8 +15,9 @@ const stages = [
   {
     grade: "Grades 4–6",
     title: "Explorer Portfolio",
-    color: "border-cyan-500/40 bg-cyan-500/5",
-    accent: "text-cyan-400",
+    accentColor: "#7b9eff",
+    borderColor: "rgba(123,158,255,0.18)",
+    bgColor: "rgba(123,158,255,0.04)",
     items: [
       "Cross-subject project documentation",
       "First bilingual presentations",
@@ -26,8 +28,9 @@ const stages = [
   {
     grade: "Grades 7–9",
     title: "Builder Portfolio",
-    color: "border-sky-500/40 bg-sky-500/5",
-    accent: "text-sky-400",
+    accentColor: "#a78bfa",
+    borderColor: "rgba(167,139,250,0.18)",
+    bgColor: "rgba(167,139,250,0.04)",
     items: [
       "Research essays with citations",
       "AI-assisted project logs with integrity reflections",
@@ -38,8 +41,9 @@ const stages = [
   {
     grade: "Grades 10–11",
     title: "Scholar Portfolio",
-    color: "border-amber-500/40 bg-amber-500/5",
-    accent: "text-amber-400",
+    accentColor: "#fbbf24",
+    borderColor: "rgba(251,191,36,0.18)",
+    bgColor: "rgba(251,191,36,0.04)",
     items: [
       "Pre-capstone independent study",
       "AP-equivalent project work",
@@ -50,8 +54,9 @@ const stages = [
   {
     grade: "Grade 12",
     title: "Capstone Thesis",
-    color: "border-rose-500/40 bg-rose-500/5",
-    accent: "text-rose-400",
+    accentColor: "#34d399",
+    borderColor: "rgba(52,211,153,0.30)",
+    bgColor: "rgba(52,211,153,0.05)",
     items: [
       "Original research or creative thesis (5,000–10,000 words)",
       "AI tool use documented and ethically justified",
@@ -64,18 +69,16 @@ const stages = [
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-24 lg:py-32 bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="portfolio" className="py-28 lg:py-36 section-dark">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         {/* Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
-            Student Portfolio & Capstone
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
+          <p className="eyebrow mb-5">Student Portfolio & Capstone</p>
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 tracking-tight">
             Thirteen years of work.{" "}
             <span className="text-gradient">One defining portfolio.</span>
           </h2>
-          <p className="text-slate-400 text-lg">
+          <p className="text-white/45 text-lg font-light leading-relaxed">
             From the first creative writing sample in Grade 1 to the original research thesis
             in Grade 12, every Eldarin student builds a longitudinal portfolio that tells
             a story no other applicant can copy.
@@ -85,39 +88,68 @@ export default function Portfolio() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-teal-500/50 via-sky-500/50 to-rose-500/50 hidden lg:block" aria-hidden="true" />
+          <div
+            className="absolute left-4 top-0 bottom-0 w-px hidden lg:block"
+            style={{
+              background: "linear-gradient(to bottom, rgba(103,232,249,0.3), rgba(123,158,255,0.3), rgba(52,211,153,0.3))",
+            }}
+            aria-hidden="true"
+          />
 
-          <div className="space-y-6 lg:pl-12">
+          <div className="space-y-5 lg:pl-12">
             {stages.map((stage) => (
               <div
                 key={stage.grade}
-                className={`relative rounded-2xl border p-6 lg:p-8 ${stage.color} ${stage.highlight ? "ring-2 ring-rose-500/30" : ""}`}
+                className="relative rounded-2xl p-6 lg:p-8"
+                style={{
+                  background: stage.bgColor,
+                  border: `1px solid ${stage.borderColor}`,
+                  boxShadow: stage.highlight
+                    ? `0 0 0 1px ${stage.accentColor}30, 0 4px 24px ${stage.accentColor}10`
+                    : "none",
+                }}
               >
                 {/* Dot on timeline */}
                 <div
-                  className={`absolute -left-16 top-8 w-4 h-4 rounded-full border-2 border-slate-950 ${stage.highlight ? "bg-rose-500" : "bg-slate-600"} hidden lg:block`}
+                  className="absolute -left-16 top-8 w-3.5 h-3.5 rounded-full hidden lg:block"
+                  style={{
+                    background: stage.highlight ? stage.accentColor : "rgba(255,255,255,0.15)",
+                    border: "2px solid rgba(5,8,15,0.9)",
+                  }}
                   aria-hidden="true"
                 />
 
                 <div className="lg:flex gap-8 items-start">
                   <div className="lg:w-48 flex-shrink-0 mb-4 lg:mb-0">
-                    <div className={`text-xs font-semibold uppercase tracking-wider mb-1 ${stage.accent}`}>
+                    <div
+                      className="text-xs font-semibold uppercase tracking-widest mb-1.5"
+                      style={{ color: stage.accentColor }}
+                    >
                       {stage.grade}
                     </div>
-                    <h3 className="text-white font-bold text-xl">{stage.title}</h3>
+                    <h3 className="text-white font-bold text-lg">{stage.title}</h3>
                     {stage.highlight && (
-                      <span className="inline-block mt-2 text-xs px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 font-semibold">
+                      <span
+                        className="inline-block mt-2 text-xs px-2.5 py-0.5 rounded-full font-semibold"
+                        style={{
+                          background: `${stage.accentColor}15`,
+                          color: stage.accentColor,
+                          border: `1px solid ${stage.accentColor}35`,
+                        }}
+                      >
                         University Submission
                       </span>
                     )}
                   </div>
                   <ul className="flex-1 grid sm:grid-cols-2 gap-2">
                     {stage.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2">
-                        <svg className={`w-4 h-4 mt-0.5 flex-shrink-0 ${stage.accent}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                        <span className="text-slate-300 text-sm">{item}</span>
+                      <li key={item} className="flex items-start gap-2.5">
+                        <div
+                          className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
+                          style={{ background: stage.accentColor }}
+                          aria-hidden="true"
+                        />
+                        <span className="text-white/55 text-sm font-light">{item}</span>
                       </li>
                     ))}
                   </ul>

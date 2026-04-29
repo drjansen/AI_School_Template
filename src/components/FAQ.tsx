@@ -40,48 +40,55 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 lg:py-32 bg-slate-900">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-28 lg:py-36 section-dark">
+      <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
-            Frequently Asked Questions
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
+        <div className="text-center mb-14">
+          <p className="eyebrow mb-5">Frequently Asked Questions</p>
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 tracking-tight">
             Everything you need to{" "}
             <span className="text-gradient">know to get started</span>
           </h2>
         </div>
 
         {/* Accordion */}
-        <div className="space-y-3" role="list">
+        <div className="space-y-2" role="list">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-slate-700/60 rounded-2xl overflow-hidden"
+              className="rounded-xl overflow-hidden transition-colors"
+              style={{
+                border: `1px solid ${openIndex === index ? "rgba(123,158,255,0.20)" : "rgba(255,255,255,0.06)"}`,
+                background: openIndex === index
+                  ? "rgba(123,158,255,0.04)"
+                  : "rgba(13,18,33,0.60)",
+              }}
               role="listitem"
             >
               <button
-                className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-slate-800/50 transition-colors"
+                className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-white/[0.02]"
                 aria-expanded={openIndex === index}
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
-                <span className="text-white font-medium text-base">{faq.q}</span>
+                <span className="text-white/80 font-medium text-sm leading-relaxed">
+                  {faq.q}
+                </span>
                 <svg
-                  className={`w-5 h-5 flex-shrink-0 text-slate-400 transition-transform duration-200 ${
+                  className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
+                  style={{ color: "rgba(255,255,255,0.30)" }}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   aria-hidden="true"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
               {openIndex === index && (
                 <div className="px-6 pb-5">
-                  <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+                  <p className="text-white/40 text-sm leading-relaxed font-light">{faq.a}</p>
                 </div>
               )}
             </div>
