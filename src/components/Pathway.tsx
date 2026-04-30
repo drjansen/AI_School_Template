@@ -1,58 +1,82 @@
-const levels = [
+const pathways = [
   {
-    badge: "Elementary",
-    grades: "Grades 1–6",
-    accentColor: "#67e8f9",
-    borderColor: "rgba(103,232,249,0.18)",
-    bgAccent: "rgba(103,232,249,0.05)",
+    badge: "K-Culture & K-Content",
+    korean: "K문화 / K-콘텐츠 계열",
+    accentColor: "#d4af37",
+    borderColor: "rgba(212,175,55,0.22)",
+    bgAccent: "rgba(212,175,55,0.05)",
     description:
-      "Building curiosity, language foundations, and a first introduction to computational thinking. Children develop bilingual literacy, mathematical intuition, and a wonder-first approach to learning.",
+      "Students who develop K-culture creation, media production, and cultural entrepreneurship skills are aligned with Korea's rapidly growing K-culture and K-content higher education sector.",
     features: [
-      "Korean–English bilingual immersion",
-      "STEM exploration through play and projects",
-      "Introduction to logical and computational thinking",
-      "AI Awareness: What is AI? How does it help people?",
-      "Character and values development",
-      "Reading, writing, and communication foundations",
+      "K-culture studio production (script, storyboard, pitch)",
+      "Korean language fluency + cultural communication",
+      "Digital media and content creation",
+      "Cultural analytics and industry research",
+      "K-content business and IP fundamentals",
+      "AI-assisted creative production workflows",
     ],
-    outcome: "Students enter middle school as confident readers, curious thinkers, and early AI-aware learners.",
+    outcome: "Aligned with K-culture / K-content university departments at institutions including 서원대, 충북대, 신라대, 유원대, 숙명여대, and others.",
+    universities: [
+      { ko: "서원대학교", en: "Seowon University" },
+      { ko: "충북대학교", en: "Chungbuk National University" },
+      { ko: "신라대학교", en: "Silla University" },
+      { ko: "유원대학교", en: "U1 University" },
+      { ko: "숙명여자대학교", en: "Sookmyung Women's University" },
+      { ko: "동덕여자대학교", en: "Dongduk Women's University" },
+      { ko: "경희대학교", en: "Kyung Hee University" },
+    ],
   },
   {
-    badge: "Middle School",
-    grades: "Grades 7–9",
+    badge: "AI & Technology",
+    korean: "AI / 인공지능 계열",
     accentColor: "#7b9eff",
-    borderColor: "rgba(123,158,255,0.18)",
+    borderColor: "rgba(123,158,255,0.22)",
     bgAccent: "rgba(123,158,255,0.05)",
     description:
-      "Deepening subject mastery while introducing applied AI across disciplines. Students begin research methodology, academic writing, and use AI tools with guided ethical oversight.",
+      "Students who build strong AI engineering, data science, and computational foundations are positioned for Korea's expanding AI and software university programs.",
     features: [
-      "Integrated STEM + AI Lab modules",
-      "Academic essay and research writing",
-      "Pre-AP subject preparation",
-      "AI Tools for Research: citation integrity and bias awareness",
-      "Introduction to data literacy and basic statistics",
-      "Community leadership and global citizenship projects",
+      "AI and machine learning foundations",
+      "Data analysis and statistical reasoning",
+      "Software engineering principles",
+      "Responsible AI and ethics",
+      "AI model evaluation and interpretation",
+      "Research methodology and capstone projects",
     ],
-    outcome: "Students enter high school with strong academic fundamentals and responsible AI habits.",
+    outcome: "Aligned with AI / 인공지능 university departments at institutions including 고려대, 중앙대, 서울시립대, 서강대, 숙명여대, 이화여대, and others.",
+    universities: [
+      { ko: "고려대학교", en: "Korea University" },
+      { ko: "중앙대학교", en: "Chung-Ang University" },
+      { ko: "서울시립대학교", en: "University of Seoul" },
+      { ko: "서강대학교", en: "Sogang University" },
+      { ko: "숙명여자대학교", en: "Sookmyung Women's University" },
+      { ko: "이화여자대학교", en: "Ewha Womans University" },
+      { ko: "세종대학교", en: "Sejong University" },
+    ],
   },
   {
-    badge: "High School",
-    grades: "Grades 10–12",
+    badge: "AI × K-Culture Fusion",
+    korean: "AI × K-콘텐츠 융합",
     accentColor: "#a78bfa",
-    borderColor: "rgba(167,139,250,0.18)",
+    borderColor: "rgba(167,139,250,0.22)",
     bgAccent: "rgba(167,139,250,0.05)",
     description:
-      "Intensive university-preparation with AP-equivalent courses, AI-integrated capstone research, university counseling, and a senior thesis project that sets graduates apart from every other applicant.",
+      "The signature Eldarin pathway — combining AI engineering literacy with K-culture creative skills. This is where Korea's cultural leadership and technological advantage meet.",
     features: [
-      "Applied Calculus AB/BC + AI Modeling Lab",
-      "Applied English Literature + AI Rhetoric Studio",
-      "AP-equivalent science and humanities tracks",
-      "University counseling from Grade 10",
-      "Capstone senior thesis with original research",
-      "Standardized test preparation (SAT, TOEFL, IELTS)",
-      "Interview and personal statement coaching",
+      "AI × K-content production (AI-assisted media, storytelling)",
+      "Cultural data analytics and trend research",
+      "AI ethics in creative industries",
+      "Cross-disciplinary capstone thesis",
+      "Portfolio: AI-integrated cultural projects",
+      "Industry mentorship and peer review",
     ],
-    outcome: "Graduates apply to and attend top-tier universities in the US, UK, Canada, and Australia.",
+    outcome: "Positioned for interdisciplinary programs and dual-track pathways bridging AI and cultural content sectors at leading Korean institutions.",
+    universities: [
+      { ko: "경기대학교", en: "Kyonggi University" },
+      { ko: "서울여자대학교", en: "Seoul Women's University" },
+      { ko: "서경대학교", en: "Seokyeong University" },
+      { ko: "한양대학교 ERICA", en: "Hanyang University ERICA" },
+      { ko: "영산대학교", en: "Youngsan University" },
+    ],
   },
 ];
 
@@ -62,78 +86,111 @@ export default function Pathway() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         {/* Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <p className="eyebrow mb-5">The Complete K–12 Pathway</p>
+          <p className="eyebrow-gold mb-5">Domestic Pathways</p>
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 tracking-tight">
-            Thirteen years.{" "}
-            <span className="text-gradient">One unified mission.</span>
+            Korea-first.{" "}
+            <span className="text-gradient-gold">Multiple pathways.</span>
           </h2>
-          <p className="text-white/45 text-lg font-light leading-relaxed">
-            Every stage of learning at Eldarin School is intentionally connected — what a
-            Grade 3 student learns about data and patterns directly supports what a Grade 11
-            student does in their AI Modeling Lab.
+          <p className="text-white/45 text-lg font-light leading-relaxed font-sans-ui">
+            Eldarin&apos;s curriculum aligns with domestic Korean university majors in
+            AI and K-culture — advancing Korea&apos;s educational industry from within.
+            All pathways listed are indicative; students verify current admissions guides (모집요강) annually.
           </p>
         </div>
 
-        {/* Levels */}
+        {/* Compliance note */}
+        <div
+          className="mb-10 rounded-xl px-5 py-3.5 flex items-start gap-3"
+          style={{
+            background: "rgba(212,175,55,0.05)",
+            border: "1px solid rgba(212,175,55,0.18)",
+          }}
+          role="note"
+          aria-label="Compliance note"
+        >
+          <svg className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "#d4af37" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20A10 10 0 0012 2z" />
+          </svg>
+          <p className="text-amber-200/70 text-sm font-light font-sans-ui">
+            <strong className="font-semibold text-amber-200/90">Pathway Alignment Note:</strong>{" "}
+            University names are illustrative examples only. Eldarin Institute is not established for the purpose of studying abroad. All pathway alignment is domestic and Korea-first. Departments and majors may change annually — please verify in each institution&apos;s official 모집요강.
+          </p>
+        </div>
+
+        {/* Pathways */}
         <div className="space-y-5">
-          {levels.map((level, index) => (
+          {pathways.map((pathway, index) => (
             <div
-              key={level.badge}
+              key={pathway.badge}
               className="relative overflow-hidden rounded-2xl p-8 lg:p-10"
               style={{
-                background: `linear-gradient(135deg, ${level.bgAccent} 0%, rgba(9,13,24,0.92) 100%)`,
-                border: `1px solid ${level.borderColor}`,
+                background: `linear-gradient(135deg, ${pathway.bgAccent} 0%, rgba(8,18,42,0.92) 100%)`,
+                border: `1px solid ${pathway.borderColor}`,
               }}
             >
               <div className="lg:flex gap-10">
                 {/* Left */}
-                <div className="lg:w-72 flex-shrink-0 mb-6 lg:mb-0">
-                  <div className="flex items-center gap-3 mb-3">
+                <div className="lg:w-80 flex-shrink-0 mb-6 lg:mb-0">
+                  <div className="flex items-center gap-3 mb-3 flex-wrap">
                     <span
-                      className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold text-white"
-                      style={{ background: `${level.accentColor}25`, color: level.accentColor, border: `1px solid ${level.accentColor}40` }}
+                      className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold"
+                      style={{ background: `${pathway.accentColor}22`, color: pathway.accentColor, border: `1px solid ${pathway.accentColor}40` }}
                     >
-                      {level.badge}
-                    </span>
-                    <span
-                      className="text-sm font-medium"
-                      style={{ color: level.accentColor }}
-                    >
-                      {level.grades}
+                      {pathway.badge}
                     </span>
                   </div>
-                  <p className="text-white/45 text-sm leading-relaxed font-light">
-                    {level.description}
+                  <p className="text-white/30 text-xs mb-2 font-sans-ui tracking-wide">{pathway.korean}</p>
+                  <p className="text-white/45 text-sm leading-relaxed font-light font-sans-ui">
+                    {pathway.description}
                   </p>
                   <div
                     className="mt-4 p-3.5 rounded-xl"
                     style={{
-                      background: `${level.accentColor}0c`,
-                      border: `1px solid ${level.accentColor}28`,
+                      background: `${pathway.accentColor}08`,
+                      border: `1px solid ${pathway.accentColor}22`,
                     }}
                   >
-                    <p className="text-xs text-white/60 leading-relaxed">
+                    <p className="text-xs text-white/60 leading-relaxed font-sans-ui">
                       <span
                         className="font-semibold"
-                        style={{ color: level.accentColor }}
+                        style={{ color: pathway.accentColor }}
                       >
-                        Outcome:{" "}
+                        Alignment:{" "}
                       </span>
-                      {level.outcome}
+                      {pathway.outcome}
                     </p>
+                  </div>
+                  {/* Sample universities */}
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {pathway.universities.map((uni) => (
+                      <span
+                        key={uni.ko}
+                        lang="ko"
+                        title={uni.en}
+                        aria-label={`${uni.ko} (${uni.en})`}
+                        className="text-xs px-2 py-0.5 rounded-md font-sans-ui"
+                        style={{
+                          background: "rgba(255,255,255,0.04)",
+                          border: "1px solid rgba(255,255,255,0.07)",
+                          color: "rgba(255,255,255,0.40)",
+                        }}
+                      >
+                        {uni.ko}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
                 {/* Right: features */}
                 <div className="flex-1 grid sm:grid-cols-2 gap-2.5">
-                  {level.features.map((feature) => (
+                  {pathway.features.map((feature) => (
                     <div key={feature} className="flex items-start gap-2.5">
                       <div
                         className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
-                        style={{ background: level.accentColor }}
+                        style={{ background: pathway.accentColor }}
                         aria-hidden="true"
                       />
-                      <span className="text-white/60 text-sm font-light">{feature}</span>
+                      <span className="text-white/60 text-sm font-light font-sans-ui">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -141,7 +198,7 @@ export default function Pathway() {
 
               {/* Step number */}
               <div
-                className="absolute top-6 right-6 lg:top-8 lg:right-8 w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold"
+                className="absolute top-6 right-6 lg:top-8 lg:right-8 w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold font-sans-ui"
                 style={{
                   background: "rgba(255,255,255,0.04)",
                   border: "1px solid rgba(255,255,255,0.08)",
@@ -154,6 +211,12 @@ export default function Pathway() {
             </div>
           ))}
         </div>
+
+        {/* Bottom disclaimer */}
+        <p className="text-center text-white/20 text-xs mt-8 font-sans-ui">
+          * Pathway alignment is indicative only. University departments and admissions requirements change annually.
+          Eldarin Institute does not provide overseas-study preparation as an institutional purpose.
+        </p>
       </div>
     </section>
   );

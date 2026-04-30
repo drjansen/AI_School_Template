@@ -1,53 +1,77 @@
-/* Space Grotesk — modern geometric sans-serif for the star-born tech aesthetic.
-   Loaded at runtime via Google Fonts (CDN). Falls back to system-ui when
-   the CDN is unavailable (e.g., CI build environments). */
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+/* ── Typography — premium serif headings + clean sans body ─────────────── *
+ * Cormorant Garamond: elegant serif for headings (art-deco / editorial feel)
+ * Space Grotesk:      modern geometric sans for body / UI elements
+ * Loaded via Google Fonts CDN; falls back to system fonts in CI/offline.
+ * ────────────────────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 @import "tailwindcss";
 
-/* ─── Aurora-Gold Design System — Eldarin School ──────────────────────────── *
- * Palette: deep-space black · vivid aurora blue/violet/cyan · premium gold
- * Style:   People of the Stars — elegant, futuristic, professional; NOT fantasy
- * Font:    Space Grotesk (via Google Fonts) — modern, geometric, tech-forward
+/* ─── Navy-Gold Design System — Eldarin Institute ───────────────────────── *
+ * Palette: deep navy · warm gold · soft white
+ * Style:   Premium art-deco / circuit-pattern aesthetic — elegant, modern
+ * Fonts:   Cormorant Garamond (headings) · Space Grotesk (body / UI)
  * ─────────────────────────────────────────────────────────────────────────── */
 
 @layer base {
   :root {
-    /* ── Aurora accent palette ─────────────────────────────────────────── */
-    --aurora-blue:   99  153 255;   /* soft iridescent blue   */
-    --aurora-violet: 167 139 250;   /* restrained violet      */
-    --aurora-cyan:   103 232 249;   /* crisp cyan             */
-    --aurora-teal:   45  212 191;   /* teal accent            */
+    /* ── Navy base palette ──────────────────────────────────────────────── */
+    --navy-deep:    8   12  36;     /* deepest navy background  */
+    --navy-mid:    12   17  46;     /* section base             */
+    --navy-card:   16   23  58;     /* elevated card base       */
+    --navy-high:   22   30  72;     /* higher card / input      */
 
-    /* ── Premium gold accent (tasteful trim — not ornate) ──────────────── */
-    --gold-warm:     212 175  55;   /* classic warm gold      */
-    --gold-bright:   240 200  80;   /* brighter gold highlight */
-    --gold-muted:    160 130  40;   /* muted/deep gold        */
+    /* ── Aurora accent palette (kept for star/nebula harmony) ───────────── */
+    --aurora-blue:   99  153 255;   /* soft iridescent blue     */
+    --aurora-violet: 167 139 250;   /* restrained violet        */
+    --aurora-cyan:   103 232 249;   /* crisp cyan               */
+    --aurora-teal:   45  212 191;   /* teal accent              */
 
-    /* ── Surface colours ───────────────────────────────────────────────── */
-    --surface-0:  5   8  15;        /* deepest background     */
-    --surface-1:  9  13  24;        /* section base           */
-    --surface-2: 13  18  33;        /* elevated card base     */
-    --surface-3: 18  25  44;        /* higher card / input    */
+    /* ── Premium gold accent ────────────────────────────────────────────── */
+    --gold-warm:     212 175  55;   /* classic warm gold        */
+    --gold-bright:   240 200  80;   /* brighter gold highlight  */
+    --gold-muted:    160 130  40;   /* muted/deep gold          */
+    --gold-pale:     255 240 180;   /* pale champagne highlight */
+
+    /* ── Surface colours (navy-based) ──────────────────────────────────── */
+    --surface-0:  8  12  36;        /* deepest background       */
+    --surface-1: 12  17  46;        /* section base             */
+    --surface-2: 16  23  58;        /* elevated card base       */
+    --surface-3: 22  30  72;        /* higher card / input      */
 
     /* ── Border / divider ──────────────────────────────────────────────── */
-    --border-subtle: rgba(255,255,255,0.06);
+    --border-subtle: rgba(255,255,255,0.07);
     --border-glow:   rgba(99,153,255,0.25);
-    --border-gold:   rgba(212,175,55,0.30);
+    --border-gold:   rgba(212,175,55,0.32);
+    --border-navy:   rgba(99,130,255,0.15);
   }
 
   body {
     font-family: "Space Grotesk", ui-sans-serif, system-ui, -apple-system,
       BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    /* Ultra-dark base — Three.js background shows through transparent sections */
-    background-color: #05080f;
+    /* Deep navy base — Three.js star background shows through transparent sections */
+    background-color: #08122a;
     color: #e8eaf2;
     font-feature-settings: "kern" 1, "liga" 1;
     -webkit-font-smoothing: antialiased;
   }
+
+  /* Serif headings — Cormorant Garamond for art-deco elegance */
+  h1, h2, h3 {
+    font-family: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
+  }
 }
 
 @layer utilities {
+  /* ── Heading font override ───────────────────────────────────────────── */
+  .font-serif-display {
+    font-family: "Cormorant Garamond", "Georgia", serif;
+  }
+  .font-sans-ui {
+    font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  }
+
   /* ── Gradient text (primary: blue → violet) ──────────────────────────── */
   .text-gradient {
     @apply bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent;
@@ -58,19 +82,17 @@
   }
 
   /* ── Section backgrounds — reduced opacity so nebula breathes through ── */
-  /* Dark sections — semi-transparent so backdrop reads site-wide */
   .section-dark {
-    background: rgba(9, 13, 24, 0.62);
+    background: rgba(8, 18, 42, 0.70);
     backdrop-filter: blur(0px);
   }
-  /* Mid sections — slightly lighter */
   .section-mid {
-    background: rgba(13, 18, 33, 0.68);
+    background: rgba(12, 20, 52, 0.72);
   }
 
   /* ── Card styles ─────────────────────────────────────────────────────── */
   .card-glass {
-    background: rgba(13, 18, 33, 0.58);
+    background: rgba(12, 20, 52, 0.58);
     border: 1px solid rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -83,16 +105,16 @@
 
   /* ── Card with permanent gold hairline ───────────────────────────────── */
   .card-gold-trim {
-    background: rgba(13, 18, 33, 0.58);
-    border: 1px solid rgba(212, 175, 55, 0.25);
+    background: rgba(12, 20, 52, 0.60);
+    border: 1px solid rgba(212, 175, 55, 0.28);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 0 0 1px rgba(212,175,55,0.06) inset;
     transition: border-color 0.25s, box-shadow 0.25s;
   }
   .card-gold-trim:hover {
-    border-color: rgba(212, 175, 55, 0.45);
-    box-shadow: 0 0 0 1px rgba(212,175,55,0.15) inset, 0 8px 40px rgba(212,175,55,0.08);
+    border-color: rgba(212, 175, 55, 0.48);
+    box-shadow: 0 0 0 1px rgba(212,175,55,0.15) inset, 0 8px 40px rgba(212,175,55,0.10);
   }
 
   /* Legacy alias kept for backward compatibility */
@@ -101,6 +123,35 @@
   }
   .card-glow:hover {
     box-shadow: 0 0 0 1px rgba(99, 153, 255, 0.25), 0 8px 40px rgba(99, 153, 255, 0.08);
+  }
+
+  /* ── Art-deco / circuit corner ornament (CSS-only) ───────────────────── */
+  .deco-frame {
+    position: relative;
+  }
+  .deco-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(to right,  rgba(212,175,55,0.55) 18px, transparent 18px) 0 0 / 18px 1.5px no-repeat,
+      linear-gradient(to bottom, rgba(212,175,55,0.55) 18px, transparent 18px) 0 0 / 1.5px 18px no-repeat,
+      linear-gradient(to left,   rgba(212,175,55,0.55) 18px, transparent 18px) 100% 0    / 18px 1.5px no-repeat,
+      linear-gradient(to bottom, rgba(212,175,55,0.55) 18px, transparent 18px) 100% 0    / 1.5px 18px no-repeat,
+      linear-gradient(to right,  rgba(212,175,55,0.55) 18px, transparent 18px) 0 100%    / 18px 1.5px no-repeat,
+      linear-gradient(to top,    rgba(212,175,55,0.55) 18px, transparent 18px) 0 100%    / 1.5px 18px no-repeat,
+      linear-gradient(to left,   rgba(212,175,55,0.55) 18px, transparent 18px) 100% 100% / 18px 1.5px no-repeat,
+      linear-gradient(to top,    rgba(212,175,55,0.55) 18px, transparent 18px) 100% 100% / 1.5px 18px no-repeat;
+    border-radius: inherit;
+    z-index: 1;
+  }
+
+  /* ── Circuit-dot grid overlay (subtle) ───────────────────────────────── */
+  .circuit-grid {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,175,55,0.18) 1px, transparent 0);
+    background-size: 24px 24px;
   }
 
   /* ── Aurora divider line ─────────────────────────────────────────────── */
@@ -120,8 +171,8 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(212, 175, 55, 0.40),
-      rgba(240, 200, 80, 0.40),
+      rgba(212, 175, 55, 0.45),
+      rgba(240, 200, 80, 0.45),
       transparent
     );
     height: 1px;
@@ -129,13 +180,13 @@
 
   /* ── Gold trim utilities ─────────────────────────────────────────────── */
   .gold-trim {
-    border: 1px solid rgba(212, 175, 55, 0.30);
+    border: 1px solid rgba(212, 175, 55, 0.32);
   }
   .gold-trim-top {
-    border-top: 1px solid rgba(212, 175, 55, 0.30);
+    border-top: 1px solid rgba(212, 175, 55, 0.32);
   }
   .gold-trim-bottom {
-    border-bottom: 1px solid rgba(212, 175, 55, 0.30);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.32);
   }
 
   /* ── Pill / badge (aurora blue) ──────────────────────────────────────── */
@@ -152,6 +203,7 @@
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    font-family: "Space Grotesk", sans-serif;
   }
 
   /* ── Pill / badge (premium gold) ────────────────────────────────────── */
@@ -162,12 +214,13 @@
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
     background: rgba(212, 175, 55, 0.10);
-    border: 1px solid rgba(212, 175, 55, 0.35);
+    border: 1px solid rgba(212, 175, 55, 0.38);
     color: #d4af37;
     font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    font-family: "Space Grotesk", sans-serif;
   }
 
   /* ── Section eyebrow label ───────────────────────────────────────────── */
@@ -177,6 +230,7 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: #7b9eff;
+    font-family: "Space Grotesk", sans-serif;
   }
 
   /* ── Gold eyebrow variant ────────────────────────────────────────────── */
@@ -186,6 +240,7 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: #d4af37;
+    font-family: "Space Grotesk", sans-serif;
   }
 
   /* ── Primary button ──────────────────────────────────────────────────── */
@@ -194,7 +249,7 @@
     align-items: center;
     justify-content: center;
     padding: 0.875rem 2rem;
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
     background: linear-gradient(135deg, #3b6bff 0%, #6d4aff 100%);
     color: #fff;
     font-weight: 700;
@@ -202,6 +257,7 @@
     letter-spacing: 0.01em;
     transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 20px rgba(99, 120, 255, 0.30);
+    font-family: "Space Grotesk", sans-serif;
   }
   .btn-primary:hover {
     opacity: 0.9;
@@ -215,19 +271,20 @@
     align-items: center;
     justify-content: center;
     padding: 0.875rem 2rem;
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
     background: linear-gradient(135deg, #b8962e 0%, #d4af37 50%, #e8c84a 100%);
-    color: #05080f;
+    color: #08122a;
     font-weight: 700;
     font-size: 0.9375rem;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
     transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.30);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.32);
+    font-family: "Space Grotesk", sans-serif;
   }
   .btn-gold:hover {
     opacity: 0.92;
     transform: translateY(-1px);
-    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.40);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.44);
   }
 
   /* ── Ghost button ────────────────────────────────────────────────────── */
@@ -236,17 +293,19 @@
     align-items: center;
     justify-content: center;
     padding: 0.875rem 2rem;
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.22);
     color: #d0d4e8;
     font-weight: 600;
     font-size: 0.9375rem;
-    transition: background 0.2s, border-color 0.2s;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    font-family: "Space Grotesk", sans-serif;
   }
   .btn-ghost:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(212, 175, 55, 0.35);
+    background: rgba(212, 175, 55, 0.06);
+    border-color: rgba(212, 175, 55, 0.40);
+    color: #f0e0a0;
   }
 
   /* ── Hero background (used as CSS fallback only when WebGL is active) ── */

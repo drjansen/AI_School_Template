@@ -1,17 +1,17 @@
 import { brand } from "@/config/brand";
 
 const footerLinks = {
-  School: [
+  Institute: [
     { label: "Mission", href: "#mission" },
-    { label: "K–12 Pathway", href: "#pathway" },
-    { label: "AI Curriculum", href: "#curriculum" },
-    { label: "University Outcomes", href: "#outcomes" },
+    { label: "Pathways", href: "#pathway" },
+    { label: "Curriculum", href: "#curriculum" },
+    { label: "Operating Model", href: "#outcomes" },
   ],
-  Students: [
+  Community: [
     { label: "Portfolio System", href: "#portfolio" },
-    { label: "Testimonials", href: "#testimonials" },
+    { label: "Voices", href: "#testimonials" },
     { label: "FAQ", href: "#faq" },
-    { label: "Request Prospectus", href: "#cta" },
+    { label: "Submit Inquiry", href: "#cta" },
   ],
   Contact: [
     { label: brand.contact.email, href: `mailto:${brand.contact.email}` },
@@ -25,8 +25,8 @@ export default function Footer() {
     <footer
       className="border-t"
       style={{
-        background: "rgba(5,8,15,0.95)",
-        borderTopColor: "rgba(255,255,255,0.06)",
+        background: "rgba(6,10,28,0.97)",
+        borderTopColor: "rgba(212,175,55,0.18)",
       }}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-16">
@@ -35,9 +35,11 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <a href="#hero" className="flex items-center gap-2.5 mb-5 group">
               <div
-                className="w-7 h-7 rounded-lg flex items-center justify-center text-white font-bold text-xs"
+                className="w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs"
                 style={{
-                  background: "linear-gradient(135deg, #3b6bff 0%, #8b5cf6 100%)",
+                  background: "linear-gradient(135deg, #b8962e 0%, #d4af37 100%)",
+                  color: "#08122a",
+                  boxShadow: "0 2px 10px rgba(212,175,55,0.28)",
                 }}
               >
                 E
@@ -46,15 +48,14 @@ export default function Footer() {
                 {brand.name}
               </span>
             </a>
-            <p className="text-white/30 text-sm leading-relaxed mb-5 max-w-xs font-light">
-              {brand.tagline} A K–12 academy preparing South Korean students for top
-              universities worldwide through AI-integrated, rigorous education.
+            <p className="text-white/30 text-sm leading-relaxed mb-5 max-w-xs font-light font-sans-ui">
+              {brand.tagline} An Alternative Educational Institution advancing Korea&apos;s educational industry — where AI fluency and K-culture creation meet.
             </p>
             <div className="flex gap-2.5">
               <a
                 href={brand.social.instagram}
                 className="w-8 h-8 rounded-lg flex items-center justify-center text-white/30 hover:text-white/70 transition-colors"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(212,175,55,0.12)" }}
                 aria-label="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -66,7 +67,7 @@ export default function Footer() {
               <a
                 href={brand.social.linkedin}
                 className="w-8 h-8 rounded-lg flex items-center justify-center text-white/30 hover:text-white/70 transition-colors"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(212,175,55,0.12)" }}
                 aria-label="LinkedIn"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -82,8 +83,8 @@ export default function Footer() {
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section}>
               <h3
-                className="text-xs font-semibold uppercase tracking-widest mb-4"
-                style={{ color: "rgba(255,255,255,0.35)" }}
+                className="text-xs font-semibold uppercase tracking-widest mb-4 font-sans-ui"
+                style={{ color: "rgba(212,175,55,0.55)" }}
               >
                 {section}
               </h3>
@@ -92,7 +93,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-white/30 hover:text-white/65 text-sm transition-colors font-light"
+                      className="text-white/30 hover:text-white/65 text-sm transition-colors font-light font-sans-ui"
                     >
                       {link.label}
                     </a>
@@ -106,19 +107,20 @@ export default function Footer() {
         {/* Bottom bar */}
         <div
           className="border-t pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
-          style={{ borderTopColor: "rgba(255,255,255,0.05)" }}
+          style={{ borderTopColor: "rgba(212,175,55,0.10)" }}
         >
-          <p className="text-white/20 text-xs font-light">
+          <p className="text-white/20 text-xs font-light font-sans-ui">
             © {new Date().getFullYear()} {brand.name}. All rights reserved.
             <span className="mx-2">·</span>
             <a
               href={`https://${brand.domain}`}
               className="hover:text-white/40 transition-colors"
+              style={{ color: "rgba(212,175,55,0.50)" }}
             >
               {brand.domain}
             </a>
           </p>
-          <p className="text-white/15 text-xs font-light">
+          <p className="text-white/15 text-xs font-light font-sans-ui">
             Running parallel to{" "}
             <a
               href="https://www.ics.kr"
@@ -128,7 +130,7 @@ export default function Footer() {
             >
               ICS (ics.kr)
             </a>
-            {" "}· Accreditation in progress
+            {" "}· Registration in progress
           </p>
         </div>
       </div>

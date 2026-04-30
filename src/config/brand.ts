@@ -1,17 +1,17 @@
 export const brand = {
-  name: "Eldarin School",
+  name: "Eldarin Institute",
   shortName: "Eldarin",
-  domain: "eldarinschool.ai",
-  tagline: "Raising AI-literate global leaders.",
+  domain: "eldarin.ai",
+  tagline: "Advancing K-culture for the AI era.",
   description:
-    "Eldarin School is a K–12 academy in South Korea that combines rigorous academic preparation with AI-integrated curriculum, guiding students toward top Western universities.",
+    "Eldarin Institute is an Alternative Educational Institution in South Korea dedicated to advancing Korea's educational industry — where students build academic and character foundations while shaping K-culture for the AI era.",
   contact: {
-    email: "admissions@eldarinschool.ai",
+    email: "info@eldarin.ai",
     phone: "+82-2-0000-0000",
     address: "Seoul, South Korea",
   },
   social: {
-    instagram: "https://instagram.com/eldarinschool",
-    linkedin: "https://linkedin.com/company/eldarinschool",
+    instagram: "https://instagram.com/eldarininstitute",
+    linkedin: "https://linkedin.com/company/eldarininstitute",
   },
 } as const;

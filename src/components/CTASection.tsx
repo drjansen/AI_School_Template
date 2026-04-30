@@ -19,10 +19,10 @@ interface FormErrors {
 const gradeOptions = [
   "Elementary (Grades 1–3)",
   "Elementary (Grades 4–6)",
-  "Middle School (Grades 7–9)",
-  "High School (Grades 10–12)",
+  "Middle (Grades 7–9)",
+  "High (Grades 10–12)",
   "Not yet enrolled age",
-  "Other / Multiple children",
+  "Other / Multiple students",
 ];
 
 export default function CTASection() {
@@ -97,33 +97,33 @@ export default function CTASection() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left: copy */}
           <div>
-            <p className="eyebrow mb-5">Begin the Journey</p>
+            <p className="eyebrow-gold mb-5">Connect with Eldarin Institute</p>
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
-              Ready to give your child the{" "}
-              <span className="text-gradient">Eldarin advantage?</span>
+              Ready to join Korea&apos;s{" "}
+              <span className="text-gradient-gold">AI-era education?</span>
             </h2>
-            <p className="text-white/45 text-lg mb-10 leading-relaxed font-light">
-              Request our full prospectus to receive detailed information on curriculum,
-              admission requirements, tuition, and enrollment timelines. A member of our
-              admissions team will be in touch within two business days.
+            <p className="text-white/45 text-lg mb-10 leading-relaxed font-light font-sans-ui">
+              Submit an inquiry to learn more about Eldarin Institute — our curriculum,
+              the Eldarin Operating Model, domestic pathway alignment, and enrollment.
+              A member of our team will be in touch within two business days.
             </p>
 
             <div className="space-y-5">
               {[
                 {
-                  icon: "📄",
-                  title: "Detailed Curriculum Overview",
-                  desc: "Full subject listings, AI integration details, and grade-by-grade expectations.",
+                  icon: "📚",
+                  title: "Curriculum & Operating Model Overview",
+                  desc: "AI-integrated subjects, K-culture studio, Moodle LMS, and Adaptive Literacy details.",
                 },
                 {
-                  icon: "🎓",
-                  title: "Admissions Requirements",
-                  desc: "What we look for at each entry grade, assessment processes, and enrollment dates.",
+                  icon: "🗺",
+                  title: "Domestic Pathway Alignment",
+                  desc: "How our program aligns with Korean AI and K-culture university majors.",
                 },
                 {
                   icon: "📅",
                   title: "Family Consultation",
-                  desc: "We will follow up to schedule a one-on-one call with our admissions director.",
+                  desc: "We will follow up to schedule a one-on-one call with our team.",
                 },
               ].map((item) => (
                 <div key={item.title} className="flex items-start gap-4">
@@ -134,17 +134,18 @@ export default function CTASection() {
                     <div className="text-white/80 font-semibold text-sm mb-0.5">
                       {item.title}
                     </div>
-                    <div className="text-white/35 text-sm font-light">{item.desc}</div>
+                    <div className="text-white/35 text-sm font-light font-sans-ui">{item.desc}</div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <p className="mt-10 text-white/30 text-sm">
+            <p className="mt-10 text-white/30 text-sm font-sans-ui">
               Prefer email?{" "}
               <a
                 href={`mailto:${brand.contact.email}`}
-                className="text-blue-400/70 hover:text-blue-400 transition-colors"
+                className="hover:text-white/55 transition-colors"
+                style={{ color: "#d4af37" }}
               >
                 {brand.contact.email}
               </a>
@@ -155,8 +156,8 @@ export default function CTASection() {
           <div
             className="relative overflow-hidden rounded-2xl p-8"
             style={{
-              background: "rgba(13,18,33,0.80)",
-              border: "1px solid rgba(255,255,255,0.07)",
+              background: "rgba(12,20,52,0.85)",
+              border: "1px solid rgba(212,175,55,0.18)",
             }}
           >
             {status === "success" ? (
@@ -172,12 +173,12 @@ export default function CTASection() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Request Received</h3>
-                <p className="text-white/45 leading-relaxed text-sm font-light">
+                <h3 className="text-2xl font-bold text-white mb-3">Inquiry Received</h3>
+                <p className="text-white/45 leading-relaxed text-sm font-light font-sans-ui">
                   Thank you,{" "}
                   <strong className="text-white/80 font-semibold">{formData.name}</strong>.
-                  Our admissions team will be in touch at{" "}
-                  <strong className="font-semibold" style={{ color: "#7b9eff" }}>
+                  Our team will be in touch at{" "}
+                  <strong className="font-semibold" style={{ color: "#d4af37" }}>
                     {formData.email}
                   </strong>{" "}
                   within two business days.
@@ -194,9 +195,9 @@ export default function CTASection() {
               </div>
             ) : (
               <>
-                <h3 className="text-lg font-bold text-white mb-1">Request a Prospectus</h3>
-                <p className="text-white/35 text-sm mb-6 font-light">
-                  Fill in your details below and we will send you our full information pack.
+                <h3 className="text-lg font-bold text-white mb-1">Submit an Inquiry</h3>
+                <p className="text-white/35 text-sm mb-6 font-light font-sans-ui">
+                  Fill in your details and we will be in touch within two business days.
                 </p>
 
                 <form onSubmit={handleSubmit} noValidate className="space-y-4">
@@ -324,12 +325,13 @@ export default function CTASection() {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="w-full py-3.5 rounded-xl font-bold text-sm text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-3.5 rounded-xl font-bold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed font-sans-ui"
                     style={{
-                      background: "linear-gradient(135deg, #3b6bff 0%, #6d4aff 100%)",
-                      boxShadow: "0 4px 20px rgba(99,120,255,0.20)",
+                      background: "linear-gradient(135deg, #b8962e 0%, #d4af37 100%)",
+                      color: "#08122a",
+                      boxShadow: "0 4px 20px rgba(212,175,55,0.25)",
                     }}
-                    aria-label="Submit prospectus request"
+                    aria-label="Submit inquiry"
                   >
                     {status === "loading" ? (
                       <span className="flex items-center justify-center gap-2">
@@ -340,7 +342,7 @@ export default function CTASection() {
                         Sending…
                       </span>
                     ) : (
-                      "Request Prospectus →"
+                      "Submit Inquiry →"
                     )}
                   </button>
 

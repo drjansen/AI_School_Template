@@ -3,36 +3,36 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "Is Eldarin School an officially accredited school in South Korea?",
-    a: "Eldarin School is currently operating on its accreditation pathway, running alongside our established organization (ICS, ics.kr). We are pursuing accreditation via South Korea's AI-education track, similar to the pathway blazed by other AI-focused institutions. Full accreditation is a primary institutional goal and timeline details will be published as they are confirmed.",
+    q: "What is Eldarin Institute?",
+    a: "Eldarin Institute is an Alternative Educational Institution in South Korea dedicated to advancing Korea's educational industry. Our mission is to provide an environment where students build strong academic and character foundations while shaping K-culture for the AI era. We are not established for the purpose of studying abroad.",
   },
   {
     q: "What languages are used for instruction?",
-    a: "The primary medium of instruction is English, with structured Korean language support throughout K–12. Our goal is genuine bilingualism — students who can read, write, and think fluently in both languages by the time they graduate.",
+    a: "The primary medium of instruction is English, with structured Korean language development integrated throughout all grade levels. Our goal is genuine bilingualism — students who can read, write, think, and create fluently in both Korean and English.",
+  },
+  {
+    q: "What is the Eldarin Operating Model?",
+    a: "The Eldarin Operating Model is our integrated set of methods, platforms, policies, and routines — covering academic design, assessment integrity, AI enablement, adaptive literacy, character formation, and governance. It is powered by Moodle LMS as the central learning record system.",
+  },
+  {
+    q: "What is AI-powered Adaptive Literacy Skills Development (ALSD)?",
+    a: "ALSD is our personalized literacy program — not test drilling. It uses AI to deliver a diagnostic baseline for each student, followed by targeted instruction, measurable growth checks, and intervention triggers when needed. Human teachers remain fully accountable for all decisions. It supports both Korean and English literacy.",
   },
   {
     q: "Do students need prior AI or coding experience to enroll?",
-    a: "No. Our program is designed to introduce AI concepts progressively from elementary school. Elementary students begin with AI awareness (conceptual); middle schoolers apply AI tools with guidance; high schoolers engage in rigorous, ethical AI-integrated coursework. No prior experience is required.",
+    a: "No. Our program introduces AI concepts progressively across all grade levels. Younger students begin with AI awareness and foundational literacy; older students engage in responsible AI engineering and K-culture production. No prior experience is required.",
   },
   {
-    q: "Which universities do Eldarin graduates typically target?",
-    a: "Our graduates target a range of highly selective institutions including universities in the US, UK, Canada, and Australia. Our university counseling is designed to be realistic and tailored — we help students identify institutions where they will genuinely thrive, not merely brand names.",
-  },
-  {
-    q: "How is the AI-integrated curriculum different from adding a coding class?",
-    a: "Completely different. Adding a coding elective leaves every other subject unchanged. At Eldarin, AI is integrated into the pedagogy of every subject — from how students research history to how they draft essays to how they analyze biological data. The result is students who understand AI as a tool, not just a subject.",
-  },
-  {
-    q: "What is the student-to-teacher ratio?",
-    a: "We maintain a low student-to-teacher ratio across all grades to ensure every student receives individual attention. Specific ratios per cohort are available in our prospectus — request one via the form below.",
+    q: "Which domestic Korean pathways does Eldarin align with?",
+    a: "Eldarin's curriculum aligns with domestic Korean university majors in K-culture/K-content and AI/technology fields. Examples include departments at 서원대, 충북대, 신라대, 고려대, 중앙대, 서울시립대, 숙명여대, and many others. These are indicative examples only — verify in each institution's annual 모집요강.",
   },
   {
     q: "How does the capstone thesis project work?",
-    a: "Every Grade 12 student completes an original research or creative thesis of 5,000–10,000 words, documents any AI tool use with ethical justification, and defends it orally before a faculty panel. The final thesis becomes the centrepiece of their university application portfolio.",
+    a: "Every graduating student completes an original research or creative thesis of 5,000–10,000 words, documents any AI tool use with ethical justification, and defends it orally before a faculty panel. The thesis becomes the centrepiece of their academic portfolio and demonstrates authentic depth of learning.",
   },
   {
-    q: "When can my child enroll?",
-    a: "We are currently accepting expressions of interest for our inaugural enrollment cohort. Request a prospectus via the form on this page to receive detailed enrollment timelines, admission requirements, and to schedule a family consultation.",
+    q: "How can I inquire about enrollment?",
+    a: "We are currently accepting expressions of interest. Submit an inquiry via the form on this page and a member of our team will be in touch within two business days. You may also email us at info@eldarin.ai.",
   },
 ];
 
@@ -44,10 +44,10 @@ export default function FAQ() {
       <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-10">
         {/* Header */}
         <div className="text-center mb-14">
-          <p className="eyebrow mb-5">Frequently Asked Questions</p>
+          <p className="eyebrow-gold mb-5">Frequently Asked Questions</p>
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 tracking-tight">
             Everything you need to{" "}
-            <span className="text-gradient">know to get started</span>
+            <span className="text-gradient-gold">know to get started</span>
           </h2>
         </div>
 
@@ -58,10 +58,10 @@ export default function FAQ() {
               key={index}
               className="rounded-xl overflow-hidden transition-colors"
               style={{
-                border: `1px solid ${openIndex === index ? "rgba(123,158,255,0.20)" : "rgba(255,255,255,0.06)"}`,
+                border: `1px solid ${openIndex === index ? "rgba(212,175,55,0.28)" : "rgba(255,255,255,0.06)"}`,
                 background: openIndex === index
-                  ? "rgba(123,158,255,0.04)"
-                  : "rgba(13,18,33,0.60)",
+                  ? "rgba(212,175,55,0.04)"
+                  : "rgba(12,20,52,0.60)",
               }}
               role="listitem"
             >
@@ -70,14 +70,14 @@ export default function FAQ() {
                 aria-expanded={openIndex === index}
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
-                <span className="text-white/80 font-medium text-sm leading-relaxed">
+                <span className="text-white/80 font-medium text-sm leading-relaxed font-sans-ui">
                   {faq.q}
                 </span>
                 <svg
                   className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
-                  style={{ color: "rgba(255,255,255,0.30)" }}
+                  style={{ color: openIndex === index ? "#d4af37" : "rgba(255,255,255,0.30)" }}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -88,7 +88,7 @@ export default function FAQ() {
               </button>
               {openIndex === index && (
                 <div className="px-6 pb-5">
-                  <p className="text-white/40 text-sm leading-relaxed font-light">{faq.a}</p>
+                  <p className="text-white/40 text-sm leading-relaxed font-light font-sans-ui">{faq.a}</p>
                 </div>
               )}
             </div>
