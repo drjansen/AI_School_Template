@@ -1,16 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import { brand } from "@/config/brand";
-
-const navLinks = [
-  { href: "#mission", label: "Mission" },
-  { href: "#pathway", label: "Pathways" },
-  { href: "#curriculum", label: "Curriculum" },
-  { href: "#outcomes", label: "Operating Model" },
-  { href: "#faq", label: "FAQ" },
-];
+import { useLanguage } from "@/context/LanguageContext";
+import type { Lang } from "@/lib/i18n/types";
 
 export default function Navbar() {
+  const { lang, setLang, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -19,6 +14,17 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navLinks = [
+    { href: "#mission", label: t.navbar.links.mission },
+    { href: "#pathway", label: t.navbar.links.pathways },
+    { href: "#curriculum", label: t.navbar.links.curriculum },
+    { href: "#outcomes", label: t.navbar.links.operatingModel },
+    { href: "#faq", label: t.navbar.links.faq },
+  ];
+
+  const nextLang: Lang = lang === "ko" ? "en" : "ko";
+  const toggleLang = () => setLang(nextLang);
 
   return (
     <nav
@@ -79,51 +85,81 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CTA */}
-        <a
-          href="#cta"
-          className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all"
-          style={{
-            background: "linear-gradient(135deg, #b8962e 0%, #d4af37 100%)",
-            color: "#08122a",
-            boxShadow: "0 2px 12px rgba(212,175,55,0.30)",
-          }}
-          aria-label="Make an inquiry"
-        >
-          Inquire Now
-        </a>
-
-        {/* Hamburger */}
-        <button
-          className="md:hidden p-2 rounded-lg text-white/50 hover:text-white/90 hover:bg-white/[0.05] transition-colors"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((v) => !v)}
-        >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
+        {/* Desktop: language toggle + CTA */}
+        <div className="hidden md:flex items-center gap-2">
+          <button
+            onClick={toggleLang}
+            aria-label={t.navbar.toggleLang}
+            className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#08122a] select-none"
+            style={{
+              background: "rgba(212,175,55,0.08)",
+              border: "1px solid rgba(212,175,55,0.28)",
+              color: "rgba(212,175,55,0.85)",
+            }}
           >
-            {menuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.8}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.8}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
+            {lang === "ko" ? "EN" : "한국어"}
+          </button>
+
+          <a
+            href="#cta"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all"
+            style={{
+              background: "linear-gradient(135deg, #b8962e 0%, #d4af37 100%)",
+              color: "#08122a",
+              boxShadow: "0 2px 12px rgba(212,175,55,0.30)",
+            }}
+            aria-label={t.navbar.inquire}
+          >
+            {t.navbar.inquire}
+          </a>
+        </div>
+
+        {/* Mobile: language toggle + hamburger */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={toggleLang}
+            aria-label={t.navbar.toggleLang}
+            className="px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#08122a]"
+            style={{
+              background: "rgba(212,175,55,0.08)",
+              border: "1px solid rgba(212,175,55,0.28)",
+              color: "rgba(212,175,55,0.85)",
+            }}
+          >
+            {lang === "ko" ? "EN" : "한국어"}
+          </button>
+
+          <button
+            className="p-2 rounded-lg text-white/50 hover:text-white/90 hover:bg-white/[0.05] transition-colors"
+            aria-label={menuOpen ? t.navbar.closeMenu : t.navbar.openMenu}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              {menuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.8}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.8}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -159,7 +195,7 @@ export default function Navbar() {
                 }}
                 onClick={() => setMenuOpen(false)}
               >
-                Inquire Now
+                {t.navbar.inquire}
               </a>
             </li>
           </ul>

@@ -1,26 +1,30 @@
+"use client";
 import { brand } from "@/config/brand";
-
-const footerLinks = {
-  Institute: [
-    { label: "Mission", href: "#mission" },
-    { label: "Pathways", href: "#pathway" },
-    { label: "Curriculum", href: "#curriculum" },
-    { label: "Operating Model", href: "#outcomes" },
-  ],
-  Community: [
-    { label: "Portfolio System", href: "#portfolio" },
-    { label: "Voices", href: "#testimonials" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Submit Inquiry", href: "#cta" },
-  ],
-  Contact: [
-    { label: brand.contact.email, href: `mailto:${brand.contact.email}` },
-    { label: brand.contact.phone, href: `tel:${brand.contact.phone}` },
-    { label: brand.contact.address, href: "#" },
-  ],
-};
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
+  const footerLinks = {
+    [t.footer.sections.institute]: [
+      { label: t.footer.links.mission, href: "#mission" },
+      { label: t.footer.links.pathways, href: "#pathway" },
+      { label: t.footer.links.curriculum, href: "#curriculum" },
+      { label: t.footer.links.operatingModel, href: "#outcomes" },
+    ],
+    [t.footer.sections.community]: [
+      { label: t.footer.links.portfolio, href: "#portfolio" },
+      { label: t.footer.links.voices, href: "#testimonials" },
+      { label: t.footer.links.faq, href: "#faq" },
+      { label: t.footer.links.submitInquiry, href: "#cta" },
+    ],
+    [t.footer.sections.contact]: [
+      { label: brand.contact.email, href: `mailto:${brand.contact.email}` },
+      { label: brand.contact.phone, href: `tel:${brand.contact.phone}` },
+      { label: brand.contact.address, href: "#" },
+    ],
+  };
+
   return (
     <footer
       className="border-t"
@@ -49,7 +53,7 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-white/30 text-sm leading-relaxed mb-5 max-w-xs font-light font-sans-ui">
-              {brand.tagline} An Alternative Educational Institution advancing Korea&apos;s educational industry — where AI fluency and K-culture creation meet.
+              {brand.tagline} {t.footer.taglineSuffix}
             </p>
             <div className="flex gap-2.5">
               <a
@@ -110,7 +114,7 @@ export default function Footer() {
           style={{ borderTopColor: "rgba(212,175,55,0.10)" }}
         >
           <p className="text-white/20 text-xs font-light font-sans-ui">
-            © {new Date().getFullYear()} {brand.name}. All rights reserved.
+            © {new Date().getFullYear()} {brand.name}. {t.footer.copyright}
             <span className="mx-2">·</span>
             <a
               href={`https://${brand.domain}`}
@@ -121,16 +125,16 @@ export default function Footer() {
             </a>
           </p>
           <p className="text-white/15 text-xs font-light font-sans-ui">
-            Running parallel to{" "}
+            {t.footer.parallel}{" "}
             <a
               href="https://www.ics.kr"
               className="hover:text-white/30 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
-              ICS (ics.kr)
+              {t.footer.parallelLink}
             </a>
-            {" "}· Registration in progress
+            {" "}· {t.footer.registration}
           </p>
         </div>
       </div>
