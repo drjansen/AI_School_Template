@@ -46,37 +46,30 @@ export default function Navbar() {
             }
         >
             <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex items-center justify-between">
-                {/* Logo */}
+                {/* Logo (logo-only) */}
                 <a
                     href="#hero"
                     className="flex items-center gap-3 group"
                     aria-label={`${brand.name} home`}
                 >
-                    {/* Logotype image mark */}
                     <div
-                        className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center select-none"
+                        className="h-10 w-24 rounded-xl overflow-hidden flex items-center justify-center"
                         style={{
-                            background: "linear-gradient(135deg, #0b1635 0%, #08122a 100%)",
+                            background: "rgba(8, 18, 42, 0.35)",
                             boxShadow:
-                                "0 2px 12px rgba(212,175,55,0.25), 0 0 0 1px rgba(212,175,55,0.32)",
+                                "0 2px 12px rgba(212,175,55,0.18), 0 0 0 1px rgba(212,175,55,0.32)",
                         }}
                     >
                         <Image
                             src="/brand/eladrin-logo.png"
                             alt={`${brand.name} logo`}
-                            width={32}
-                            height={32}
+                            width={1350}
+                            height={600}
                             priority
-                            className="w-full h-full object-cover"
+                            unoptimized
+                            className="w-full h-full object-contain p-1"
                         />
                     </div>
-
-                    <span className="font-semibold text-base tracking-tight text-white/90 group-hover:text-white transition-colors">
-            {brand.shortName}
-          </span>
-                    <span className="hidden sm:inline text-white/30 text-sm font-light tracking-wide">
-            Institute
-          </span>
                 </a>
 
                 {/* Desktop links */}
