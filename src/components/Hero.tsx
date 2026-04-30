@@ -25,11 +25,11 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 lg:px-10 text-center py-36 pt-44">
-        {/* Status badge */}
-        <div className="badge-aurora inline-flex mb-10">
+        {/* Status badge — gold variant for immediate visual difference */}
+        <div className="badge-gold inline-flex mb-10">
           <span
             className="w-1.5 h-1.5 rounded-full animate-pulse"
-            style={{ background: "#7b9eff" }}
+            style={{ background: "#d4af37" }}
             aria-hidden="true"
           />
           Now Enrolling — Seoul, South Korea
@@ -43,9 +43,9 @@ export default function Hero() {
         </h1>
 
         {/* Sub-headline */}
-        <p className="text-lg sm:text-xl text-white/50 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+        <p className="text-lg sm:text-xl text-white/55 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
           A K–12 academy that merges world-class academic rigour with{" "}
-          <span className="text-white/80 font-medium">
+          <span className="text-white/85 font-medium">
             AI-integrated curriculum
           </span>{" "}
           — equipping students with the knowledge, skills, and character to lead
@@ -69,7 +69,7 @@ export default function Hero() {
               <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1">
                 {stat.value}
               </div>
-              <div className="text-xs text-white/35 uppercase tracking-widest font-medium">
+              <div className="text-xs text-white/40 uppercase tracking-widest font-medium">
                 {stat.label}
               </div>
             </div>

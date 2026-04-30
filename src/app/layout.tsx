@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { brand } from "@/config/brand";
 import GlobalBackground from "@/components/GlobalBackground";
+import GlobalDebug from "@/components/GlobalDebug";
 
 export const metadata: Metadata = {
   title: `${brand.name} — ${brand.tagline}`,
@@ -26,6 +27,8 @@ export default function RootLayout({
         {/* Site-wide animated WebGL background — fixed behind all content */}
         <GlobalBackground />
         {children}
+        {/* Dev-only background mode indicator — activate with ?debug=bg */}
+        <GlobalDebug />
       </body>
     </html>
   );

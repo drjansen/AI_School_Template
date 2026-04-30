@@ -10,10 +10,11 @@ import { useEffect, useRef } from "react";
  *
  * ## How to tweak parameters
  * Edit the constants block inside the `useEffect` below:
- *   - `STAR_COUNT`       — number of star particles (default 2500)
- *   - `NEBULA_COUNT`     — number of large nebula blob particles (default 80)
- *   - `ROTATION_SPEED`  — radians/s for the star-sphere drift (default 0.022)
- *   - `TWINKLE_SPEED`   — multiplier for twinkle oscillation (default 0.6)
+ *   - `STAR_COUNT`       — number of star particles (desktop: 3500, mobile: 1500)
+ *   - `NEBULA_COUNT`     — number of large nebula blob particles (desktop: 140, mobile: 60)
+ *   - `ROTATION_SPEED`  — radians/s for the star-sphere drift (default 0.070)
+ *   - `TWINKLE_SPEED`   — multiplier for twinkle oscillation (default 1.2)
+ *   - `NEBULA_ALPHA`    — peak nebula blob opacity (default 0.32; raise for more visibility)
  *   - `MAX_PIXEL_RATIO` — caps devicePixelRatio for mobile (default 1.5)
  *
  * ## Reduced-motion / WebGL fallback
@@ -24,6 +25,7 @@ import { useEffect, useRef } from "react";
  * ## Performance notes
  * - Animation pauses when the browser tab is hidden (`visibilitychange`).
  * - Pixel ratio is capped at MAX_PIXEL_RATIO to protect mobile GPUs.
+ * - Star/nebula count is automatically reduced on small screens.
  * - Three.js is loaded via a dynamic import so it does not block initial render.
  */
 export default function NebulaBackground() {
@@ -42,11 +44,20 @@ export default function NebulaBackground() {
       testCanvas.getContext("experimental-webgl");
     if (!gl) return; // keep CSS fallback
 
+    // ── Adaptive quality based on screen size ────────────────────────────
+    const isMobile = window.innerWidth < 768;
+
     // ── Tunable parameters ────────────────────────────────────────────────
-    const STAR_COUNT = 2500;
-    const NEBULA_COUNT = 80;
-    const ROTATION_SPEED = 0.022; // radians per second
-    const TWINKLE_SPEED = 0.6;
+    const STAR_COUNT = isMobile ? 1500 : 3500;
+    const NEBULA_COUNT = isMobile ? 60 : 140;
+    const ROTATION_SPEED = 0.070;       // radians per second — noticeably alive
+    const TWINKLE_SPEED = 1.2;          // stronger twinkle oscillation
+    const NEBULA_ALPHA = 0.32;          // peak nebula blob opacity (was 0.12)
+    const NEBULA_PULSE_SPEED = 0.22;    // frequency of nebula blob pulse cycle
+    const CAMERA_DRIFT_SPEED_X = 0.07;  // camera sway frequency on X axis
+    const CAMERA_DRIFT_SPEED_Y = 0.05;  // camera sway frequency on Y axis
+    const CAMERA_DRIFT_AMOUNT_X = 2.5;  // peak camera displacement on X (units)
+    const CAMERA_DRIFT_AMOUNT_Y = 1.8;  // peak camera displacement on Y (units)
     const MAX_PIXEL_RATIO = 1.5;
     const MAX_FRAME_TIME = 0.05; // seconds — caps delta-time to prevent jumps after hidden tab
 
@@ -93,10 +104,10 @@ export default function NebulaBackground() {
         // 90% tiny pinpoints, 10% slightly larger
         starSizes[i] =
           Math.random() < 0.9
-            ? Math.random() * 1.2 + 0.4
-            : Math.random() * 2.5 + 1.5;
+            ? Math.random() * 1.4 + 0.5
+            : Math.random() * 3.0 + 1.8;
         starPhases[i] = Math.random() * Math.PI * 2;
-        starBrightness[i] = Math.random() * 0.5 + 0.5; // 0.5–1.0
+        starBrightness[i] = Math.random() * 0.4 + 0.6; // 0.6–1.0 (brighter)
       }
 
       const starGeometry = new THREE.BufferGeometry();
@@ -117,6 +128,15 @@ export default function NebulaBackground() {
         new THREE.BufferAttribute(starBrightness, 1)
       );
 
+      const starGold = new Float32Array(STAR_COUNT); // 0 = cool white, 1 = warm gold
+      for (let i = 0; i < STAR_COUNT; i++) {
+        starGold[i] = Math.random() < 0.12 ? 1.0 : 0.0; // ~12% golden stars
+      }
+      starGeometry.setAttribute(
+        "aGold",
+        new THREE.BufferAttribute(starGold, 1)
+      );
+
       const starMaterial = new THREE.ShaderMaterial({
         uniforms: {
           uTime: { value: 0 },
@@ -127,11 +147,14 @@ export default function NebulaBackground() {
           attribute float aSize;
           attribute float aPhase;
           attribute float aBrightness;
+          attribute float aGold;
           varying float vAlpha;
+          varying float vGold;
 
           void main() {
-            float twinkle = 0.55 + 0.45 * sin(uTime * ${TWINKLE_SPEED.toFixed(2)} + aPhase);
+            float twinkle = 0.45 + 0.55 * sin(uTime * ${TWINKLE_SPEED.toFixed(2)} + aPhase);
             vAlpha = aBrightness * twinkle;
+            vGold = aGold;
 
             vec4 mv = modelViewMatrix * vec4(position, 1.0);
             gl_PointSize = aSize * (300.0 / -mv.z);
@@ -140,15 +163,18 @@ export default function NebulaBackground() {
         `,
         fragmentShader: /* glsl */ `
           varying float vAlpha;
+          varying float vGold;
 
           void main() {
             vec2 coord = gl_PointCoord - vec2(0.5);
             float dist = length(coord);
             if (dist > 0.5) discard;
-            float edge = smoothstep(0.5, 0.15, dist);
-            // Slightly warm-white core, cooler edges
-            vec3 color = mix(vec3(0.80, 0.90, 1.00), vec3(1.00, 1.00, 1.00), edge);
-            gl_FragColor = vec4(color, edge * vAlpha * 0.95);
+            float edge = smoothstep(0.5, 0.12, dist);
+            // Cool white-blue core → warm gold tint for golden stars
+            vec3 coolColor = mix(vec3(0.78, 0.90, 1.00), vec3(1.00, 1.00, 1.00), edge);
+            vec3 goldColor = mix(vec3(1.00, 0.88, 0.55), vec3(1.00, 0.96, 0.78), edge);
+            vec3 color = mix(coolColor, goldColor, vGold);
+            gl_FragColor = vec4(color, edge * vAlpha);
           }
         `,
         transparent: true,
@@ -166,13 +192,15 @@ export default function NebulaBackground() {
       const nebulaColors = new Float32Array(NEBULA_COUNT * 3);
       const nebulaPhases = new Float32Array(NEBULA_COUNT);
 
-      // Aurora palette: deep indigo, aurora blue, teal-cyan, soft violet
+      // Aurora palette: vivid deep-space colors + warm gold highlights
       const auroraColors = [
-        [0.18, 0.28, 0.72], // deep aurora blue
-        [0.08, 0.45, 0.65], // aurora teal-blue
-        [0.30, 0.18, 0.65], // aurora violet
-        [0.05, 0.38, 0.52], // deep teal
-        [0.22, 0.20, 0.80], // indigo-violet
+        [0.25, 0.45, 1.00], // vivid aurora blue
+        [0.10, 0.65, 0.92], // bright aurora teal-blue
+        [0.60, 0.28, 1.00], // vivid aurora violet
+        [0.05, 0.52, 0.72], // electric deep teal
+        [0.35, 0.28, 1.00], // indigo-violet
+        [0.82, 0.58, 0.14], // warm gold nebula (People of the Stars)
+        [0.68, 0.48, 0.18], // amber-gold cloud
       ];
 
       for (let i = 0; i < NEBULA_COUNT; i++) {
@@ -223,7 +251,7 @@ export default function NebulaBackground() {
 
           void main() {
             vColor = aColor;
-            float pulse = 0.7 + 0.3 * sin(uTime * 0.18 + aPhase);
+            float pulse = 0.65 + 0.35 * sin(uTime * ${NEBULA_PULSE_SPEED.toFixed(2)} + aPhase);
             vAlpha = pulse;
             vec4 mv = modelViewMatrix * vec4(position, 1.0);
             gl_PointSize = aSize * (300.0 / -mv.z);
@@ -238,8 +266,8 @@ export default function NebulaBackground() {
             vec2 coord = gl_PointCoord - vec2(0.5);
             float dist = length(coord);
             if (dist > 0.5) discard;
-            // Very soft Gaussian-like fade
-            float alpha = exp(-dist * dist * 12.0) * vAlpha * 0.12;
+            // Soft Gaussian-like fade — NEBULA_ALPHA raised for visibility
+            float alpha = exp(-dist * dist * 10.0) * vAlpha * ${NEBULA_ALPHA.toFixed(2)};
             gl_FragColor = vec4(vColor, alpha);
           }
         `,
@@ -268,11 +296,16 @@ export default function NebulaBackground() {
         starMaterial.uniforms.uTime.value = t;
         nebulaMaterial.uniforms.uTime.value = t;
 
-        // Very slow star-sphere rotation (the "drift")
-        stars.rotation.y = t * ROTATION_SPEED * 0.4;
-        stars.rotation.x = t * ROTATION_SPEED * 0.15;
-        nebulaClouds.rotation.y = t * ROTATION_SPEED * 0.25;
-        nebulaClouds.rotation.x = t * ROTATION_SPEED * 0.10;
+        // Star-sphere rotation — noticeably animated (was 0.4/0.15)
+        stars.rotation.y = t * ROTATION_SPEED * 0.7;
+        stars.rotation.x = t * ROTATION_SPEED * 0.25;
+        nebulaClouds.rotation.y = t * ROTATION_SPEED * 0.45;
+        nebulaClouds.rotation.x = t * ROTATION_SPEED * 0.18;
+
+        // Subtle camera parallax drift — gives a "floating in space" feel
+        camera.position.x = Math.sin(t * CAMERA_DRIFT_SPEED_X) * CAMERA_DRIFT_AMOUNT_X;
+        camera.position.y = Math.cos(t * CAMERA_DRIFT_SPEED_Y) * CAMERA_DRIFT_AMOUNT_Y;
+        camera.lookAt(0, 0, 0);
 
         renderer.render(scene, camera);
       }
@@ -335,12 +368,13 @@ export default function NebulaBackground() {
       ref={mountRef}
       className="fixed inset-0 -z-10 pointer-events-none"
       aria-hidden="true"
-      // CSS fallback: shown immediately + as static bg for reduced-motion / no-WebGL
+      // CSS fallback: stronger aurora gradients visible immediately / for reduced-motion
       style={{
         background:
-          "radial-gradient(ellipse at 18% 55%, rgba(30,40,110,0.55) 0%, transparent 55%)," +
-          "radial-gradient(ellipse at 82% 22%, rgba(55,30,120,0.40) 0%, transparent 50%)," +
-          "radial-gradient(ellipse at 50% 90%, rgba(10,60,90,0.35) 0%, transparent 48%)," +
+          "radial-gradient(ellipse at 18% 55%, rgba(55,90,220,0.75) 0%, transparent 55%)," +
+          "radial-gradient(ellipse at 82% 22%, rgba(120,55,220,0.65) 0%, transparent 50%)," +
+          "radial-gradient(ellipse at 50% 90%, rgba(20,100,160,0.55) 0%, transparent 48%)," +
+          "radial-gradient(ellipse at 72% 65%, rgba(180,140,40,0.25) 0%, transparent 38%)," +
           "#05080f",
       }}
     />

@@ -31,10 +31,10 @@ export default function Navbar() {
       style={
         scrolled
           ? {
-              background: "rgba(5, 8, 15, 0.82)",
-              backdropFilter: "blur(20px)",
-              WebkitBackdropFilter: "blur(20px)",
-              borderBottomColor: "rgba(255,255,255,0.06)",
+              background: "rgba(5, 8, 15, 0.80)",
+              backdropFilter: "blur(24px)",
+              WebkitBackdropFilter: "blur(24px)",
+              borderBottomColor: "rgba(212,175,55,0.25)",
             }
           : undefined
       }
@@ -51,7 +51,7 @@ export default function Navbar() {
             className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm select-none"
             style={{
               background: "linear-gradient(135deg, #3b6bff 0%, #8b5cf6 100%)",
-              boxShadow: "0 2px 12px rgba(99,120,255,0.35)",
+              boxShadow: "0 2px 12px rgba(99,120,255,0.35), 0 0 0 1px rgba(212,175,55,0.30)",
             }}
           >
             E
