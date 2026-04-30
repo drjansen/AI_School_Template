@@ -25,55 +25,53 @@ The site features a **site-wide animated star dome + nebula cloud backdrop** imp
 
 The component lives at [`src/components/NebulaBackground.tsx`](src/components/NebulaBackground.tsx) and is loaded via a Client Component wrapper ([`src/components/GlobalBackground.tsx`](src/components/GlobalBackground.tsx)) so Three.js is never included in the server-side bundle.
 
-### How to tweak background parameters
+### How to tune nebula intensity
 
 Open `src/components/NebulaBackground.tsx` and edit the constants block at the top of the `useEffect`:
 
 ```typescript
-const STAR_COUNT = 2500;      // Number of star particles (more = denser sky)
-const NEBULA_COUNT = 80;      // Number of large nebula blob particles
-const ROTATION_SPEED = 0.022; // Radians/s for the slow star-sphere drift
-const TWINKLE_SPEED = 0.6;    // Multiplier for the star-twinkle oscillation
-const MAX_PIXEL_RATIO = 1.5;  // Cap for devicePixelRatio (mobile protection)
+const STAR_COUNT = isMobile ? 1500 : 3500; // More = denser sky (auto-reduced on mobile)
+const NEBULA_COUNT = isMobile ? 60 : 140;  // More = more cloud blobs
+const ROTATION_SPEED = 0.070;       // Radians/s for the star-sphere drift (raise for more motion)
+const TWINKLE_SPEED  = 1.2;         // Multiplier for star-twinkle oscillation
+const NEBULA_ALPHA   = 0.32;        // Peak nebula blob opacity — raise to 0.50 for dramatic look
+const NEBULA_PULSE_SPEED = 0.22;    // Frequency of nebula blob pulse cycle
+const CAMERA_DRIFT_SPEED_X = 0.07;  // Camera sway frequency on X axis
+const CAMERA_DRIFT_SPEED_Y = 0.05;  // Camera sway frequency on Y axis
+const CAMERA_DRIFT_AMOUNT_X = 2.5;  // Peak camera displacement on X (units)
+const CAMERA_DRIFT_AMOUNT_Y = 1.8;  // Peak camera displacement on Y (units)
+const MAX_PIXEL_RATIO = 1.5;        // Cap for devicePixelRatio (mobile GPU protection)
 ```
 
-To change nebula colors, edit the `auroraColors` array in the same file:
+To change nebula/aurora colors, edit the `auroraColors` array in the same file:
 
-```typescript
-const auroraColors = [
-  [0.18, 0.28, 0.72], // deep aurora blue — adjust R, G, B (0.0–1.0)
-  [0.08, 0.45, 0.65], // aurora teal-blue
-  [0.30, 0.18, 0.65], // aurora violet
-  [0.05, 0.38, 0.52], // deep teal
-  [0.22, 0.20, 0.80], // indigo-violet
-];
-```
+### Debug indicator
+
+Add `?debug=bg` to any page URL to show a small overlay confirming whether **WebGL is active** or the **CSS fallback** is being used. Example: `https://yourdomain.com/?debug=bg`
 
 ### Reduced motion / WebGL fallback behavior
 
 | Condition | Behaviour |
 |-----------|-----------|
-| `prefers-reduced-motion: reduce` | Three.js is **not loaded at all**. The mount `<div>` shows a static CSS deep-space radial gradient. |
+| `prefers-reduced-motion: reduce` | Three.js is **not loaded at all**. The mount `<div>` shows a static CSS deep-space radial gradient (vibrant aurora visible). |
 | WebGL unavailable (old browsers, some VMs) | Same as above — static CSS gradient fallback. |
 | Browser tab hidden (`visibilitychange`) | `requestAnimationFrame` loop is **paused** and resumes when the tab becomes visible again. |
-| Mobile / high-DPI screen | Pixel ratio is **capped at 1.5** to protect GPU performance. |
-
-The static CSS fallback gradient (deep indigo + violet + teal aurora tones) is always present on the container `div`, so it is visible instantly before Three.js initialises and as the permanent fallback.
+| Mobile / high-DPI screen | Pixel ratio is **capped at 1.5** and star/nebula counts are automatically halved. |
 
 ### Performance notes
 
 - Three.js is dynamically imported — it is **not included in the initial JS bundle**.
 - The WebGL renderer uses `powerPreference: "low-power"` to prefer integrated GPUs on mobile.
 - The animation uses `requestAnimationFrame` with a delta-time cap of 50 ms to prevent large jumps after background tabs resume.
-- Only ~2500 star + 80 nebula particles are used; no textures or heavy assets are loaded.
+- Star/nebula particle counts scale down automatically on `window.innerWidth < 768`.
 
 ---
 
 ## Design System
 
-### Palette
+### Gold & Aurora tokens (new)
 
-The visual theme is **"clean spacecraft UI / Apple-like minimal"** — futuristic, premium, high clarity. Palette is defined as CSS custom properties in `src/app/globals.css`:
+The visual theme is **"People of the Stars"** — elegant, futuristic, professional; explicitly NOT fantasy. Deep space + vivid aurora + premium gold. Palette is defined as CSS custom properties in `src/app/globals.css`:
 
 | Variable | Value | Use |
 |----------|-------|-----|
@@ -81,6 +79,9 @@ The visual theme is **"clean spacecraft UI / Apple-like minimal"** — futuristi
 | `--aurora-violet` | `#a78bfa` | Secondary accent |
 | `--aurora-cyan` | `#67e8f9` | Highlight accent |
 | `--aurora-teal` | `#2dd4bf` | Data/success accent |
+| `--gold-warm` | `#d4af37` | Premium gold accent (trim/hairline) |
+| `--gold-bright` | `#f0c850` | Bright gold highlight |
+| `--gold-muted` | `#a08228` | Muted/deep gold |
 | `--surface-0` | `#05080f` | Deepest background |
 | `--surface-1` | `#090d18` | Section base |
 | `--surface-2` | `#0d1221` | Elevated card |
@@ -90,14 +91,23 @@ The visual theme is **"clean spacecraft UI / Apple-like minimal"** — futuristi
 | Class | Description |
 |-------|-------------|
 | `.text-gradient` | Gradient text (blue → violet → cyan) |
-| `.card-glass` | Frosted-glass card style |
-| `.eyebrow` | Small-caps section label |
+| `.text-gradient-gold` | Gradient text (amber → gold) |
+| `.card-glass` | Frosted-glass card — gold hairline on hover |
+| `.card-gold-trim` | Frosted-glass card with permanent gold hairline |
+| `.eyebrow` | Small-caps section label (aurora blue) |
+| `.eyebrow-gold` | Small-caps section label (gold) |
 | `.badge-aurora` | Pill badge with aurora border |
-| `.btn-primary` | Primary gradient button |
-| `.btn-ghost` | Ghost/outline button |
-| `.section-dark` | Semi-transparent dark section (lets background breathe through) |
+| `.badge-gold` | Pill badge with premium gold border |
+| `.btn-primary` | Primary gradient button (blue/violet) |
+| `.btn-gold` | Premium gold gradient button |
+| `.btn-ghost` | Ghost/outline button — gold border on hover |
+| `.section-dark` | Semi-transparent dark section (lets backdrop breathe) |
 | `.section-mid` | Slightly lighter semi-transparent section |
-| `.aurora-divider` | Gradient horizontal divider |
+| `.aurora-divider` | Gradient horizontal divider (aurora) |
+| `.gold-divider` | Gradient horizontal divider (gold hairline) |
+| `.gold-trim` | 1px gold border on all sides |
+| `.gold-trim-top` | 1px gold border on top only |
+| `.gold-trim-bottom` | 1px gold border on bottom only |
 
 ---
 
