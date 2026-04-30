@@ -1,13 +1,10 @@
+"use client";
 import { brand } from "@/config/brand";
-
-const stats = [
-  { value: "AI ×", label: "K-Culture Mission" },
-  { value: "Korea", label: "First Focus" },
-  { value: "Moodle", label: "LMS Powered" },
-  { value: "Seoul", label: "South Korea" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="hero"
@@ -32,38 +29,34 @@ export default function Hero() {
             style={{ background: "#d4af37" }}
             aria-hidden="true"
           />
-          Now Accepting Inquiries — Seoul, South Korea
+          {t.hero.badge}
         </div>
 
         {/* Headline */}
         <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-bold tracking-tight leading-[1.08] mb-7">
           <span className="text-white">{brand.name}</span>
           <br />
-          <span className="text-gradient-gold">{brand.tagline}</span>
+          <span className="text-gradient-gold">{t.hero.tagline}</span>
         </h1>
 
         {/* Sub-headline */}
         <p className="text-lg sm:text-xl text-white/55 max-w-2xl mx-auto mb-12 leading-relaxed font-light font-sans-ui">
-          An Alternative Educational Institution where students build{" "}
-          <span className="text-white/85 font-medium">
-            academic and character foundations
-          </span>{" "}
-          — advancing K-culture and Korea&apos;s educational industry for the AI era.
+          {t.hero.subheadline}
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
           <a href="#cta" className="w-full sm:w-auto btn-gold">
-            Submit an Inquiry
+            {t.hero.ctaPrimary}
           </a>
           <a href="#pathway" className="w-full sm:w-auto btn-ghost">
-            Explore Pathways
+            {t.hero.ctaSecondary}
           </a>
         </div>
 
         {/* Stats row */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-xl mx-auto">
-          {stats.map((stat) => (
+          {t.hero.stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-2xl sm:text-3xl font-bold text-gradient-gold mb-1 font-sans-ui">
                 {stat.value}
@@ -83,7 +76,7 @@ export default function Hero() {
         aria-hidden="true"
       >
         <span className="text-[10px] uppercase tracking-[0.2em] font-medium font-sans-ui">
-          Scroll
+          {t.hero.scroll}
         </span>
         <svg
           className="w-3.5 h-3.5 animate-bounce"

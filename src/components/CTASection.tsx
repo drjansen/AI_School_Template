@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { brand } from "@/config/brand";
 import { isValidName, isValidEmail } from "@/lib/validation";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface FormData {
   name: string;
@@ -16,16 +17,10 @@ interface FormErrors {
   email?: string;
 }
 
-const gradeOptions = [
-  "Elementary (Grades 1–3)",
-  "Elementary (Grades 4–6)",
-  "Middle (Grades 7–9)",
-  "High (Grades 10–12)",
-  "Not yet enrolled age",
-  "Other / Multiple students",
-];
+const ctaIcons = ["📚", "🗺", "📅"];
 
 export default function CTASection() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -40,10 +35,10 @@ export default function CTASection() {
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
     if (!isValidName(formData.name)) {
-      newErrors.name = "Please enter your full name.";
+      newErrors.name = t.cta.form.nameError;
     }
     if (!isValidEmail(formData.email)) {
-      newErrors.email = "Please enter a valid email address.";
+      newErrors.email = t.cta.form.emailError;
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -63,12 +58,12 @@ export default function CTASection() {
         setStatus("success");
       } else {
         const data = await res.json();
-        setErrorMessage(data.error ?? "Something went wrong. Please try again.");
+        setErrorMessage(data.error ?? t.cta.form.errorGeneric);
         setStatus("error");
       }
     } catch (error) {
       console.error("[CTASection] Form submission failed:", error);
-      setErrorMessage("Unable to submit. Please check your connection and try again.");
+      setErrorMessage(t.cta.form.errorGeneric);
       setStatus("error");
     }
   };
@@ -97,38 +92,20 @@ export default function CTASection() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left: copy */}
           <div>
-            <p className="eyebrow-gold mb-5">Connect with Eldarin Institute</p>
+            <p className="eyebrow-gold mb-5">{t.cta.eyebrow}</p>
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
-              Ready to join Korea&apos;s{" "}
-              <span className="text-gradient-gold">AI-era education?</span>
+              {t.cta.h2a}{" "}
+              <span className="text-gradient-gold">{t.cta.h2b}</span>
             </h2>
             <p className="text-white/45 text-lg mb-10 leading-relaxed font-light font-sans-ui">
-              Submit an inquiry to learn more about Eldarin Institute — our curriculum,
-              the Eldarin Operating Model, domestic pathway alignment, and enrollment.
-              A member of our team will be in touch within two business days.
+              {t.cta.sub}
             </p>
 
             <div className="space-y-5">
-              {[
-                {
-                  icon: "📚",
-                  title: "Curriculum & Operating Model Overview",
-                  desc: "AI-integrated subjects, K-culture studio, Moodle LMS, and Adaptive Literacy details.",
-                },
-                {
-                  icon: "🗺",
-                  title: "Domestic Pathway Alignment",
-                  desc: "How our program aligns with Korean AI and K-culture university majors.",
-                },
-                {
-                  icon: "📅",
-                  title: "Family Consultation",
-                  desc: "We will follow up to schedule a one-on-one call with our team.",
-                },
-              ].map((item) => (
+              {t.cta.items.map((item, i) => (
                 <div key={item.title} className="flex items-start gap-4">
                   <span className="text-xl flex-shrink-0 mt-0.5" aria-hidden="true">
-                    {item.icon}
+                    {ctaIcons[i]}
                   </span>
                   <div>
                     <div className="text-white/80 font-semibold text-sm mb-0.5">
@@ -141,7 +118,7 @@ export default function CTASection() {
             </div>
 
             <p className="mt-10 text-white/30 text-sm font-sans-ui">
-              Prefer email?{" "}
+              {t.cta.preferEmail}{" "}
               <a
                 href={`mailto:${brand.contact.email}`}
                 className="hover:text-white/55 transition-colors"
@@ -173,15 +150,15 @@ export default function CTASection() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Inquiry Received</h3>
+                <h3 className="text-2xl font-bold text-white mb-3">{t.cta.form.successTitle}</h3>
                 <p className="text-white/45 leading-relaxed text-sm font-light font-sans-ui">
-                  Thank you,{" "}
-                  <strong className="text-white/80 font-semibold">{formData.name}</strong>.
-                  Our team will be in touch at{" "}
+                  {t.cta.form.successBody}{" "}
+                  <strong className="text-white/80 font-semibold">{formData.name}</strong>.{" "}
+                  {t.cta.form.successBodyAt}{" "}
                   <strong className="font-semibold" style={{ color: "#d4af37" }}>
                     {formData.email}
                   </strong>{" "}
-                  within two business days.
+                  {t.cta.form.successBodySuffix}
                 </p>
                 <button
                   className="mt-6 text-sm text-white/25 hover:text-white/50 transition-colors underline"
@@ -190,21 +167,21 @@ export default function CTASection() {
                     setFormData({ name: "", email: "", phone: "", childGrade: "", message: "" });
                   }}
                 >
-                  Submit another request
+                  {t.cta.form.submitAnother}
                 </button>
               </div>
             ) : (
               <>
-                <h3 className="text-lg font-bold text-white mb-1">Submit an Inquiry</h3>
+                <h3 className="text-lg font-bold text-white mb-1">{t.cta.form.title}</h3>
                 <p className="text-white/35 text-sm mb-6 font-light font-sans-ui">
-                  Fill in your details and we will be in touch within two business days.
+                  {t.cta.form.subtitle}
                 </p>
 
                 <form onSubmit={handleSubmit} noValidate className="space-y-4">
                   {/* Name */}
                   <div>
                     <label htmlFor="name" className="block text-xs font-medium text-white/50 mb-1.5 tracking-wide">
-                      Full Name <span className="text-rose-400/70" aria-hidden="true">*</span>
+                      {t.cta.form.nameLbl} <span className="text-rose-400/70" aria-hidden="true">*</span>
                     </label>
                     <input
                       id="name"
@@ -213,7 +190,7 @@ export default function CTASection() {
                       autoComplete="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Your full name"
+                      placeholder={t.cta.form.namePlaceholder}
                       className={inputClass(!!errors.name)}
                       aria-describedby={errors.name ? "name-error" : undefined}
                       aria-invalid={!!errors.name}
@@ -229,7 +206,7 @@ export default function CTASection() {
                   {/* Email */}
                   <div>
                     <label htmlFor="email" className="block text-xs font-medium text-white/50 mb-1.5 tracking-wide">
-                      Email Address <span className="text-rose-400/70" aria-hidden="true">*</span>
+                      {t.cta.form.emailLbl} <span className="text-rose-400/70" aria-hidden="true">*</span>
                     </label>
                     <input
                       id="email"
@@ -238,7 +215,7 @@ export default function CTASection() {
                       autoComplete="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="you@example.com"
+                      placeholder={t.cta.form.emailPlaceholder}
                       className={inputClass(!!errors.email)}
                       aria-describedby={errors.email ? "email-error" : undefined}
                       aria-invalid={!!errors.email}
@@ -254,8 +231,8 @@ export default function CTASection() {
                   {/* Phone */}
                   <div>
                     <label htmlFor="phone" className="block text-xs font-medium text-white/50 mb-1.5 tracking-wide">
-                      Phone Number{" "}
-                      <span className="text-white/25 text-xs font-light">(optional)</span>
+                      {t.cta.form.phoneLbl}{" "}
+                      <span className="text-white/25 text-xs font-light">{t.cta.form.phoneOptional}</span>
                     </label>
                     <input
                       id="phone"
@@ -264,7 +241,7 @@ export default function CTASection() {
                       autoComplete="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+82 10 0000 0000"
+                      placeholder={t.cta.form.phonePlaceholder}
                       className={inputClass()}
                     />
                   </div>
@@ -272,8 +249,8 @@ export default function CTASection() {
                   {/* Grade */}
                   <div>
                     <label htmlFor="childGrade" className="block text-xs font-medium text-white/50 mb-1.5 tracking-wide">
-                      Child&apos;s Current Grade Level{" "}
-                      <span className="text-white/25 text-xs font-light">(optional)</span>
+                      {t.cta.form.gradeLbl}{" "}
+                      <span className="text-white/25 text-xs font-light">{t.cta.form.gradeOptional}</span>
                     </label>
                     <select
                       id="childGrade"
@@ -283,8 +260,8 @@ export default function CTASection() {
                       className={inputClass() + " appearance-none"}
                       style={{ colorScheme: "dark" }}
                     >
-                      <option value="">Select grade level…</option>
-                      {gradeOptions.map((opt) => (
+                      <option value="">{t.cta.form.gradeDefault}</option>
+                      {t.cta.form.gradeOptions.map((opt) => (
                         <option key={opt} value={opt}>{opt}</option>
                       ))}
                     </select>
@@ -293,8 +270,8 @@ export default function CTASection() {
                   {/* Message */}
                   <div>
                     <label htmlFor="message" className="block text-xs font-medium text-white/50 mb-1.5 tracking-wide">
-                      Message or Questions{" "}
-                      <span className="text-white/25 text-xs font-light">(optional)</span>
+                      {t.cta.form.messageLbl}{" "}
+                      <span className="text-white/25 text-xs font-light">{t.cta.form.messageOptional}</span>
                     </label>
                     <textarea
                       id="message"
@@ -302,7 +279,7 @@ export default function CTASection() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={3}
-                      placeholder="Any questions or context you'd like to share…"
+                      placeholder={t.cta.form.messagePlaceholder}
                       className={inputClass() + " resize-none"}
                     />
                   </div>
@@ -331,7 +308,7 @@ export default function CTASection() {
                       color: "#08122a",
                       boxShadow: "0 4px 20px rgba(212,175,55,0.25)",
                     }}
-                    aria-label="Submit inquiry"
+                    aria-label={t.cta.form.submit}
                   >
                     {status === "loading" ? (
                       <span className="flex items-center justify-center gap-2">
@@ -339,15 +316,15 @@ export default function CTASection() {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
                         </svg>
-                        Sending…
+                        {t.cta.form.submitting}
                       </span>
                     ) : (
-                      "Submit Inquiry →"
+                      t.cta.form.submit
                     )}
                   </button>
 
                   <p className="text-white/20 text-xs text-center">
-                    We respect your privacy. No spam, ever.
+                    {t.cta.form.privacy}
                   </p>
                 </form>
               </>
