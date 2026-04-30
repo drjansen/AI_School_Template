@@ -53,7 +53,7 @@ export default function Navbar() {
                     aria-label={`${brand.name} home`}
                 >
                     <div
-                        className="h-10 w-24 rounded-xl overflow-hidden flex items-center justify-center"
+                        className="h-20 w-48 rounded-xl overflow-hidden flex items-center justify-center"
                         style={{
                             background: "rgba(8, 18, 42, 0.35)",
                             boxShadow:
