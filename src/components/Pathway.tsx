@@ -16,7 +16,15 @@ const pathways = [
       "AI-assisted creative production workflows",
     ],
     outcome: "Aligned with K-culture / K-content university departments at institutions including 서원대, 충북대, 신라대, 유원대, 숙명여대, and others.",
-    universities: ["서원대학교", "충북대학교", "신라대학교", "유원대학교", "숙명여자대학교", "동덕여자대학교", "경희대학교"],
+    universities: [
+      { ko: "서원대학교", en: "Seowon University" },
+      { ko: "충북대학교", en: "Chungbuk National University" },
+      { ko: "신라대학교", en: "Silla University" },
+      { ko: "유원대학교", en: "U1 University" },
+      { ko: "숙명여자대학교", en: "Sookmyung Women's University" },
+      { ko: "동덕여자대학교", en: "Dongduk Women's University" },
+      { ko: "경희대학교", en: "Kyung Hee University" },
+    ],
   },
   {
     badge: "AI & Technology",
@@ -35,7 +43,15 @@ const pathways = [
       "Research methodology and capstone projects",
     ],
     outcome: "Aligned with AI / 인공지능 university departments at institutions including 고려대, 중앙대, 서울시립대, 서강대, 숙명여대, 이화여대, and others.",
-    universities: ["고려대학교", "중앙대학교", "서울시립대학교", "서강대학교", "숙명여자대학교", "이화여자대학교", "세종대학교"],
+    universities: [
+      { ko: "고려대학교", en: "Korea University" },
+      { ko: "중앙대학교", en: "Chung-Ang University" },
+      { ko: "서울시립대학교", en: "University of Seoul" },
+      { ko: "서강대학교", en: "Sogang University" },
+      { ko: "숙명여자대학교", en: "Sookmyung Women's University" },
+      { ko: "이화여자대학교", en: "Ewha Womans University" },
+      { ko: "세종대학교", en: "Sejong University" },
+    ],
   },
   {
     badge: "AI × K-Culture Fusion",
@@ -54,7 +70,13 @@ const pathways = [
       "Industry mentorship and peer review",
     ],
     outcome: "Positioned for interdisciplinary programs and dual-track pathways bridging AI and cultural content sectors at leading Korean institutions.",
-    universities: ["경기대학교", "서울여자대학교", "서경대학교", "한양대학교 ERICA", "영산대학교"],
+    universities: [
+      { ko: "경기대학교", en: "Kyonggi University" },
+      { ko: "서울여자대학교", en: "Seoul Women's University" },
+      { ko: "서경대학교", en: "Seokyeong University" },
+      { ko: "한양대학교 ERICA", en: "Hanyang University ERICA" },
+      { ko: "영산대학교", en: "Youngsan University" },
+    ],
   },
 ];
 
@@ -142,7 +164,10 @@ export default function Pathway() {
                   <div className="mt-3 flex flex-wrap gap-1.5">
                     {pathway.universities.map((uni) => (
                       <span
-                        key={uni}
+                        key={uni.ko}
+                        lang="ko"
+                        title={uni.en}
+                        aria-label={`${uni.ko} (${uni.en})`}
                         className="text-xs px-2 py-0.5 rounded-md font-sans-ui"
                         style={{
                           background: "rgba(255,255,255,0.04)",
@@ -150,7 +175,7 @@ export default function Pathway() {
                           color: "rgba(255,255,255,0.40)",
                         }}
                       >
-                        {uni}
+                        {uni.ko}
                       </span>
                     ))}
                   </div>

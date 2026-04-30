@@ -2,7 +2,7 @@ const courses = [
   {
     subject: "K-Culture Studio",
     course: "K-Content Creation + AI Production Lab",
-    level: "All Grades",
+    level: "All Grade Levels (K-12)",
     tag: "K-Culture",
     tagColor: { bg: "rgba(212,175,55,0.08)", text: "#d4af37", border: "rgba(212,175,55,0.25)" },
     description:
@@ -14,7 +14,7 @@ const courses = [
   {
     subject: "AI Literacy",
     course: "Adaptive Literacy Skills Development (ALSD)",
-    level: "All Grades",
+    level: "All Grade Levels (K-12)",
     tag: "Foundation",
     tagColor: { bg: "rgba(52,211,153,0.08)", text: "#34d399", border: "rgba(52,211,153,0.22)" },
     description:
@@ -26,7 +26,7 @@ const courses = [
   {
     subject: "Mathematics",
     course: "Applied Mathematics + AI Modeling Lab",
-    level: "All Grade Levels",
+    level: "All Grade Levels (K-12)",
     tag: "STEM",
     tagColor: { bg: "rgba(123,158,255,0.08)", text: "#7b9eff", border: "rgba(123,158,255,0.22)" },
     description:
@@ -38,7 +38,7 @@ const courses = [
   {
     subject: "Korean & English",
     course: "Bilingual Communication + AI Rhetoric Studio",
-    level: "All Grade Levels",
+    level: "All Grade Levels (K-12)",
     tag: "Languages",
     tagColor: { bg: "rgba(103,232,249,0.08)", text: "#67e8f9", border: "rgba(103,232,249,0.22)" },
     description:
