@@ -7,7 +7,7 @@ import GlobalDebug from "@/components/GlobalDebug";
 export const metadata: Metadata = {
   title: `${brand.name} — ${brand.tagline}`,
   description: brand.description,
-  keywords: ["AI school", "K-12 academy", "South Korea", "international school", "AI curriculum", "Western university", "Eldarin School"],
+  keywords: ["AI education", "K-culture", "alternative educational institution", "South Korea", "AI curriculum", "Korean university pathways", "Eldarin Institute", "eldarin.ai"],
   openGraph: {
     title: `${brand.name} — ${brand.tagline}`,
     description: brand.description,
@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="font-sans antialiased text-slate-100" style={{ backgroundColor: "#05080f" }}>
+      <body className="font-sans antialiased text-slate-100" style={{ backgroundColor: "#08122a" }}>
         {/* Site-wide animated WebGL background — fixed behind all content */}
         <GlobalBackground />
         {children}

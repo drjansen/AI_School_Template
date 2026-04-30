@@ -4,9 +4,9 @@ import { brand } from "@/config/brand";
 
 const navLinks = [
   { href: "#mission", label: "Mission" },
-  { href: "#pathway", label: "K–12 Pathway" },
+  { href: "#pathway", label: "Pathways" },
   { href: "#curriculum", label: "Curriculum" },
-  { href: "#outcomes", label: "Outcomes" },
+  { href: "#outcomes", label: "Operating Model" },
   { href: "#faq", label: "FAQ" },
 ];
 
@@ -31,10 +31,10 @@ export default function Navbar() {
       style={
         scrolled
           ? {
-              background: "rgba(5, 8, 15, 0.80)",
+              background: "rgba(8, 18, 42, 0.88)",
               backdropFilter: "blur(24px)",
               WebkitBackdropFilter: "blur(24px)",
-              borderBottomColor: "rgba(212,175,55,0.25)",
+              borderBottomColor: "rgba(212,175,55,0.28)",
             }
           : undefined
       }
@@ -48,10 +48,11 @@ export default function Navbar() {
         >
           {/* Logotype mark */}
           <div
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm select-none"
+            className="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm select-none"
             style={{
-              background: "linear-gradient(135deg, #3b6bff 0%, #8b5cf6 100%)",
-              boxShadow: "0 2px 12px rgba(99,120,255,0.35), 0 0 0 1px rgba(212,175,55,0.30)",
+              background: "linear-gradient(135deg, #b8962e 0%, #d4af37 100%)",
+              boxShadow: "0 2px 12px rgba(212,175,55,0.35), 0 0 0 1px rgba(212,175,55,0.40)",
+              color: "#08122a",
             }}
           >
             E
@@ -60,7 +61,7 @@ export default function Navbar() {
             {brand.shortName}
           </span>
           <span className="hidden sm:inline text-white/30 text-sm font-light tracking-wide">
-            School
+            Institute
           </span>
         </a>
 
@@ -81,14 +82,15 @@ export default function Navbar() {
         {/* CTA */}
         <a
           href="#cta"
-          className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-white transition-all"
+          className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all"
           style={{
-            background: "linear-gradient(135deg, #3b6bff 0%, #6d4aff 100%)",
-            boxShadow: "0 2px 12px rgba(99,120,255,0.30)",
+            background: "linear-gradient(135deg, #b8962e 0%, #d4af37 100%)",
+            color: "#08122a",
+            boxShadow: "0 2px 12px rgba(212,175,55,0.30)",
           }}
-          aria-label="Request prospectus"
+          aria-label="Make an inquiry"
         >
-          Request Prospectus
+          Inquire Now
         </a>
 
         {/* Hamburger */}
@@ -129,10 +131,10 @@ export default function Navbar() {
         <div
           className="md:hidden border-t"
           style={{
-            background: "rgba(5, 8, 15, 0.96)",
+            background: "rgba(8, 18, 42, 0.96)",
             backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
-            borderTopColor: "rgba(255,255,255,0.06)",
+            borderTopColor: "rgba(212,175,55,0.12)",
           }}
         >
           <ul className="flex flex-col px-5 py-4 gap-0.5" role="list">
@@ -150,13 +152,14 @@ export default function Navbar() {
             <li className="mt-3">
               <a
                 href="#cta"
-                className="block py-3 px-3 text-sm text-center font-semibold text-white rounded-lg transition-all"
+                className="block py-3 px-3 text-sm text-center font-semibold rounded-lg transition-all"
                 style={{
-                  background: "linear-gradient(135deg, #3b6bff 0%, #6d4aff 100%)",
+                  background: "linear-gradient(135deg, #b8962e 0%, #d4af37 100%)",
+                  color: "#08122a",
                 }}
                 onClick={() => setMenuOpen(false)}
               >
-                Request Prospectus
+                Inquire Now
               </a>
             </li>
           </ul>
