@@ -608,7 +608,7 @@ export const en: Translations = {
           heading: "4. Data Storage and Security",
           body: [
             "Inquiry data is handled in accordance with the Korean Personal Information Protection Act (PIPA, 개인정보 보호법). Data is retained only as long as necessary to fulfill the stated purpose.",
-            "We apply reasonable technical and organisational safeguards to protect your data from unauthorised access, disclosure, or loss.",
+            "We apply reasonable technical and organizational safeguards to protect your data from unauthorized access, disclosure, or loss.",
           ],
         },
         {
