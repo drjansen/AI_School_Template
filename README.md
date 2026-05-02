@@ -1,6 +1,6 @@
-# Eldarin School — Marketing Website
+# Eldarin Institute — Marketing Website
 
-A modern, AI-forward K–12 academy marketing website built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS**, and a **Three.js WebGL animated background**.
+A modern, AI-forward alternative educational institution marketing website built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS**, and a **Three.js WebGL animated background**.
 
 ---
 
@@ -8,10 +8,10 @@ A modern, AI-forward K–12 academy marketing website built with **Next.js 16 (A
 
 | Field | Value |
 |-------|-------|
-| School name | Eldarin School |
-| Domain (placeholder) | eldarinschool.ai |
-| Tagline | Raising AI-literate global leaders. |
-| Audience | South Korea-based families seeking Western university pathways |
+| Institute name | Eldarin Institute |
+| Domain | eldarin.ai |
+| Tagline | Advancing K-culture for the AI era. |
+| Audience | South Korea-based families seeking domestic AI/K-culture university pathways |
 
 All brand values are centralised in [`src/config/brand.ts`](src/config/brand.ts).
 
@@ -209,12 +209,12 @@ Returns `{ success: true }` on valid submission. In production, connect this to 
 ### Updating the site (standard workflow)
 
 ```bash
-cd /opt/eldarinschool
+cd /opt/eldarin
 git checkout main
 git pull
 npm install
 npm run build
-pm2 restart eldarinschool
+pm2 restart eldarin
 ```
 
 ### Initial setup
@@ -237,8 +237,8 @@ sudo npm install -g pm2
 
 ```bash
 cd /opt
-sudo git clone https://github.com/drjansen/operation_juggernaut.git eldarinschool
-cd eldarinschool
+sudo git clone https://github.com/drjansen/operation_juggernaut.git eldarin
+cd eldarin
 npm install
 npm run build
 ```
@@ -246,18 +246,18 @@ npm run build
 #### 4. Start with PM2
 
 ```bash
-pm2 start npm --name "eldarinschool" -- start
+pm2 start npm --name "eldarin" -- start
 pm2 save
 pm2 startup   # follow the printed command to enable autostart
 ```
 
 #### 5. HTTPS with Certbot
 
-> **Note:** Replace `eldarinschool.icsportals.org` below with your actual domain.
+> **Note:** Replace `eldarin.ai` below with your actual domain.
 
 ```bash
 sudo apt install certbot python3-certbot-nginx -y
-sudo certbot --nginx -d eldarinschool.icsportals.org
+sudo certbot --nginx -d eldarin.ai
 ```
 
 ---
@@ -266,5 +266,5 @@ sudo certbot --nginx -d eldarinschool.icsportals.org
 
 - The prospectus form is fully functional client-side (validation + success state). The `/api/prospectus` route logs submissions server-side — hook it to your email/CRM in production.
 - All testimonials, statistics, and program details are **fictional placeholders**.
-- The school accreditation process runs in parallel with [ICS (ics.kr)](https://www.ics.kr).
+- The accreditation process runs in parallel with [ICS (ics.kr)](https://www.ics.kr).
 - Replace placeholder contact details in `src/config/brand.ts` with real info when available.

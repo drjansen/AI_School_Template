@@ -165,9 +165,33 @@ export interface Translations {
       faq: string;
       submitInquiry: string;
     };
+    legalLinks: {
+      terms: string;
+      privacy: string;
+    };
     copyright: string;
     parallel: string;
     parallelLink: string;
     registration: string;
+  };
+  legal: {
+    terms: {
+      title: string;
+      effective: string;
+      backHome: string;
+      sections: Array<{
+        heading: string;
+        body: string[];
+      }>;
+    };
+    privacy: {
+      title: string;
+      effective: string;
+      backHome: string;
+      sections: Array<{
+        heading: string;
+        body: string[];
+      }>;
+    };
   };
 }
