@@ -1,6 +1,28 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isValidName, isValidEmail } from "@/lib/validation";
 
+// ---------------------------------------------------------------------------
+// Simple in-memory rate limiter (single-process; for multi-instance deploys
+// replace with a Redis-backed solution such as @upstash/ratelimit).
+// ---------------------------------------------------------------------------
+const RATE_WINDOW_MS = 60_000; // 1 minute sliding window
+const RATE_MAX_REQUESTS = 5;   // max submissions per IP per window
+
+interface RateRecord { count: number; resetAt: number }
+const ipMap = new Map<string, RateRecord>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const rec = ipMap.get(ip);
+  if (!rec || now > rec.resetAt) {
+    ipMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return false;
+  }
+  if (rec.count >= RATE_MAX_REQUESTS) return true;
+  rec.count++;
+  return false;
+}
+
 interface ProspectusRequest {
   name: string;
   email: string;
@@ -10,6 +32,17 @@ interface ProspectusRequest {
 }
 
 export async function POST(request: NextRequest) {
+  // Derive client IP (X-Forwarded-For is set by Nginx in production)
+  const forwarded = request.headers.get("x-forwarded-for");
+  const ip = forwarded ? forwarded.split(",")[0].trim() : "unknown";
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: "Too many requests. Please wait a minute and try again." },
+      { status: 429 }
+    );
+  }
+
   try {
     const body: ProspectusRequest = await request.json();
 

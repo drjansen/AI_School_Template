@@ -480,9 +480,182 @@ export const en: Translations = {
       faq: "FAQ",
       submitInquiry: "Submit Inquiry",
     },
+    legalLinks: {
+      terms: "Terms of Service",
+      privacy: "Privacy Policy",
+    },
     copyright: "All rights reserved.",
     parallel: "Running parallel to",
     parallelLink: "ICS (ics.kr)",
     registration: "Registration in progress",
+  },
+  legal: {
+    terms: {
+      title: "Terms of Service",
+      effective: "Effective date: 2025-01-01",
+      backHome: "← Back to Home",
+      sections: [
+        {
+          heading: "1. About Eldarin Institute",
+          body: [
+            'Eldarin Institute™ ("Institute", "we", "us") is an Alternative Educational Institution (대안교육기관) operating in Seoul, Republic of Korea. These Terms of Service ("Terms") govern your access to and use of the eldarin.ai website ("Site").',
+          ],
+        },
+        {
+          heading: "2. Acceptance of Terms",
+          body: [
+            "By accessing or using the Site, you agree to be bound by these Terms. If you do not agree, please discontinue use of the Site immediately.",
+          ],
+        },
+        {
+          heading: "3. Services Description",
+          body: [
+            "This Site is an informational and inquiry portal for prospective students and families interested in Eldarin Institute. We do not provide online schooling, distance learning, or any educational services outside the Republic of Korea.",
+            "Enrollment inquiries submitted through this Site are subject to a separate Enrollment Agreement provided during the admissions process.",
+          ],
+        },
+        {
+          heading: "4. Intellectual Property",
+          body: [
+            "All content on this Site — including text, graphics, the Eldarin Institute™ name and mark, curriculum design, and visual assets — is the property of Eldarin Institute and is protected by Korean copyright law (저작권법) and applicable international treaties.",
+            "You may not reproduce, distribute, publicly display, modify, or create derivative works from any Site content without prior written permission from Eldarin Institute.",
+          ],
+        },
+        {
+          heading: "5. Trademark Notice",
+          body: [
+            '"Eldarin™" and "Eldarin Institute™" are trademarks of Eldarin Institute. Trademark registration is currently pending in the Republic of Korea. The ™ symbol is used to assert trademark rights pending formal registration.',
+            "Unauthorized use of these marks in commerce, or any use likely to cause confusion with Eldarin Institute, is strictly prohibited.",
+          ],
+        },
+        {
+          heading: "6. Disclaimer of Warranties",
+          body: [
+            'The Site is provided on an "as-is" and "as-available" basis without warranties of any kind, express or implied.',
+            "Educational pathway and university alignment information is indicative only. University departments, admissions requirements, and program availability change annually. You should always verify information directly with the relevant institution's official 모집요강.",
+          ],
+        },
+        {
+          heading: "7. Limitation of Liability",
+          body: [
+            "To the maximum extent permitted by the laws of the Republic of Korea, Eldarin Institute shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, the Site.",
+          ],
+        },
+        {
+          heading: "8. DMCA / Copyright Takedown",
+          body: [
+            "If you believe that content on this Site infringes your copyright, please send a written takedown notice to info@eldarin.ai including:",
+            "• A description of the copyrighted work you claim has been infringed;",
+            "• The URL or location of the allegedly infringing content on the Site;",
+            "• Your name, mailing address, telephone number, and email address;",
+            "• A statement that you have a good-faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law;",
+            "• A statement, made under penalty of perjury, that the information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner's behalf.",
+            "We will respond to valid notices promptly and take appropriate action in accordance with applicable law.",
+          ],
+        },
+        {
+          heading: "9. Governing Law",
+          body: [
+            "These Terms are governed by and construed in accordance with the laws of the Republic of Korea. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the competent courts of Seoul, Republic of Korea.",
+          ],
+        },
+        {
+          heading: "10. Changes to These Terms",
+          body: [
+            "We may update these Terms at any time. The updated Terms will be posted on this page with a revised effective date. Continued use of the Site after any changes constitutes your acceptance of the revised Terms.",
+          ],
+        },
+        {
+          heading: "11. Contact",
+          body: ["For questions about these Terms, please contact us at: info@eldarin.ai"],
+        },
+      ],
+    },
+    privacy: {
+      title: "Privacy Policy",
+      effective: "Effective date: 2025-01-01",
+      backHome: "← Back to Home",
+      sections: [
+        {
+          heading: "1. Introduction",
+          body: [
+            "Eldarin Institute™ is committed to protecting your personal information. This Privacy Policy explains what data we collect, how we use it, and your rights under Korean law.",
+            "This policy applies to personal data collected through the eldarin.ai website.",
+          ],
+        },
+        {
+          heading: "2. Data We Collect",
+          body: [
+            "We collect only the information you voluntarily provide through our inquiry form:",
+            "• Name (required)",
+            "• Email address (required)",
+            "• Phone number (optional)",
+            "• Child's current grade level (optional)",
+            "• Message or questions (optional)",
+            "We do not collect payment data, health data, biometric data, government ID numbers, or any other sensitive personal information.",
+          ],
+        },
+        {
+          heading: "3. How We Use Your Data",
+          body: [
+            "Your inquiry data is used solely to:",
+            "• Respond to your inquiry and provide information about Eldarin Institute;",
+            "• Follow up regarding enrollment interest.",
+            "We do not sell, rent, share, or disclose your personal data to third parties for marketing or commercial purposes.",
+          ],
+        },
+        {
+          heading: "4. Data Storage and Security",
+          body: [
+            "Inquiry data is handled in accordance with the Korean Personal Information Protection Act (PIPA, 개인정보 보호법). Data is retained only as long as necessary to fulfill the stated purpose.",
+            "We apply reasonable technical and organisational safeguards to protect your data from unauthorised access, disclosure, or loss.",
+          ],
+        },
+        {
+          heading: "5. Third-Party Services",
+          body: [
+            "This Site uses the following third-party services that may process limited data:",
+            "• Google Fonts — font styles are loaded from fonts.googleapis.com. Google may collect usage data per its own privacy policy.",
+            "• Instagram / LinkedIn — if you visit our social media profiles via links on this Site, those platforms' own privacy policies apply.",
+            "We do not use third-party analytics, advertising networks, or tracking pixels.",
+          ],
+        },
+        {
+          heading: "6. Cookies",
+          body: [
+            "This Site uses a single, minimal first-party cookie (eldarin_lang) to remember your language preference (Korean or English). No advertising or tracking cookies are set.",
+          ],
+        },
+        {
+          heading: "7. Your Rights",
+          body: [
+            "Under the Korean Personal Information Protection Act (PIPA), you have the right to:",
+            "• Request access to the personal data we hold about you;",
+            "• Request correction or deletion of inaccurate data;",
+            "• Withdraw consent for data processing at any time.",
+            "To exercise any of these rights, please contact us at info@eldarin.ai.",
+          ],
+        },
+        {
+          heading: "8. Children's Privacy",
+          body: [
+            "Eldarin Institute provides educational services for school-age students. Inquiry forms are intended to be completed by parents or legal guardians, not by minors.",
+            "We do not knowingly collect personal data from children under 14 years of age without verifiable parental consent, in accordance with PIPA.",
+          ],
+        },
+        {
+          heading: "9. Changes to This Policy",
+          body: [
+            "We may update this Privacy Policy from time to time. The revised policy will be posted on this page with an updated effective date.",
+          ],
+        },
+        {
+          heading: "10. Contact",
+          body: [
+            "For privacy-related questions or to exercise your data rights, please contact: info@eldarin.ai",
+          ],
+        },
+      ],
+    },
   },
 };

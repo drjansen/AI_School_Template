@@ -114,7 +114,7 @@ export default function Footer() {
           style={{ borderTopColor: "rgba(212,175,55,0.10)" }}
         >
           <p className="text-white/20 text-xs font-light font-sans-ui">
-            © {new Date().getFullYear()} {brand.name}. {t.footer.copyright}
+            © {new Date().getFullYear()} {brand.name}™. {t.footer.copyright}
             <span className="mx-2">·</span>
             <a
               href={`https://${brand.domain}`}
@@ -124,7 +124,21 @@ export default function Footer() {
               {brand.domain}
             </a>
           </p>
-          <p className="text-white/15 text-xs font-light font-sans-ui">
+          <p className="text-white/15 text-xs font-light font-sans-ui flex flex-wrap items-center gap-x-2 gap-y-1">
+            <a
+              href="/legal/terms"
+              className="hover:text-white/40 transition-colors"
+            >
+              {t.footer.legalLinks.terms}
+            </a>
+            <span>·</span>
+            <a
+              href="/legal/privacy"
+              className="hover:text-white/40 transition-colors"
+            >
+              {t.footer.legalLinks.privacy}
+            </a>
+            <span>·</span>
             {t.footer.parallel}{" "}
             <a
               href="https://www.ics.kr"
