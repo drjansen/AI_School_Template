@@ -71,6 +71,26 @@ export const ko: Translations = {
       ],
     },
   },
+  leadership: {
+    eyebrow: "리더십 소개",
+    h2a: "디렉터",
+    h2b: "스포트라이트",
+    intro:
+      "Eldarin의 전환 전략은 보안 중심 운영과 실무형 AI 도입을 균형 있게 추진하는 리더십 아래 실행됩니다.",
+    name: "Dr. Jansen",
+    title: "Director of Cyber Security and AI Transformation",
+    summary:
+      "Dr. Jansen은 교육 및 운영 전반에서 사이버 회복탄력성, 디지털 보호 체계, AI 현대화를 총괄합니다. 정책, 아키텍처, 실행을 연결해 모든 혁신이 안전하고 측정 가능하며 기관 미션과 정렬되도록 이끕니다.",
+    vision:
+      "현재는 책임 있는 AI 활용, 교직원·학생 역량 강화, 그리고 신뢰·컴플라이언스·교육 성과를 함께 달성하는 거버넌스 체계 고도화에 집중하고 있습니다.",
+    photoAlt: "Dr. Jansen의 프로필 사진 — Director of Cyber Security and AI Transformation",
+    highlights: [
+      "사이버 전략 및 리스크 총괄",
+      "책임 있는 AI 거버넌스와 실행",
+      "학교 전반의 디지털 전환 리더십",
+      "Secure-by-design 기반 프로그램 운영",
+    ],
+  },
   pathway: {
     eyebrow: "국내 진로",
     h2a: "한국 중심.",

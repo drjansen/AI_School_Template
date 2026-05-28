@@ -36,6 +36,18 @@ export interface Translations {
       traits: string[];
     };
   };
+  leadership: {
+    eyebrow: string;
+    h2a: string;
+    h2b: string;
+    intro: string;
+    name: string;
+    title: string;
+    summary: string;
+    vision: string;
+    photoAlt: string;
+    highlights: string[];
+  };
   pathway: {
     eyebrow: string;
     h2a: string;
