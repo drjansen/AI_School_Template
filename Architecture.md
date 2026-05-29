@@ -1,6 +1,6 @@
 # Architecture Guide (Where to Edit What)
 
-This site is a **Next.js (App Router) + React + TypeScript** marketing site.
+This site is a **Next.js 16 (App Router) + React + TypeScript** marketing site.
 If you mostly edit homepage content, start with:
 
 - `src/app/page.tsx` (homepage section order)
