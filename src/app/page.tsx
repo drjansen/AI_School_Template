@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Mission from "@/components/Mission";
+import LeadershipSpotlight from "@/components/LeadershipSpotlight";
 import Pathway from "@/components/Pathway";
 import Curriculum from "@/components/Curriculum";
 import Outcomes from "@/components/Outcomes";
@@ -20,6 +21,7 @@ export default function Home() {
       <main id="main-content">
         <Hero />
         <Mission />
+        <LeadershipSpotlight />
         <Pathway />
         <Curriculum />
         <Outcomes />
