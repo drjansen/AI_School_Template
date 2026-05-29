@@ -15,7 +15,7 @@ export const ko: Translations = {
     toggleLang: "Switch to English",
   },
   hero: {
-    badge: "입학 문의 접수 중 — 서울, 대한민국",
+    badge: "입학 문의 접수 중 - 청나동, 대한민국",
     tagline: "AI 시대를 위한 K-문화 발전.",
     subheadline:
       "학생들이 학문적·인성적 기반을 다지는 대안 교육기관 — AI 시대를 위해 K-문화와 한국 교육 산업을 발전시킵니다.",

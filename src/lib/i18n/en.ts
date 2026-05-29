@@ -15,7 +15,7 @@ export const en: Translations = {
     toggleLang: "한국어로 보기",
   },
   hero: {
-    badge: "Now Accepting Inquiries — Seoul, South Korea",
+    badge: "Now Accepting Inquiries - Cheongna-dong, South Korea",
     tagline: "Advancing K-culture for the AI era.",
     subheadline:
       "An Alternative Educational Institution where students build academic and character foundations — advancing K-culture and Korea's educational industry for the AI era.",
