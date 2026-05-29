@@ -7,7 +7,8 @@ export default function Footer() {
 
   const footerLinks = {
     [t.footer.sections.institute]: [
-      { label: t.footer.links.about, href: "#about" },
+      // Temporarily hidden while the About / leadership section is disabled on the homepage.
+      // { label: t.footer.links.about, href: "#about" },
       { label: t.footer.links.mission, href: "#mission" },
       { label: t.footer.links.pathways, href: "#pathway" },
       { label: t.footer.links.curriculum, href: "#curriculum" },

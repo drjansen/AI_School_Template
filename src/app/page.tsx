@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Mission from "@/components/Mission";
-import LeadershipSpotlight from "@/components/LeadershipSpotlight";
+// Temporarily hidden from the live homepage; keep the component intact for re-enable later.
+// import LeadershipSpotlight from "@/components/LeadershipSpotlight";
 import Pathway from "@/components/Pathway";
 import Curriculum from "@/components/Curriculum";
 import Outcomes from "@/components/Outcomes";
@@ -21,7 +22,8 @@ export default function Home() {
       <main id="main-content">
         <Hero />
         <Mission />
-        <LeadershipSpotlight />
+        {/* Temporarily hidden from the live homepage; restore when the About / leadership section returns. */}
+        {/* <LeadershipSpotlight /> */}
         <Pathway />
         <Curriculum />
         <Outcomes />
