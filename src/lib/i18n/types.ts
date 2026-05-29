@@ -168,6 +168,7 @@ export interface Translations {
       contact: string;
     };
     links: {
+      about: string;
       mission: string;
       pathways: string;
       curriculum: string;
