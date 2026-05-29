@@ -7,7 +7,7 @@ export default function LeadershipSpotlight() {
   const { t } = useLanguage();
 
   return (
-    <section id="leadership" className="py-28 lg:py-36 section-mid">
+    <section id="about" className="py-28 lg:py-36 section-mid">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         <div
           className="rounded-3xl p-8 md:p-10 lg:p-12 deco-frame"

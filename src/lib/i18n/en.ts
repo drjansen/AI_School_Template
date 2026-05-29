@@ -491,6 +491,7 @@ export const en: Translations = {
       contact: "Contact",
     },
     links: {
+      about: "About",
       mission: "Mission",
       pathways: "Pathways",
       curriculum: "Curriculum",

@@ -489,6 +489,7 @@ export const ko: Translations = {
       contact: "연락처",
     },
     links: {
+      about: "소개",
       mission: "미션",
       pathways: "진로",
       curriculum: "교육과정",
