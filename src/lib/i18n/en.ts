@@ -73,17 +73,17 @@ export const en: Translations = {
   },
   leadership: {
     eyebrow: "Founding Leadership",
-    h2a: "Director",
+    h2a: "Leadership",
     h2b: "Spotlight",
     intro:
       "Eldarin's transformation agenda is led with equal emphasis on secure-by-design operations and practical AI implementation.",
     name: "Dr. Jansen",
-    title: "Director of Cyber Security and AI Transformation",
+    title: "Chief Information Security Officer",
     summary:
       "Dr. Jansen leads institutional cyber resilience, digital safeguarding, and AI modernization across academic and operational systems. His mandate spans policy, architecture, and delivery to ensure every innovation is measurable, secure, and mission-aligned.",
     vision:
       "Current initiatives focus on responsible AI adoption, capability development for faculty and students, and enterprise governance that keeps trust, compliance, and educational outcomes moving together.",
-    photoAlt: "Portrait of Dr. Jansen, Director of Cyber Security and AI Transformation",
+    photoAlt: "Portrait of Dr. Jansen, Chief Information Security Officer",
     highlights: [
       "Cyber strategy and risk oversight",
       "Responsible AI governance and implementation",
