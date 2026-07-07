@@ -78,12 +78,12 @@ export const ko: Translations = {
     intro:
       "Eldarin의 전환 전략은 보안 중심 운영과 실무형 AI 도입을 균형 있게 추진하는 리더십 아래 실행됩니다.",
     name: "Dr. Jansen",
-    title: "Chief Information Security Officer",
+    title: "Director of IT & Cybersecurity",
     summary:
       "Dr. Jansen은 교육 및 운영 전반에서 사이버 회복탄력성, 디지털 보호 체계, AI 현대화를 총괄합니다. 정책, 아키텍처, 실행을 연결해 모든 혁신이 안전하고 측정 가능하며 기관 미션과 정렬되도록 이끕니다.",
     vision:
       "현재는 책임 있는 AI 활용, 교직원·학생 역량 강화, 그리고 신뢰·컴플라이언스·교육 성과를 함께 달성하는 거버넌스 체계 고도화에 집중하고 있습니다.",
-    photoAlt: "Dr. Jansen의 프로필 사진 — Chief Information Security Officer",
+    photoAlt: "Dr. Jansen의 프로필 사진 — Director of IT & Cybersecurity",
     highlights: [
       "사이버 전략 및 리스크 총괄",
       "책임 있는 AI 거버넌스와 실행",

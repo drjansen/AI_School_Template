@@ -78,12 +78,12 @@ export const en: Translations = {
     intro:
       "Eldarin's transformation agenda is led with equal emphasis on secure-by-design operations and practical AI implementation.",
     name: "Dr. Jansen",
-    title: "Chief Information Security Officer",
+    title: "Director of IT & Cybersecurity",
     summary:
       "Dr. Jansen leads institutional cyber resilience, digital safeguarding, and AI modernization across academic and operational systems. His mandate spans policy, architecture, and delivery to ensure every innovation is measurable, secure, and mission-aligned.",
     vision:
       "Current initiatives focus on responsible AI adoption, capability development for faculty and students, and enterprise governance that keeps trust, compliance, and educational outcomes moving together.",
-    photoAlt: "Portrait of Dr. Jansen, Chief Information Security Officer",
+    photoAlt: "Portrait of Dr. Jansen, Director of IT & Cybersecurity",
     highlights: [
       "Cyber strategy and risk oversight",
       "Responsible AI governance and implementation",
