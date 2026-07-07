@@ -20,7 +20,7 @@ export default function LeadershipSpotlight() {
           <div className="grid lg:grid-cols-[360px_1fr] gap-8 lg:gap-12 items-start">
             <div className="card-gold-trim rounded-2xl overflow-hidden">
               <Image
-                src="/leadership/director-headshot4.jpg"
+                src="/leadership/director-headshot5.jpg"
                 alt={t.leadership.photoAlt}
                 width={900}
                 height={1200}
