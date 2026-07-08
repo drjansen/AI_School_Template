@@ -10,7 +10,7 @@ If you discover a security vulnerability in this repository or the `eldarin.exam
 
 Instead, report it privately:
 
-**Email:** security@eldarin.example  
+**Email:** contact@eldarin.example  
 **Subject line:** `[SECURITY] <brief description>`
 
 Please include:
@@ -45,4 +45,4 @@ This repository applies the following controls:
 
 ## DMCA / Copyright Takedown
 
-If you believe content on `eldarin.example` infringes your copyright, please follow the DMCA takedown procedure described in our [Terms of Service](/legal/terms) (Section 8) and send your notice to **security@eldarin.example**.
+If you believe content on `eldarin.example` infringes your copyright, please follow the DMCA takedown procedure described in our [Terms of Service](/legal/terms) (Section 8) and send your notice to **contact@eldarin.example**.
