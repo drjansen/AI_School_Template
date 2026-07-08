@@ -11,7 +11,7 @@ export const brand = {
     address: "Seoul, South Korea",
   },
   social: {
-    instagram: "https://instagram.com/example-school",
-    linkedin: "https://linkedin.com/company/example-school",
+    instagram: "https://instagram.com/eldarin-example",
+    linkedin: "https://linkedin.com/company/eldarin-example",
   },
 } as const;
