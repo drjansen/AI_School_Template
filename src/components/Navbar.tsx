@@ -61,7 +61,7 @@ export default function Navbar() {
                         }}
                     >
                         <Image
-                            src="/brand/eldarin-logo.png"
+                            src="/brand/logo.svg"
                             alt={`${brand.name} logo`}
                             width={1350}
                             height={600}

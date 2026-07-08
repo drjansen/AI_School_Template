@@ -2,15 +2,15 @@
 
 ## Supported Versions
 
-The current version of the Eldarin Institute website (main branch) is actively maintained. Only the most recent deployment receives security fixes.
+The current version of the New School website (main branch) is actively maintained. Only the most recent deployment receives security fixes.
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability in this repository or the `eldarin.example` demo site, **please do not open a public GitHub issue**.
+If you discover a security vulnerability in this repository or the `newschool.example` demo site, **please do not open a public GitHub issue**.
 
 Instead, report it privately:
 
-**Email:** contact@eldarin.example  
+**Email:** contact@newschool.example  
 **Subject line:** `[SECURITY] <brief description>`
 
 Please include:
@@ -25,7 +25,7 @@ We appreciate responsible disclosure and will credit researchers in the release 
 ## Scope
 
 In scope for this policy:
-- The `eldarin.example` demo website and its web application (Next.js frontend + API routes)
+- The `newschool.example` demo website and its web application (Next.js frontend + API routes)
 - API endpoints (e.g., `/api/prospectus`)
 
 Out of scope:
@@ -45,4 +45,4 @@ This repository applies the following controls:
 
 ## DMCA / Copyright Takedown
 
-If you believe content on `eldarin.example` infringes your copyright, please follow the DMCA takedown procedure described in our [Terms of Service](/legal/terms) (Section 8) and send your notice to **contact@eldarin.example**.
+If you believe content on `newschool.example` infringes your copyright, please follow the DMCA takedown procedure described in our [Terms of Service](/legal/terms) (Section 8) and send your notice to **contact@newschool.example**.

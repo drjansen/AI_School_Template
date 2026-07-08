@@ -30,11 +30,11 @@ export const en: Translations = {
     ],
   },
   mission: {
-    eyebrow: "Why Eldarin Institute",
+    eyebrow: "Why New School",
     h2a: "Education advancing",
     h2b: "Korea's AI era",
     subheading:
-      "Eldarin Institute is an Alternative Educational Institution built to advance Korea's educational industry — where AI fluency, K-culture creation, and character formation converge for the next generation.",
+      "New School is an Alternative Educational Institution built to advance Korea's educational industry — where AI fluency, K-culture creation, and character formation converge for the next generation.",
     pillars: [
       {
         title: "AI-Driven Innovation",
@@ -54,11 +54,11 @@ export const en: Translations = {
       {
         title: "Korea-First Impact",
         description:
-          "Eldarin exists to advance Korea's educational industry. Our curriculum aligns with domestic K-culture and AI university majors, reinforcing Korea's position as a global leader in content creation and technology.",
+          "New School exists to advance Korea's educational industry. Our curriculum aligns with domestic K-culture and AI university majors, reinforcing Korea's position as a global leader in content creation and technology.",
       },
     ],
     graduate: {
-      eyebrow: "Portrait of an Eldarin Graduate",
+      eyebrow: "Portrait of an New School Graduate",
       h3a: "More than a student.",
       h3b: "A Korea-first leader.",
       traits: [
@@ -76,7 +76,7 @@ export const en: Translations = {
     h2a: "Leadership",
     h2b: "Spotlight",
     intro:
-      "Eldarin's transformation agenda is led with equal emphasis on secure-by-design operations and practical AI implementation.",
+      "New School's transformation agenda is led with equal emphasis on secure-by-design operations and practical AI implementation.",
     name: "Dr. Jansen",
     title: "Director of IT & Cybersecurity",
     summary:
@@ -95,13 +95,13 @@ export const en: Translations = {
     eyebrow: "Domestic Pathways",
     h2a: "Korea-first.",
     h2b: "Multiple pathways.",
-    sub: "Eldarin's curriculum aligns with domestic Korean university majors in AI and K-culture — advancing Korea's educational industry from within. All pathways listed are indicative; students verify current admissions guides (모집요강) annually.",
+    sub: "New School's curriculum aligns with domestic Korean university majors in AI and K-culture — advancing Korea's educational industry from within. All pathways listed are indicative; students verify current admissions guides (모집요강) annually.",
     complianceNote:
-      "University names are illustrative examples only. Eldarin Institute is not established for the purpose of studying abroad. All pathway alignment is domestic and Korea-first. Departments and majors may change annually — please verify in each institution's official 모집요강.",
+      "University names are illustrative examples only. New School is not established for the purpose of studying abroad. All pathway alignment is domestic and Korea-first. Departments and majors may change annually — please verify in each institution's official 모집요강.",
     complianceLabel: "Pathway Alignment Note:",
     alignmentLabel: "Alignment:",
     disclaimer:
-      "* Pathway alignment is indicative only. University departments and admissions requirements change annually. Eldarin Institute does not provide overseas-study preparation as an institutional purpose.",
+      "* Pathway alignment is indicative only. University departments and admissions requirements change annually. New School does not provide overseas-study preparation as an institutional purpose.",
     pathways: [
       {
         badge: "K-Culture & K-Content",
@@ -136,7 +136,7 @@ export const en: Translations = {
       {
         badge: "AI × K-Culture Fusion",
         description:
-          "The signature Eldarin pathway — combining AI engineering literacy with K-culture creative skills. This is where Korea's cultural leadership and technological advantage meet.",
+          "The signature New School pathway — combining AI engineering literacy with K-culture creative skills. This is where Korea's cultural leadership and technological advantage meet.",
         outcome:
           "Positioned for interdisciplinary programs and dual-track pathways bridging AI and cultural content sectors at leading Korean institutions.",
         features: [
@@ -155,7 +155,7 @@ export const en: Translations = {
     h2a: "K-culture creation.",
     h2b: "AI in every subject.",
     sub: "Each discipline is taught at full academic depth and paired with AI integration — delivered through our Moodle LMS and AI-powered Adaptive Literacy Skills Development platform, so every student progresses at the right pace.",
-    moodleTitle: "Moodle LMS — Eldarin Learning Record",
+    moodleTitle: "Moodle LMS — New School Learning Record",
     moodleDesc:
       "Moodle is our evidence backbone: portfolios, rubric-based grading, versioned drafts, oral defense scheduling, and AI-disclosure workflows. Every learning artifact is traceable and auditable.",
     alsdTitle: "AI-Powered Adaptive Literacy Skills Development",
@@ -255,10 +255,10 @@ export const en: Translations = {
     ],
   },
   outcomes: {
-    eyebrow: "Eldarin Operating Model",
-    h2a: "How Eldarin",
+    eyebrow: "New School Operating Model",
+    h2a: "How New School",
     h2b: "works at every level",
-    sub: "The Eldarin Operating Model is the integrated set of methods, platforms, policies, and routines that make outcomes consistent and repeatable — from classroom to governance to student wellbeing.",
+    sub: "The New School Operating Model is the integrated set of methods, platforms, policies, and routines that make outcomes consistent and repeatable — from classroom to governance to student wellbeing.",
     kpiEyebrow: "Quality & Impact Metrics",
     kpiH3a: "Measured outcomes.",
     kpiH3b: "Evidence-driven education.",
@@ -298,7 +298,7 @@ export const en: Translations = {
       {
         title: "Character & Student Life Layer",
         description:
-          "Culture rituals, stewardship model, behavior systems, wellbeing supports, and the values framework that defines the Eldarin community.",
+          "Culture rituals, stewardship model, behavior systems, wellbeing supports, and the values framework that defines the New School community.",
       },
       {
         title: "Operations & Governance Layer",
@@ -311,7 +311,7 @@ export const en: Translations = {
     eyebrow: "Student Portfolio & Capstone",
     h2a: "Years of learning.",
     h2b: "One defining portfolio.",
-    sub: "From the first creative writing sample to the original capstone thesis, every Eldarin student builds a longitudinal portfolio documenting authentic academic growth, character development, and K-culture contribution.",
+    sub: "From the first creative writing sample to the original capstone thesis, every New School student builds a longitudinal portfolio documenting authentic academic growth, character development, and K-culture contribution.",
     capstoneBadge: "Capstone Submission",
     stages: [
       {
@@ -369,7 +369,7 @@ export const en: Translations = {
   testimonials: {
     eyebrow: "Families & Students",
     h2a: "Voices from the",
-    h2b: "Eldarin community",
+    h2b: "New School community",
     disclaimerShort:
       "* All testimonials are fictional placeholders for illustrative purposes.",
     noteLabel: "Note",
@@ -378,12 +378,12 @@ export const en: Translations = {
     starsLabel: "5 stars",
     roles: { graduate: "Graduate", parent: "Parent", student: "Student" },
     quotes: [
-      "Eldarin Institute changed how I think about creative work. Learning to use AI responsibly while developing my own cultural voice gave me a genuine K-culture portfolio that is entirely mine.",
+      "New School changed how I think about creative work. Learning to use AI responsibly while developing my own cultural voice gave me a genuine K-culture portfolio that is entirely mine.",
       "My daughter struggled with confidence in STEM until the AI Modeling Lab. Watching her explain machine learning concepts to her grandfather using a K-drama storyline was a moment I will never forget.",
       "The adaptive literacy platform identified exactly where my reading comprehension was weakest. Within one semester, my growth was measurable — and it never felt like drilling.",
       "No other institution in Seoul integrates AI ethics into every class. My son is not just learning to use ChatGPT — he is learning when not to, and why. That is the difference.",
-      "The K-culture studio module convinced me that I want to work in the Korean content industry. I never would have discovered that passion without Eldarin's curriculum design.",
-      "As a Korean parent, I wanted an institution that truly advances Korea — not one preparing students to leave. Eldarin's Korea-first mission and emphasis on character formation convinced me.",
+      "The K-culture studio module convinced me that I want to work in the Korean content industry. I never would have discovered that passion without New School's curriculum design.",
+      "As a Korean parent, I wanted an institution that truly advances Korea — not one preparing students to leave. New School's Korea-first mission and emphasis on character formation convinced me.",
     ],
   },
   faq: {
@@ -392,16 +392,16 @@ export const en: Translations = {
     h2b: "know to get started",
     items: [
       {
-        q: "What is Eldarin Institute?",
-        a: "Eldarin Institute is an Alternative Educational Institution in South Korea dedicated to advancing Korea's educational industry. Our mission is to provide an environment where students build strong academic and character foundations while shaping K-culture for the AI era. We are not established for the purpose of studying abroad.",
+        q: "What is New School?",
+        a: "New School is an Alternative Educational Institution in South Korea dedicated to advancing Korea's educational industry. Our mission is to provide an environment where students build strong academic and character foundations while shaping K-culture for the AI era. We are not established for the purpose of studying abroad.",
       },
       {
         q: "What languages are used for instruction?",
         a: "The primary medium of instruction is English, with structured Korean language development integrated throughout all grade levels. Our goal is genuine bilingualism — students who can read, write, think, and create fluently in both Korean and English.",
       },
       {
-        q: "What is the Eldarin Operating Model?",
-        a: "The Eldarin Operating Model is our integrated set of methods, platforms, policies, and routines — covering academic design, assessment integrity, AI enablement, adaptive literacy, character formation, and governance. It is powered by Moodle LMS as the central learning record system.",
+        q: "What is the New School Operating Model?",
+        a: "The New School Operating Model is our integrated set of methods, platforms, policies, and routines — covering academic design, assessment integrity, AI enablement, adaptive literacy, character formation, and governance. It is powered by Moodle LMS as the central learning record system.",
       },
       {
         q: "What is AI-powered Adaptive Literacy Skills Development (ALSD)?",
@@ -412,8 +412,8 @@ export const en: Translations = {
         a: "No. Our program introduces AI concepts progressively across all grade levels. Younger students begin with AI awareness and foundational literacy; older students engage in responsible AI engineering and K-culture production. No prior experience is required.",
       },
       {
-        q: "Which domestic Korean pathways does Eldarin align with?",
-        a: "Eldarin's curriculum aligns with domestic Korean university majors in K-culture/K-content and AI/technology fields. Examples include departments at 서원대, 충북대, 신라대, 고려대, 중앙대, 서울시립대, 숙명여대, and many others. These are indicative examples only — verify in each institution's annual 모집요강.",
+        q: "Which domestic Korean pathways does New School align with?",
+        a: "New School's curriculum aligns with domestic Korean university majors in K-culture/K-content and AI/technology fields. Examples include departments at 서원대, 충북대, 신라대, 고려대, 중앙대, 서울시립대, 숙명여대, and many others. These are indicative examples only — verify in each institution's annual 모집요강.",
       },
       {
         q: "How does the capstone thesis project work?",
@@ -421,15 +421,15 @@ export const en: Translations = {
       },
       {
         q: "How can I inquire about enrollment?",
-        a: "We are currently accepting expressions of interest. Submit an inquiry via the form on this page and a member of our team will be in touch within two business days. You may also email us at contact@eldarin.example.",
+        a: "We are currently accepting expressions of interest. Submit an inquiry via the form on this page and a member of our team will be in touch within two business days. You may also email us at contact@newschool.example.",
       },
     ],
   },
   cta: {
-    eyebrow: "Connect with Eldarin Institute",
+    eyebrow: "Connect with New School",
     h2a: "Ready to join Korea's",
     h2b: "AI-era education?",
-    sub: "Submit an inquiry to learn more about Eldarin Institute — our curriculum, the Eldarin Operating Model, domestic pathway alignment, and enrollment. A member of our team will be in touch within two business days.",
+    sub: "Submit an inquiry to learn more about New School — our curriculum, the New School Operating Model, domestic pathway alignment, and enrollment. A member of our team will be in touch within two business days.",
     items: [
       {
         title: "Curriculum & Operating Model Overview",
@@ -517,9 +517,9 @@ export const en: Translations = {
       backHome: "← Back to Home",
       sections: [
         {
-          heading: "1. About Eldarin Institute",
+          heading: "1. About New School",
           body: [
-            'Eldarin Institute™ ("Institute", "we", "us") is an Alternative Educational Institution (대안교육기관) operating in Seoul, Republic of Korea. These Terms of Service ("Terms") govern your access to and use of the eldarin.example website ("Site").',
+            'New School™ ("Institute", "we", "us") is an Alternative Educational Institution (대안교육기관) operating in Seoul, Republic of Korea. These Terms of Service ("Terms") govern your access to and use of the newschool.example website ("Site").',
           ],
         },
         {
@@ -531,22 +531,22 @@ export const en: Translations = {
         {
           heading: "3. Services Description",
           body: [
-            "This Site is an informational and inquiry portal for prospective students and families interested in Eldarin Institute. We do not provide online schooling, distance learning, or any educational services outside the Republic of Korea.",
+            "This Site is an informational and inquiry portal for prospective students and families interested in New School. We do not provide online schooling, distance learning, or any educational services outside the Republic of Korea.",
             "Enrollment inquiries submitted through this Site are subject to a separate Enrollment Agreement provided during the admissions process.",
           ],
         },
         {
           heading: "4. Intellectual Property",
           body: [
-            "All content on this Site — including text, graphics, the Eldarin Institute™ name and mark, curriculum design, and visual assets — is the property of Eldarin Institute and is protected by Korean copyright law (저작권법) and applicable international treaties.",
-            "You may not reproduce, distribute, publicly display, modify, or create derivative works from any Site content without prior written permission from Eldarin Institute.",
+            "All content on this Site — including text, graphics, the New School™ name and mark, curriculum design, and visual assets — is the property of New School and is protected by Korean copyright law (저작권법) and applicable international treaties.",
+            "You may not reproduce, distribute, publicly display, modify, or create derivative works from any Site content without prior written permission from New School.",
           ],
         },
         {
           heading: "5. Trademark Notice",
           body: [
-            '"Eldarin™" and "Eldarin Institute™" are trademarks of Eldarin Institute. Trademark registration is currently pending in the Republic of Korea. The ™ symbol is used to assert trademark rights pending formal registration.',
-            "Unauthorized use of these marks in commerce, or any use likely to cause confusion with Eldarin Institute, is strictly prohibited.",
+            '"New School™" and "New School™" are trademarks of New School. Trademark registration is currently pending in the Republic of Korea. The ™ symbol is used to assert trademark rights pending formal registration.',
+            "Unauthorized use of these marks in commerce, or any use likely to cause confusion with New School, is strictly prohibited.",
           ],
         },
         {
@@ -559,13 +559,13 @@ export const en: Translations = {
         {
           heading: "7. Limitation of Liability",
           body: [
-            "To the maximum extent permitted by the laws of the Republic of Korea, Eldarin Institute shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, the Site.",
+            "To the maximum extent permitted by the laws of the Republic of Korea, New School shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, the Site.",
           ],
         },
         {
           heading: "8. DMCA / Copyright Takedown",
           body: [
-            "If you believe that content on this Site infringes your copyright, please send a written takedown notice to contact@eldarin.example including:",
+            "If you believe that content on this Site infringes your copyright, please send a written takedown notice to contact@newschool.example including:",
             "• A description of the copyrighted work you claim has been infringed;",
             "• The URL or location of the allegedly infringing content on the Site;",
             "• Your name, mailing address, telephone number, and email address;",
@@ -588,7 +588,7 @@ export const en: Translations = {
         },
         {
           heading: "11. Contact",
-          body: ["For questions about these Terms, please contact us at: contact@eldarin.example"],
+          body: ["For questions about these Terms, please contact us at: contact@newschool.example"],
         },
       ],
     },
@@ -600,8 +600,8 @@ export const en: Translations = {
         {
           heading: "1. Introduction",
           body: [
-            "Eldarin Institute™ is committed to protecting your personal information. This Privacy Policy explains what data we collect, how we use it, and your rights under Korean law.",
-            "This policy applies to personal data collected through the eldarin.example website.",
+            "New School™ is committed to protecting your personal information. This Privacy Policy explains what data we collect, how we use it, and your rights under Korean law.",
+            "This policy applies to personal data collected through the newschool.example website.",
           ],
         },
         {
@@ -620,7 +620,7 @@ export const en: Translations = {
           heading: "3. How We Use Your Data",
           body: [
             "Your inquiry data is used solely to:",
-            "• Respond to your inquiry and provide information about Eldarin Institute;",
+            "• Respond to your inquiry and provide information about New School;",
             "• Follow up regarding enrollment interest.",
             "We do not sell, rent, share, or disclose your personal data to third parties for marketing or commercial purposes.",
           ],
@@ -644,7 +644,7 @@ export const en: Translations = {
         {
           heading: "6. Cookies",
           body: [
-            "This Site uses a single, minimal first-party cookie (eldarin_lang) to remember your language preference (Korean or English). No advertising or tracking cookies are set.",
+            "This Site uses a single, minimal first-party cookie (newschool_lang) to remember your language preference (Korean or English). No advertising or tracking cookies are set.",
           ],
         },
         {
@@ -654,13 +654,13 @@ export const en: Translations = {
             "• Request access to the personal data we hold about you;",
             "• Request correction or deletion of inaccurate data;",
             "• Withdraw consent for data processing at any time.",
-            "To exercise any of these rights, please contact us at contact@eldarin.example.",
+            "To exercise any of these rights, please contact us at contact@newschool.example.",
           ],
         },
         {
           heading: "8. Children's Privacy",
           body: [
-            "Eldarin Institute provides educational services for school-age students. Inquiry forms are intended to be completed by parents or legal guardians, not by minors.",
+            "New School provides educational services for school-age students. Inquiry forms are intended to be completed by parents or legal guardians, not by minors.",
             "We do not knowingly collect personal data from children under 14 years of age without verifiable parental consent, in accordance with PIPA.",
           ],
         },
@@ -673,7 +673,7 @@ export const en: Translations = {
         {
           heading: "10. Contact",
           body: [
-            "For privacy-related questions or to exercise your data rights, please contact: contact@eldarin.example",
+            "For privacy-related questions or to exercise your data rights, please contact: contact@newschool.example",
           ],
         },
       ],

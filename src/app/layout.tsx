@@ -8,7 +8,7 @@ import { LanguageProvider } from "@/context/LanguageContext";
 export const metadata: Metadata = {
   title: `${brand.name} — ${brand.tagline}`,
   description: brand.description,
-  keywords: ["AI education", "K-culture", "alternative educational institution", "South Korea", "AI curriculum", "Korean university pathways", "Eldarin Institute", "eldarin.example"],
+  keywords: ["AI education", "K-culture", "alternative educational institution", "South Korea", "AI curriculum", "Korean university pathways"],
   openGraph: {
     title: `${brand.name} — ${brand.tagline}`,
     description: brand.description,
