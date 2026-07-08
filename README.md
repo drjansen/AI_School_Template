@@ -9,7 +9,7 @@ A modern, AI-forward alternative educational institution marketing website built
 | Field | Value |
 |-------|-------|
 | Institute name | Eldarin Institute |
-| Domain | eldarin.ai |
+| Domain | eldarin.example |
 | Tagline | Advancing K-culture for the AI era. |
 | Audience | South Korea-based families seeking domestic AI/K-culture university pathways |
 
@@ -209,12 +209,12 @@ Returns `{ success: true }` on valid submission. In production, connect this to 
 ### Updating the site (standard workflow)
 
 ```bash
-cd /opt/eldarin
+cd /var/www/portfolio-site
 git checkout main
 git pull
 npm install
 npm run build
-pm2 restart eldarin
+pm2 restart portfolio-site
 ```
 
 ### Initial setup
@@ -236,9 +236,9 @@ sudo npm install -g pm2
 #### 3. Clone and build the project
 
 ```bash
-cd /opt
-sudo git clone https://github.com/drjansen/operation_juggernaut.git eldarin
-cd eldarin
+cd /var/www
+sudo git clone <repository-url> portfolio-site
+cd portfolio-site
 npm install
 npm run build
 ```
@@ -246,18 +246,18 @@ npm run build
 #### 4. Start with PM2
 
 ```bash
-pm2 start npm --name "eldarin" -- start
+pm2 start npm --name "portfolio-site" -- start
 pm2 save
 pm2 startup   # follow the printed command to enable autostart
 ```
 
 #### 5. HTTPS with Certbot
 
-> **Note:** Replace `eldarin.ai` below with your actual domain.
+> **Note:** Replace the placeholder domain below with your actual public hostname.
 
 ```bash
 sudo apt install certbot python3-certbot-nginx -y
-sudo certbot --nginx -d eldarin.ai
+sudo certbot --nginx -d eldarin.example
 ```
 
 ---

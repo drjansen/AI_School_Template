@@ -419,7 +419,7 @@ export const ko: Translations = {
       },
       {
         q: "입학 문의는 어떻게 하나요?",
-        a: "현재 입학 의향 접수를 받고 있습니다. 이 페이지의 양식을 통해 문의를 제출하시면 팀원이 영업일 기준 2일 이내에 연락드립니다. info@eldarin.ai로 이메일을 보내셔도 됩니다.",
+        a: "현재 입학 의향 접수를 받고 있습니다. 이 페이지의 양식을 통해 문의를 제출하시면 팀원이 영업일 기준 2일 이내에 연락드립니다. contact@eldarin.example로 이메일을 보내셔도 됩니다.",
       },
     ],
   },
@@ -517,7 +517,7 @@ export const ko: Translations = {
         {
           heading: "1. Eldarin Institute 소개",
           body: [
-            'Eldarin Institute™("기관", "당사")는 서울특별시에서 운영하는 대안교육기관(대안교육기관)입니다. 이 이용약관("약관")은 eldarin.ai 웹사이트("사이트")의 접근 및 이용에 관한 사항을 규정합니다.',
+            'Eldarin Institute™("기관", "당사")는 서울특별시에서 운영하는 대안교육기관(대안교육기관)입니다. 이 이용약관("약관")은 eldarin.example 웹사이트("사이트")의 접근 및 이용에 관한 사항을 규정합니다.',
           ],
         },
         {
@@ -563,7 +563,7 @@ export const ko: Translations = {
         {
           heading: "8. DMCA / 저작권 침해 신고",
           body: [
-            "본 사이트의 콘텐츠가 귀하의 저작권을 침해한다고 판단되면, 다음 정보를 포함한 서면 신고서를 info@eldarin.ai로 발송해 주십시오:",
+            "본 사이트의 콘텐츠가 귀하의 저작권을 침해한다고 판단되면, 다음 정보를 포함한 서면 신고서를 contact@eldarin.example로 발송해 주십시오:",
             "• 침해되었다고 주장하는 저작물에 대한 설명;",
             "• 침해 콘텐츠의 설명 및 사이트 내 URL 또는 위치;",
             "• 성명, 우편 주소, 전화번호, 이메일 주소;",
@@ -586,7 +586,7 @@ export const ko: Translations = {
         },
         {
           heading: "11. 문의하기",
-          body: ["본 약관에 관한 문의 사항은 info@eldarin.ai로 연락해 주십시오."],
+          body: ["본 약관에 관한 문의 사항은 contact@eldarin.example로 연락해 주십시오."],
         },
       ],
     },
@@ -599,7 +599,7 @@ export const ko: Translations = {
           heading: "1. 개요",
           body: [
             "Eldarin Institute™는 귀하의 개인정보 보호를 위해 최선을 다합니다. 본 개인정보 처리방침은 당사가 수집하는 데이터, 이용 방법 및 한국법에 따른 귀하의 권리를 설명합니다.",
-            "본 방침은 eldarin.ai 웹사이트를 통해 수집되는 개인 데이터에 적용됩니다.",
+            "본 방침은 eldarin.example 웹사이트를 통해 수집되는 개인 데이터에 적용됩니다.",
           ],
         },
         {
@@ -652,7 +652,7 @@ export const ko: Translations = {
             "• 당사가 보유한 개인 데이터에 대한 열람 요청;",
             "• 부정확한 데이터의 정정 또는 삭제 요청;",
             "• 언제든지 데이터 처리에 대한 동의 철회.",
-            "이러한 권리를 행사하려면 info@eldarin.ai로 연락해 주십시오.",
+            "이러한 권리를 행사하려면 contact@eldarin.example로 연락해 주십시오.",
           ],
         },
         {
@@ -671,7 +671,7 @@ export const ko: Translations = {
         {
           heading: "10. 문의하기",
           body: [
-            "개인정보 관련 문의 또는 데이터 권리 행사를 위해 info@eldarin.ai로 연락해 주십시오.",
+            "개인정보 관련 문의 또는 데이터 권리 행사를 위해 contact@eldarin.example로 연락해 주십시오.",
           ],
         },
       ],
