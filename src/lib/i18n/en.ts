@@ -421,7 +421,7 @@ export const en: Translations = {
       },
       {
         q: "How can I inquire about enrollment?",
-        a: "We are currently accepting expressions of interest. Submit an inquiry via the form on this page and a member of our team will be in touch within two business days. You may also email us at info@eldarin.ai.",
+        a: "We are currently accepting expressions of interest. Submit an inquiry via the form on this page and a member of our team will be in touch within two business days. You may also email us at contact@eldarin.example.",
       },
     ],
   },
@@ -519,7 +519,7 @@ export const en: Translations = {
         {
           heading: "1. About Eldarin Institute",
           body: [
-            'Eldarin Institute™ ("Institute", "we", "us") is an Alternative Educational Institution (대안교육기관) operating in Seoul, Republic of Korea. These Terms of Service ("Terms") govern your access to and use of the eldarin.ai website ("Site").',
+            'Eldarin Institute™ ("Institute", "we", "us") is an Alternative Educational Institution (대안교육기관) operating in Seoul, Republic of Korea. These Terms of Service ("Terms") govern your access to and use of the eldarin.example website ("Site").',
           ],
         },
         {
@@ -565,7 +565,7 @@ export const en: Translations = {
         {
           heading: "8. DMCA / Copyright Takedown",
           body: [
-            "If you believe that content on this Site infringes your copyright, please send a written takedown notice to info@eldarin.ai including:",
+            "If you believe that content on this Site infringes your copyright, please send a written takedown notice to contact@eldarin.example including:",
             "• A description of the copyrighted work you claim has been infringed;",
             "• The URL or location of the allegedly infringing content on the Site;",
             "• Your name, mailing address, telephone number, and email address;",
@@ -588,7 +588,7 @@ export const en: Translations = {
         },
         {
           heading: "11. Contact",
-          body: ["For questions about these Terms, please contact us at: info@eldarin.ai"],
+          body: ["For questions about these Terms, please contact us at: contact@eldarin.example"],
         },
       ],
     },
@@ -601,7 +601,7 @@ export const en: Translations = {
           heading: "1. Introduction",
           body: [
             "Eldarin Institute™ is committed to protecting your personal information. This Privacy Policy explains what data we collect, how we use it, and your rights under Korean law.",
-            "This policy applies to personal data collected through the eldarin.ai website.",
+            "This policy applies to personal data collected through the eldarin.example website.",
           ],
         },
         {
@@ -654,7 +654,7 @@ export const en: Translations = {
             "• Request access to the personal data we hold about you;",
             "• Request correction or deletion of inaccurate data;",
             "• Withdraw consent for data processing at any time.",
-            "To exercise any of these rights, please contact us at info@eldarin.ai.",
+            "To exercise any of these rights, please contact us at contact@eldarin.example.",
           ],
         },
         {
@@ -673,7 +673,7 @@ export const en: Translations = {
         {
           heading: "10. Contact",
           body: [
-            "For privacy-related questions or to exercise your data rights, please contact: info@eldarin.ai",
+            "For privacy-related questions or to exercise your data rights, please contact: contact@eldarin.example",
           ],
         },
       ],
