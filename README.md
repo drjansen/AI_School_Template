@@ -1,4 +1,4 @@
-# Eldarin Institute — Marketing Website
+# AI Institute — Marketing Website
 
 A modern, AI-forward alternative educational institution marketing website built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS**, and a **Three.js WebGL animated background**.
 
