@@ -21,8 +21,7 @@ export default function Home() {
       <main id="main-content">
         <Hero />
         <Mission />
-        {/* TEMPORARY: LeadershipSpotlight is hidden — uncomment to restore */}
-        {/* <LeadershipSpotlight /> */}
+        <LeadershipSpotlight />
         <Pathway />
         <Curriculum />
         <Outcomes />
