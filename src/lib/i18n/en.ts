@@ -58,7 +58,7 @@ export const en: Translations = {
       },
     ],
     graduate: {
-      eyebrow: "Portrait of an New School Graduate",
+      eyebrow: "Portrait of a New School Graduate",
       h3a: "More than a student.",
       h3b: "A Korea-first leader.",
       traits: [
@@ -545,7 +545,7 @@ export const en: Translations = {
         {
           heading: "5. Trademark Notice",
           body: [
-            '"New School™" and "New School™" are trademarks of New School. Trademark registration is currently pending in the Republic of Korea. The ™ symbol is used to assert trademark rights pending formal registration.',
+            '"New School™" is a trademark of New School. Trademark registration is currently pending in the Republic of Korea. The ™ symbol is used to assert trademark rights pending formal registration.',
             "Unauthorized use of these marks in commerce, or any use likely to cause confusion with New School, is strictly prohibited.",
           ],
         },
