@@ -8,8 +8,8 @@ A modern, AI-forward alternative educational institution marketing website built
 
 | Field | Value |
 |-------|-------|
-| Institute name | Eldarin Institute |
-| Domain | eldarin.example |
+| Institute name | New School |
+| Domain | newschool.example |
 | Tagline | Advancing K-culture for the AI era. |
 | Audience | South Korea-based families seeking domestic AI/K-culture university pathways |
 
@@ -257,7 +257,7 @@ pm2 startup   # follow the printed command to enable autostart
 
 ```bash
 sudo apt install certbot python3-certbot-nginx -y
-sudo certbot --nginx -d eldarin.example
+sudo certbot --nginx -d newschool.example
 ```
 
 ---

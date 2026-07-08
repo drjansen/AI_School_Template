@@ -17,7 +17,7 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-const STORAGE_KEY = "eldarin_lang";
+const STORAGE_KEY = "newschool_lang";
 
 function getLangFromStorage(): Lang {
   try {

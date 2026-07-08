@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1350 600" width="1350" height="600">
+  <rect width="1350" height="600" fill="transparent"/>
+  <text
+    x="675"
+    y="340"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="180"
+    font-weight="bold"
+    text-anchor="middle"
+    fill="#d4af37"
+    letter-spacing="8"
+  >NEW SCHOOL</text>
+  <line x1="200" y1="390" x2="1150" y2="390" stroke="#d4af37" stroke-width="3" opacity="0.6"/>
+</svg>

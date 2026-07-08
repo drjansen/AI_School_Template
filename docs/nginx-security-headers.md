@@ -1,7 +1,7 @@
 # Nginx Security Headers Guide
 
 This document describes the recommended Nginx-level security headers for a
-production deployment of the Eldarin Institute demo site. These headers **complement** the
+production deployment of the New School demo site. These headers **complement** the
 application-level headers set in `next.config.ts` but must be configured at
 the reverse-proxy layer because:
 
@@ -18,7 +18,7 @@ the reverse-proxy layer because:
 ## Recommended Nginx server block additions
 
 Add the following directives inside the `server` block that handles HTTPS
-(port 443) for your public hostname (the examples below use `eldarin.example` as a placeholder):
+(port 443) for your public hostname (the examples below use `newschool.example` as a placeholder):
 
 ```nginx
 # ─── Security Headers ────────────────────────────────────────────────────────
@@ -43,10 +43,10 @@ add_header Permissions-Policy "camera=(), microphone=(), geolocation=(), interes
 ```nginx
 server {
     listen 443 ssl http2;
-    server_name eldarin.example www.eldarin.example;
+    server_name newschool.example www.newschool.example;
 
-    ssl_certificate     /etc/letsencrypt/live/eldarin.example/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/eldarin.example/privkey.pem;
+    ssl_certificate     /etc/letsencrypt/live/newschool.example/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/newschool.example/privkey.pem;
     include             /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam         /etc/letsencrypt/ssl-dhparams.pem;
 
@@ -73,7 +73,7 @@ server {
 # ── HTTP → HTTPS redirect ────────────────────────────────────────────────────
 server {
     listen 80;
-    server_name eldarin.example www.eldarin.example;
+    server_name newschool.example www.newschool.example;
     return 301 https://$host$request_uri;
 }
 ```
@@ -89,7 +89,7 @@ server {
   (`next.config.ts`) because it includes nonce-capable directives in future
   upgrades. You do not need to duplicate it in Nginx.
 - **Testing headers** — Use [securityheaders.com](https://securityheaders.com)
-  or `curl -I https://eldarin.example` to verify headers are being sent correctly
+  or `curl -I https://newschool.example` to verify headers are being sent correctly
   after deployment.
 - **HSTS preload** — Only submit to the HSTS preload list
   (https://hstspreload.org) once the site has been stable on HTTPS for
