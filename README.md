@@ -131,8 +131,8 @@ The visual theme is **"People of the Stars"** — elegant, futuristic, professio
 
 ```bash
 # Clone
-git clone https://github.com/drjansen/operation_juggernaut.git
-cd operation_juggernaut
+git clone https://github.com/drjansen/AI_School_Template.git
+cd AI_School_Template
 
 # Install dependencies
 npm install
