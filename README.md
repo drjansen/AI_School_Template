@@ -268,3 +268,21 @@ sudo certbot --nginx -d newschool.example
 - All testimonials, statistics, and program details are **fictional placeholders**.
 - The accreditation process runs in parallel with [ICS (ics.kr)](https://www.ics.kr).
 - Replace placeholder contact details in `src/config/brand.ts` with real info when available.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
+
+It is provided as-is, without warranty of any kind. The author is not liable for any claim, damages, or other liability arising from the use of this project.
+
+---
+
+## ⭐ A Polite Request
+
+If you find this project useful, please consider **starring** the repository — it helps others discover it and gives a small signal that the work is valued.
+
+If you adapt it for your own work, **forking** the repository is appreciated so others can trace the original source.
+
+These are requests, not legal conditions. Use the code however the MIT License allows.
