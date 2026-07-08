@@ -266,7 +266,6 @@ sudo certbot --nginx -d newschool.example
 
 - The prospectus form is fully functional client-side (validation + success state). The `/api/prospectus` route logs submissions server-side — hook it to your email/CRM in production.
 - All testimonials, statistics, and program details are **fictional placeholders**.
-- The accreditation process runs in parallel with [ICS (ics.kr)](https://www.ics.kr).
 - Replace placeholder contact details in `src/config/brand.ts` with real info when available.
 
 ---
