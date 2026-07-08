@@ -183,8 +183,6 @@ export interface Translations {
       privacy: string;
     };
     copyright: string;
-    parallel: string;
-    parallelLink: string;
     registration: string;
   };
   legal: {

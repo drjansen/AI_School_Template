@@ -504,8 +504,6 @@ export const ko: Translations = {
       privacy: "개인정보 처리방침",
     },
     copyright: "모든 권리 보유.",
-    parallel: "ICS (ics.kr)와 병행 운영",
-    parallelLink: "ICS (ics.kr)",
     registration: "등록 진행 중",
   },
   legal: {

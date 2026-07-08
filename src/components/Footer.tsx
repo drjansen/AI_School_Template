@@ -140,16 +140,7 @@ export default function Footer() {
               {t.footer.legalLinks.privacy}
             </a>
             <span>·</span>
-            {t.footer.parallel}{" "}
-            <a
-              href="https://www.ics.kr"
-              className="hover:text-white/30 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t.footer.parallelLink}
-            </a>
-            {" "}· {t.footer.registration}
+            <span>{t.footer.registration}</span>
           </p>
         </div>
       </div>

@@ -506,8 +506,6 @@ export const en: Translations = {
       privacy: "Privacy Policy",
     },
     copyright: "All rights reserved.",
-    parallel: "Running parallel to",
-    parallelLink: "ICS (ics.kr)",
     registration: "Registration in progress",
   },
   legal: {
